@@ -1,4 +1,4 @@
-# njabuloshabalala.github.io-
+# NjabuloShabalala
 Cloud Engineer &amp; DevSecOps practitioner building in public — AWS · Terraform · Kubernetes · Security
 # Hey, I'm Njabulo Shabalala 👋
 
