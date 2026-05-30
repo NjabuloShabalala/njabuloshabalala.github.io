@@ -1,6 +1,9 @@
-# Njabulo Shabalala
+# Hello there, I'm Njabulo Shabalala. Welcome to my portfolio. 
 ### Junior Cloud Security Analyst | Associate Security Operations (SOC) Analyst  
 **📍 Johannesburg, South Africa**  
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
+[![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://hashnode.com/@njabuloshabalala)
 
 > 💬 *"Security isn't just about parsing logs — it's about structured analytical reasoning, rigorous investigation, and translating complex technical alerts into actionable business intelligence."*
 
@@ -24,7 +27,8 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 ![Microsoft Defender](https://img.shields.io/badge/Defender%20XDR-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
 ![Microsoft Entra](https://img.shields.io/badge/Microsoft%20Entra-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
 ![KQL](https://img.shields.io/badge/KQL%20(Kusto)-%23005A9E.svg?style=flat-square&logo=microsoft&logoColor=white)
-![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white) 
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
 *   **SIEM / XDR:** Microsoft Sentinel, Microsoft Defender XDR, Microsoft Entra ID, Microsoft Purview
 *   **Data Analysis:** Kusto Query Language (KQL), Advanced Excel
@@ -58,6 +62,21 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 *   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
 *   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
 
+### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
+*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
+*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+
+### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
+*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
+*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+
+### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
+*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
+*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+
 ---
 
 ## 📬 Let's Connect
@@ -65,8 +84,8 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 I am actively looking to connect with security teams, hiring managers, and professionals within the South African cybersecurity ecosystem.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=flat-square&logo=github&logoColor=white)](https://github.com/njabuloshabalala.github.io-)(https://njabuloshabalala.hashnode.dev)
+[![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://hashnode.com/@njabuloshabalala)
 
 ---
 
-<sub>Always learning. Always building.</sub>
+<sub>Building from a household, in Johannesburg</sub>
