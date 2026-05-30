@@ -1,80 +1,71 @@
-# NjabuloShabalala
-Cloud Engineer &amp; DevSecOps practitioner building in public — AWS · Terraform · Kubernetes · Security
-# Hey, I'm Njabulo Shabalala 👋
+# Njabulo Shabalala
+### Junior Cloud Security Analyst | Associate Security Operations (SOC) Analyst  
+**📍 Johannesburg, South Africa**  
 
-**Cloud Engineer & DevSecOps Practitioner** · Johannesburg, ZA
-
-> *"Security isn't a layer you add — it's a principle you build from."*
+> 💬 *"Security isn't just about parsing logs — it's about structured analytical reasoning, rigorous investigation, and translating complex technical alerts into actionable business intelligence."*
 
 ---
 
-## 🧭 What I'm About
+## 🧭 About Me
 
-Hello there, i'm a self-taught cloud engineer transitioning into Tech. I approach infrastructure the same way I approach everything else in my life — with intentionality and a systems-first mindset. I'm currently building in public and stacking certifications. Im on the pursuit of something greater, from a household in Johannesburg, South Africa. 
+I am a Junior SOC Analyst candidate specializing in the Microsoft Security stack, with hands-on experience building threat-detection pipelines in Microsoft Sentinel and writing custom Kusto Query Language (KQL) rules.
 
----
+My background features an unconventional BA in Organisational Psychology and International Relations, which directly drives my approach to security operations: structured analytical reasoning, rigorous investigative documentation, and the ability to translate complex technical alerts into actionable incident reports for stakeholders. 
 
-## 🏅 Certifications
+I hold the (ISC)2 Certified in Cybersecurity (CC) and Microsoft SC-900 credentials, and am currently preparing to sit for the SC-200 (Security Operations Analyst). My practical capabilities include a self-directed Sentinel threat-hunting lab and hands-on KQL investigation work via KC7.
 
-| Cert | Status |
-|------|--------|
-| 🛡️ ISC2 Certified in Cybersecurity (CC) | ✅ Certified |
-| ☁️ AWS Solutions Architect Associate (SAA-C03) | 🔄 In Progress |
-| ☸️ Kubernetes and Cloud Native Security Associate (KCSA) | 🔄 In Progress |
-| 🏗️ HashiCorp Terraform Associate | 🔄 Completing |
+My target is to join a Microsoft-aligned South African MSSP or internal SOC team where I can immediately contribute to log monitoring and incident response, while developing into cloud security over time.
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Skills
 
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat-square&logo=amazon-aws&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-%235835CC.svg?style=flat-square&logo=terraform&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-%23326ce5.svg?style=flat-square&logo=kubernetes&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3670A0?style=flat-square&logo=python&logoColor=ffdd54)
-![Git](https://img.shields.io/badge/Git-%23F05033.svg?style=flat-square&logo=git&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-%232671E5.svg?style=flat-square&logo=githubactions&logoColor=white)
+![Microsoft Sentinel](https://img.shields.io/badge/Microsoft%20Sentinel-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
+![Microsoft Defender](https://img.shields.io/badge/Defender%20XDR-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
+![Microsoft Entra](https://img.shields.io/badge/Microsoft%20Entra-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
+![KQL](https://img.shields.io/badge/KQL%20(Kusto)-%23005A9E.svg?style=flat-square&logo=microsoft&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white)
 
-**Security tooling:** AWS GuardDuty · Security Hub · CloudTrail · Config · Secrets Manager · Wazuh
-
----
-
-## 🚀 Current Focus: 28-Day Terraform Portfolio Marathon
-
-*Starting April 2025 — building in public*
-
-A structured 28-project sprint progressing from core Terraform through full DevSecOps automation:
-
-```
-Phase 1 → Core Terraform & AWS Foundations     [Days 1–7]
-Phase 2 → Networking, IAM & S3 Security        [Days 8–12]
-Phase 3 → Python/boto3 Automation              [Days 13–17]
-Phase 4 → Containers & Kubernetes              [Days 18–20]
-Phase 5 → Advanced DevSecOps Tooling           [Days 21–25]
-Phase 6 → Capstone: Three-Tier Secure Arch     [Days 26–28]
-```
-
-Every project ships with a structured README. The Day 28 capstone becomes a full technical write-up.
-
-> 📌 **Projects coming soon** — watch this space.
+*   **SIEM / XDR:** Microsoft Sentinel, Microsoft Defender XDR, Microsoft Entra ID, Microsoft Purview
+*   **Data Analysis:** Kusto Query Language (KQL), Advanced Excel
+*   **Core Competencies:** Incident Response, Log Analysis, Threat Hunting, Information Protection & DLP, Investigative Documentation
 
 ---
 
-## 🔭 What I'm Building Toward
+## 🏅 Certifications & Verified Applied Skills
 
-- Junior Cloud Engineer & DevSecOps roles at SA consultancies, fintechs & startups
-- AWS Security Specialty cert post-marathon
-- Remote international roles (longer horizon)
+### Certifications
+*   🛡️ **ISC2 Certified in Cybersecurity (CC)** 
+*   ☁️ **Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)** 
+*   🎯 *Currently preparing for the Microsoft Security Operations Analyst (SC-200) exam.*
+
+### Verified Microsoft Applied Skills
+*   **Defend Against Cyberthreats with Microsoft Defender XDR** (`ID: 2FA5BC2845849178`)  
+*   **Implement Information Protection and Data Loss Prevention using Microsoft Purview** (`ID: C3002D00338101B`)  
+*   **Get Started with Identities and Access using Microsoft Entra** (`ID: 410A7344BDF5EF04`) 
+
+---
+
+## 🔬 Practical Projects & Security Labs
+
+### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
+*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
+*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+
+### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](YOUR_REPOSITORY_LINK_HERE)
+*   Completed hands-on, data-driven security investigations analyzing massive, real-world datasets.
+*   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
+*   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
 
 ---
 
 ## 📬 Let's Connect
 
-I'm open to networking and conversations about cloud security, DevSecOps, and over all just breaking into the industry.
+I am actively looking to connect with security teams, hiring managers, and professionals within the South African cybersecurity ecosystem.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=flat-square&logo=github&logoColor=white)](https://github.com/njabuloshabalala.github.io-) 
-[![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://njabuloshabalala.hashnode.dev)
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=flat-square&logo=github&logoColor=white)](https://github.com/njabuloshabalala.github.io-)(https://njabuloshabalala.hashnode.dev)
 
 ---
 
