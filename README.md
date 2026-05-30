@@ -62,17 +62,17 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 *   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
 *   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
 
-### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](YOUR_REPOSITORY_LINK_HERE)
 *   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
 *   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
 *   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
 
-### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+### 💻 [Threat Detection Engineering & Log Parsing](YOUR_REPOSITORY_LINK_HERE)
 *   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
 *   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
 *   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
 
-### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
+### 💻 [Secure Asset Governance & Access Auditing](YOUR_REPOSITORY_LINK_HERE)
 *   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
 *   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
 *   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
