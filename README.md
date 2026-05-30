@@ -63,19 +63,19 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 *   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
 
 ### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](YOUR_REPOSITORY_LINK_HERE)
-*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
-*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
-*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+*   Designed and modeled a Tiered Access Matrix based on the Principle of Least Privilege (PoLP) to separate operational duties between junior analysts and security engineers.
+*   Provisioned scalable identity boundaries within Microsoft Entra ID by utilizing centralized Security Groups and mapping native Azure directory roles (Security Reader and Security Administrator).
+*   Validated the integrity of the RBAC boundary through deliberate policy enforcement testing, successfully verifying that unauthorized administrative transactions were systematically blocked.
 
 ### 💻 [Threat Detection Engineering & Log Parsing](YOUR_REPOSITORY_LINK_HERE)
-*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
-*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
-*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+*   Simulated an adversarial authentication campaign by executing deliberate credential-failure anomalies to generate deterministic telemetry within an isolated enterprise directory tenant.
+*  Isolated and analyzed raw JSON schema structures via an external development environment, stripping away automated GUI abstractions to map low-level event properties.
+*   Engineered a behavioral detection baseline by correlating specific Azure identity failure states (ResultType 50126) against network egress vectors to establish high-fidelity indicators of compromise (IoCs).
 
 ### 💻 [Secure Asset Governance & Access Auditing](YOUR_REPOSITORY_LINK_HERE)
-*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
-*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
-*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
+*   Provisioned a mock enterprise data repository within Microsoft Azure to serve as a target environment for security governance and access boundary compliance auditing.
+*   Extracted and mapped active Role-Based Access Control (RBAC) vectors from the resource's Access Control (IAM) layer to evaluate all nested identity permissions against internal security baselines.
+*   Authored an objective Access Certification and Audit Report identifying structural least-privilege violations, establishing a risk-mitigation roadmap to restrict over-privileged operational groups.
 
 ---
 
