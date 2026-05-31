@@ -16,7 +16,7 @@ title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
 ## 🔍 The Proof
 
 ### 1. Group Membership Configuration
-![Group Members Screenshot]
+![Group Members Screenshot] 
 (Porfolio Project 1 IAM/Screenshot 2026-05-29 at 18.47.31.png) 
 (Porfolio Project 1 IAM/Step2 - showing the groups.png) 
 *Caption: Microsoft Entra ID group membership configuration showing the test analyst identity successfully mapped to the Security Analyst group.*
