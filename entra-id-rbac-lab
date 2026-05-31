@@ -24,7 +24,7 @@ The objective of this project was to design and build a secure access structure 
 ---
 
 ### 2. Role Assignment Configuration
-![Role Assignment Screenshot](images/role-assignment.png)  
+![Role Assignment Screenshot](Porfolio Project 1 IAM/Screenshot 2026-05-29 at 20.16.32.png)  
 *Caption: Directory role assignments showing the Security Reader role explicitly bound to the Analyst group.*
 
 ---
