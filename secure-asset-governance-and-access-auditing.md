@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
+title: "Secure Asset Governance and Access Auditing"
 ---
 # (IAM) Secure Asset Governance & Access Auditing
 
