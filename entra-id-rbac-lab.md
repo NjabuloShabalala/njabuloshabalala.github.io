@@ -1,12 +1,8 @@
 ---
-# (IAM) Setting Up Secure Access (RBAC) in Microsoft Entra ID
-
-## 🎯 The Goal
-The objective of this project was to design and build a secure access structure in Microsoft Entra ID based on the Principle of Least Privilege. By separating duties into distinct tiers, the plan was to ensure that junior analysts could monitor activity without having administrative permissions that could pose a security risk if compromised.
-
+layout: default
+title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
 ---
-
-## 🛠️ The Walkthrough
+# (IAM) Setting Up Secure Access (RBAC) in Microsoft Entra ID## 🛠️ The Walkthrough
 
 * **Planned the Access Matrix:** Before even attempting to touch the cloud portal (Entra ID), I had to define the two roles for this project: a Tier 1 Analyst who needs read-only access to logs, and an Engineer who requires full security administration rights.
 * **Created Security Groups:** Logged into the Microsoft Azure Portal, navigated to Microsoft Entra ID, and created two groups: `Group-SecOps-Analysts` and `Group-SecOps-Engineers`.
