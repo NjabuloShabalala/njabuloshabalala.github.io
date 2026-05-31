@@ -53,7 +53,7 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 
 ## 🔬 Practical Projects & Security Labs
 
-### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](YOUR_REPOSITORY_LINK_HERE)
+### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](kc7-cyber-labs.md)
 *   Completed hands-on, data-driven security investigations analyzing massive, real-world datasets.
 *   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
 *   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
