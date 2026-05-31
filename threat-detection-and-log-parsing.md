@@ -21,8 +21,14 @@ The objective of this project was to analyze raw security logs from a Microsoft 
 ## 🔍 The Proof
 
 ### 1. Log Schema Analysis
-![VS Code JSON Log Screenshot](images/json-log-analysis.png)  
-*Caption: Raw Microsoft Entra ID sign-in log schema open in VS Code, highlighting the error code and location data blocks used to detect anomalies.*
+![VS Code JSON Log Screenshot](portfolio-project-2-iam/raw-log-data-vs-code.png) 
+The raw json log schema from VS Code that shows the sign in event and structure inclduing the identity and the risk fields.
+![VS Code JSON Log Screenshot](portfolio-project-2-iam/second-log-entry-code-repeated-error.png)
+In this screenshot the status block highlighting the error code 50126 (which indicates that the username or password provided was invalid) and the location of the failed login; Johannesburg.
+![VS Code JSON Log Screenshot](portfolio-project-2-iam/status-block-error.png)
+This is a screenshot of the second log entry where the repeated error from the same location helps establish a pattern baseline.
+![VS Code JSON Log Screenshot](portfolio-project-2-iam/azure-sign-in-portal.png)
+Azure sign-in log portal confirming the rapid failures by the test account.
 
 ---
 
