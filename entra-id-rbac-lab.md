@@ -25,9 +25,8 @@ title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
 ---
 
 ### 2. Role Assignment Configuration
-![Role Assignment Screenshot]
-(portfolio-project-1-iam/security-administrator-assignments.png) 
-(portfolio-project-1-iam/security-reader-assignments.png)
+![Role Assignment Screenshot](portfolio-project-1-iam/security-administrator-assignments.png) 
+![Role Assignment Screenshot](portfolio-project-1-iam/security-reader-assignments.png)
 *Caption: Directory role assignments showing the Security Reader role explicitly bound to the Analyst group.*
 
 ---
