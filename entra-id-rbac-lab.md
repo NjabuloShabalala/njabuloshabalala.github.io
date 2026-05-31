@@ -3,6 +3,9 @@ layout: default
 title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID" 
 ---
 # (IAM) Setting Up Secure Access (RBAC) in Microsoft Entra ID
+## 🎯 The Goal
+The objective of this project was to design and build a secure access structure in Microsoft Entra ID based on the Principle of Least Privilege. By separating duties into distinct tiers, the plan was to ensure that junior analysts could monitor activity without having administrative permissions that could pose a security risk if compromised.
+---
 ## 🛠️ The Walkthrough
 
 * **Planned the Access Matrix:** Before even attempting to touch the cloud portal (Entra ID), I had to define the two roles for this project: a Tier 1 Analyst who needs read-only access to logs, and an Engineer who requires full security administration rights.
@@ -16,17 +19,17 @@ title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
 ## 🔍 The Proof
 
 ### 1. Group Membership Configuration
-![Group Members Screenshot] 
-(portfolio-project-1-iam/Step2 - showing the groups.png) 
-(portfolio-project-1-iam/Screenshot 2026-05-29 at 18.47.31.png) 
+![Analyst test groups](portfolio-project-1-iam/analyst-test-groups-1.png)
+
+![Engineer test group](portfolio-project-1-iam/engineer-test-group-2.png)
+
 *Caption: Microsoft Entra ID group membership configuration showing the test analyst identity successfully mapped to the Security Analyst group.*
 
 ---
 
 ### 2. Role Assignment Configuration
-![Role Assignment Screenshot]
-(portfolio-project-1-iam/Screenshot 2026-05-29 at 20.16.32.png) 
-(portfolio-project-1-iam/Screenshot 2026-05-29 at 20.18.30.png)
+![Role Assignment Screenshot](portfolio-project-1-iam/security-administrator-assignments.png) 
+![Role Assignment Screenshot](portfolio-project-1-iam/security-reader-assignments.png)
 *Caption: Directory role assignments showing the Security Reader role explicitly bound to the Analyst group.*
 
 ---
