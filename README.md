@@ -53,11 +53,6 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 
 ## 🔬 Practical Projects & Security Labs
 
-### 💻 [Cloud SIEM & Threat Hunting Lab (Microsoft Sentinel)](YOUR_REPOSITORY_LINK_HERE)
-*   Deployed a live cloud environment to simulate enterprise-grade log ingestion and analysis.
-*   Configured **Microsoft Sentinel** to aggregate security data across virtualized endpoints and cloud assets.
-*   Authored and tested custom **KQL queries** to detect suspicious activities, privilege escalations, and anomalous behavior.
-
 ### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](YOUR_REPOSITORY_LINK_HERE)
 *   Completed hands-on, data-driven security investigations analyzing massive, real-world datasets.
 *   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
