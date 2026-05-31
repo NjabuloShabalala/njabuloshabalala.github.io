@@ -21,8 +21,12 @@ The objective of this project was to perform a manual identity compliance audit 
 ## 🔍 The Proof
 
 ### 1. Identity & Access Management (IAM) Identity Audit
-![Access Control IAM Role Assignments Screenshot](images/azure-iam-audit.png)  
-*Caption: The Azure IAM Role Assignments dashboard displaying the explicit user permissions and roles assigned to the storage resource.*
+![Access Control IAM Role Assignments Screenshot](portfolio-project-3-iam/azure-job-function-role.png) 
+Azure IAM job fucntion roles panel showing available least-priviege assignments for the corportatedata2026 storage resource. 
+![Access Control IAM Role Assignments Screenshot](portfolio-project-3-iam/iam-privileged-administrator.png) 
+This screenshot shows the Azure IAM priviledged Administrator roles panel where we can see the warning on the panel confirming that privileged roles are excessive for the standard operational access.
+![Access Control IAM Role Assignments Screenshot](portfolio-project-3-iam/corporatedata2026port.png)  
+This screenshotshows the successful provisioning inside the rg-corporate-data, which was the audit target assest.
 
 ---
 
@@ -38,5 +42,5 @@ Granting structural modification or administrative rights over storage objects t
 
 > 🛠️ **Remediation Action Plan**
 > To mitigate this risk, the assignment must be modified immediately:
-> 1. **Downgrade Privileges:** The engineering group `Group-SecOps-Engineers` should be downgraded to a standard `Reader` role or a specific data-access role (such as `Storage Blob Data Reader`) for day-to-day operations.
+> 1. **Downgrade Privileges:** The engineering group `Group-SecOps-Engineers` should be downgraded to a standard `Reader` role or a specific data-access role (such as `Storage Blob Data Reader`) for normal day-to-day operations.
 > 2. **Enforce Just-In-Time Access:** Any structural infrastructure modifications or configuration changes should require explicit, justified elevation requests through a formal change management or PIM process rather than static assignments.
