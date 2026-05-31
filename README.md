@@ -67,7 +67,7 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 *   Provisioned scalable identity boundaries within Microsoft Entra ID by utilizing centralized Security Groups and mapping native Azure directory roles (Security Reader and Security Administrator).
 *   Validated the integrity of the RBAC boundary through deliberate policy enforcement testing, successfully verifying that unauthorized administrative transactions were systematically blocked.
 
-### 💻 [Threat Detection Engineering & Log Parsing](YOUR_REPOSITORY_LINK_HERE)
+### 💻 [Threat Detection Engineering & Log Parsing](threat-detection-and-log-parsing)
 *   Simulated an adversarial authentication campaign by executing deliberate credential-failure anomalies to generate deterministic telemetry within an isolated enterprise directory tenant.
 *  Isolated and analyzed raw JSON schema structures via an external development environment, stripping away automated GUI abstractions to map low-level event properties.
 *   Engineered a behavioral detection baseline by correlating specific Azure identity failure states (ResultType 50126) against network egress vectors to establish high-fidelity indicators of compromise (IoCs).
