@@ -1,3 +1,7 @@
+---
+layout: default
+title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
+---
 # (IAM) Secure Asset Governance & Access Auditing
 
 ## 🎯 The Goal
