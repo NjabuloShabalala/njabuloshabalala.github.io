@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Threat Detection Engineering and Log Parsing"
+title: "Secure assest governance and access auditing"
 ---
 # (IAM) Secure Asset Governance & Access Auditing
 
