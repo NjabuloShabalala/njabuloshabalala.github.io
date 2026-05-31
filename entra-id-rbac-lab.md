@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
+title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID" 
 ---
 # (IAM) Setting Up Secure Access (RBAC) in Microsoft Entra ID
 ## 🛠️ The Walkthrough
