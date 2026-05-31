@@ -72,7 +72,7 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 *  Isolated and analyzed raw JSON schema structures via an external development environment, stripping away automated GUI abstractions to map low-level event properties.
 *   Engineered a behavioral detection baseline by correlating specific Azure identity failure states (ResultType 50126) against network egress vectors to establish high-fidelity indicators of compromise (IoCs).
 
-### 💻 [Secure Asset Governance & Access Auditing](YOUR_REPOSITORY_LINK_HERE)
+### 💻 [Secure Asset Governance & Access Auditing](secure-asset-governance-and-access-auditing)
 *   Provisioned a mock enterprise data repository within Microsoft Azure to serve as a target environment for security governance and access boundary compliance auditing.
 *   Extracted and mapped active Role-Based Access Control (RBAC) vectors from the resource's Access Control (IAM) layer to evaluate all nested identity permissions against internal security baselines.
 *   Authored an objective Access Certification and Audit Report identifying structural least-privilege violations, establishing a risk-mitigation roadmap to restrict over-privileged operational groups.
