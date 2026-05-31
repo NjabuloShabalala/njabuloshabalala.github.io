@@ -2,7 +2,8 @@
 layout: default
 title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
 ---
-# (IAM) Setting Up Secure Access (RBAC) in Microsoft Entra ID## 🛠️ The Walkthrough
+# (IAM) Setting Up Secure Access (RBAC) in Microsoft Entra ID
+## 🛠️ The Walkthrough
 
 * **Planned the Access Matrix:** Before even attempting to touch the cloud portal (Entra ID), I had to define the two roles for this project: a Tier 1 Analyst who needs read-only access to logs, and an Engineer who requires full security administration rights.
 * **Created Security Groups:** Logged into the Microsoft Azure Portal, navigated to Microsoft Entra ID, and created two groups: `Group-SecOps-Analysts` and `Group-SecOps-Engineers`.
