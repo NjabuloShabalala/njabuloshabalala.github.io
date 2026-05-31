@@ -62,7 +62,7 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 *   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
 *   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
 
-### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](YOUR_REPOSITORY_LINK_HERE)
+### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](entra-id-rbac-lab)
 *   Designed and modeled a Tiered Access Matrix based on the Principle of Least Privilege (PoLP) to separate operational duties between junior analysts and security engineers.
 *   Provisioned scalable identity boundaries within Microsoft Entra ID by utilizing centralized Security Groups and mapping native Azure directory roles (Security Reader and Security Administrator).
 *   Validated the integrity of the RBAC boundary through deliberate policy enforcement testing, successfully verifying that unauthorized administrative transactions were systematically blocked.
