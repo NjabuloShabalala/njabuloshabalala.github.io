@@ -4,6 +4,7 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
 [![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://hashnode.com/@njabuloshabalala)
+[![KC7](https://img.shields.io/badge/KC7%20Cyber-Investigator-%23E8121C.svg?style=flat-square&logoColor=white)](https://kc7cyber.com/profile/Njabulo%20Shabalala)
 
 > 💬 *"Security isn't just about parsing logs — it's about structured analytical reasoning, rigorous investigation, and translating complex technical alerts into actionable business intelligence."*
 
@@ -85,6 +86,7 @@ I am actively looking to connect with security teams, hiring managers, and profe
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
 [![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://hashnode.com/@njabuloshabalala)
+[![KC7](https://img.shields.io/badge/KC7%20Cyber-Investigator-%23E8121C.svg?style=flat-square&logoColor=white)](https://kc7cyber.com/profile/Njabulo%20Shabalala)
 
 ---
 
