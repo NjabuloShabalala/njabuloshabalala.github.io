@@ -1,3 +1,7 @@
+---
+layout: default
+title: "Threat Detection Engineering and Log Parsing"
+---
 # (IAM) Threat Detection Engineering & Log Parsing
 
 ## 🎯 The Goal
