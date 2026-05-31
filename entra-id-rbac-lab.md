@@ -18,14 +18,15 @@ title: "IAM: Setting Up Secure Access (RBAC) in Microsoft Entra ID"
 ### 1. Group Membership Configuration
 ![Group Members Screenshot] 
 (portfolio-project-1-iam/Step2 - showing the groups.png) 
-(Porfolio Project 1 IAM/Step2 - showing the groups.png) 
+(portfolio-project-1-iam/Screenshot 2026-05-29 at 18.47.31.png) 
 *Caption: Microsoft Entra ID group membership configuration showing the test analyst identity successfully mapped to the Security Analyst group.*
 
 ---
 
 ### 2. Role Assignment Configuration
 ![Role Assignment Screenshot]
-(Porfolio Project 1 IAM/Screenshot 2026-05-29 at 20.16.32.png)  
+(portfolio-project-1-iam/Screenshot 2026-05-29 at 20.16.32.png) 
+(portfolio-project-1-iam/Screenshot 2026-05-29 at 20.18.30.png)
 *Caption: Directory role assignments showing the Security Reader role explicitly bound to the Analyst group.*
 
 ---
