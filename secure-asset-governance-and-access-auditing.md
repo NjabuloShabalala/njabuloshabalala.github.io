@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Secure Asset Governance and Access Auditing"
+title: "Secure assest governance and access auditing"
 ---
 # (IAM) Secure Asset Governance & Access Auditing
 
