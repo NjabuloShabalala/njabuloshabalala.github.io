@@ -53,7 +53,7 @@ Employee lookup by role to identify the Election Commissioner. There was a singl
 
 ## 📋 Investigative Summary
 
-The attack started with a **phishing email** that tricked a senior manager into giving up their login credentials. Because the manager held elevated privileges, the threat actor didn't need to hack their way deeper into the system — they already had the keys.
+The attack in this scenario started with a **phishing email** which tricked the senior manager into giving up their login credentials. Because the manager held elevated privileges, the threat actor didn't need to hack their way deeper into the system, they already had the keys to the "kingdom".
 
 Once inside, they used the compromised account to identify **who would be counting the votes and how**. The end goal was to feed that information into an AI tool to generate **fake voting results** and undermine public trust in the election.
 
@@ -61,4 +61,4 @@ The attack was caught before it reached that stage. The compromised account was 
 
 ---
 
-💡 **The lesson here is straightforward:** One phishing email targeting the right person was enough to bypass all technical defences. The strongest controls against this attack would have been **MFA on privileged accounts** and **behavioural alerts** flagging unusual activity from senior user accounts.
+💡 **The lesson here:** One phishing email targeting the right person was enough to bypass all technical defences. The strongest controls against this attack would have been **MFA on privileged accounts** and **behavioural alerts** flagging unusual activity from senior user accounts.
