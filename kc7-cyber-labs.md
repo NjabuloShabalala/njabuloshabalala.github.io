@@ -8,7 +8,7 @@ The scenario of the following lab is - "The Valdoria Board of Elections is geari
 
 However, malicious actors are actively working to sow doubt, hoping to make citizens question the validity of their vote. As Election Day approaches, Valdoria's citizens anxiously watch, wondering if democracy will withstand these challenges."
 
-The following screenshots are taken from various moments within the investigation. (not all 70+ questions and answers were screenshotted because that would ahve been unreasonable)
+The following screenshots are taken from various moments within the investigation. (not all 70+ questions and answers were screenshotted because that would have been unreasonable)
 ---
 
 ![KC7 Lab screenshots](kc7-screenshots/basic-employee-lookup-1.png) 
