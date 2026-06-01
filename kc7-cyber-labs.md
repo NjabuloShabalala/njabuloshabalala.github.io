@@ -2,13 +2,24 @@
 layout: default
 title: "KC7 Cyber Labs"
 ---
-About this lab and game.
+## 🕵️ About This Lab
 
-The scenario of the following lab is - "The Valdoria Board of Elections is gearing up for the most critical election in recent memory. To ensure a smooth voting experience, the board has hired additional poll workers in the past month, preparing them to support operations and assist voters. Officials have made it clear that the voting machines are highly secure, working tirelessly to reassure the public about the integrity of the election process.
+This investigation is part of [KC7](https://kc7cyber.com), which is a Microsoft cybersecurity training platform that simulates real-world breach scenarios using **KQL** and **Azure Data Explorer**.
 
-However, malicious actors are actively working to sow doubt, hoping to make citizens question the validity of their vote. As Election Day approaches, Valdoria's citizens anxiously watch, wondering if democracy will withstand these challenges."
+---
 
-The following screenshots are taken from various moments within the investigation. (not all 70+ questions and answers were screenshotted because that would have been unreasonable)
+## 🗳️ The Scenario
+
+The Valdoria Board of Elections is preparing for a high-stakes election. To manage increased demand, the board recently onboarded additional poll workers. While officials have publicly assured citizens that voting infrastructure is secure, threat actors are actively running an influence operation, seeding doubt about the integrity of the vote before Election Day.
+
+As the analyst, the objective was to investigate the threat activity, trace the attack chain, and determine the full scope of the compromise.
+
+---
+
+## 📸 A Note on Screenshots
+
+The screenshots below capture key moments and findings from the investigation. The full lab spans **70+ questions** — only significant findings and pivotal query results are documented here.
+
 ---
 
 ![KC7 Lab screenshots](kc7-screenshots/basic-employee-lookup-1.png) 
@@ -37,3 +48,17 @@ Here i used the AuthenticationEvents analysis on the arbobama account,in which  
 
 ![KC7 Lab screenshots](kc7-screenshots/final-employee-lookup.png) 
 Employee lookup by role to identify the Election Commissioner. There was a single result which was used to anchor subsequent email and authentication queries targeting that account specifically.
+
+--- 
+
+## 📋 Investigative Summary
+
+The attack started with a **phishing email** that tricked a senior manager into giving up their login credentials. Because the manager held elevated privileges, the threat actor didn't need to hack their way deeper into the system — they already had the keys.
+
+Once inside, they used the compromised account to identify **who would be counting the votes and how**. The end goal was to feed that information into an AI tool to generate **fake voting results** and undermine public trust in the election.
+
+The attack was caught before it reached that stage. The compromised account was **isolated and contained**, cutting off the threat actor's access before any votes were tampered with.
+
+---
+
+💡 **The lesson here is straightforward:** One phishing email targeting the right person was enough to bypass all technical defences. The strongest controls against this attack would have been **MFA on privileged accounts** and **behavioural alerts** flagging unusual activity from senior user accounts.
