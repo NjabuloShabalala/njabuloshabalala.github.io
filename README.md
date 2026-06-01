@@ -54,24 +54,24 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 ## 🔬 Practical Projects & Security Labs
 
 ### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](kc7-cyber-labs.md)
-*   Completed hands-on, data-driven security investigations analyzing massive, real-world datasets.
-*   Utilized **KQL** to trace attacker footprints, map out kill chains, identify compromised accounts, and establish timelines of malicious activity.
-*   Generated structured incident response summaries outlining the scope of impact and recommended remediation steps.
+* Worked through a realistic election security breach scenario involving a threat actor campaign targeting the Valdoria Board of Elections ahead of a critical election cycle.
+* Used KQL to trace the attacker's full activity from the phishing domain they stood up to mimic a government site, through credential theft of a staff account, lateral movement, and their attempts to extract information about voting machine infrastructure.
+* Documented findings covering the compromised accounts, the attacker-controlled IP addresses and domains, the internal data they accessed, and the remediation steps needed to contain the threat before Election Day.
 
 ### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](entra-id-rbac-lab)
-*   Designed and modeled a Tiered Access Matrix based on the Principle of Least Privilege (PoLP) to separate operational duties between junior analysts and security engineers.
-*   Provisioned scalable identity boundaries within Microsoft Entra ID by utilizing centralized Security Groups and mapping native Azure directory roles (Security Reader and Security Administrator).
-*   Validated the integrity of the RBAC boundary through deliberate policy enforcement testing, successfully verifying that unauthorized administrative transactions were systematically blocked.
+* Designed an access structure that separates what junior analysts can do from what senior engineers can do, based on the idea that people should only have the minimum access required for their role.
+* Set up that structure in Microsoft Entra ID using Security Groups tied to built-in Azure roles Security Reader for analysts, Security Administrator for engineers so permissions are managed centrally rather than assigned individually.
+* Tested whether the boundaries actually held by attempting actions that lower-privileged accounts shouldn't be able to perform, and confirmed that those actions were blocked as intended.
 
 ### 💻 [Threat Detection Engineering & Log Parsing](threat-detection-and-log-parsing)
-*   Simulated an adversarial authentication campaign by executing deliberate credential-failure anomalies to generate deterministic telemetry within an isolated enterprise directory tenant.
-*  Isolated and analyzed raw JSON schema structures via an external development environment, stripping away automated GUI abstractions to map low-level event properties.
-*   Engineered a behavioral detection baseline by correlating specific Azure identity failure states (ResultType 50126) against network egress vectors to establish high-fidelity indicators of compromise (IoCs).
+* Deliberately triggered repeated failed login attempts against a test Azure environment to generate real sign-in failure logs that could be used for detection work.
+* Pulled the raw log data in JSON format and examined it directly outside of Azure's dashboard to understand exactly what fields and values the logs contain at a technical level.
+* Built a detection rule that flags suspicious behaviour by combining a specific Azure login failure code (ResultType 50126) with outbound network activity, creating a reliable signal for potential brute-force or credential-stuffing attacks.
 
 ### 💻 [Secure Asset Governance & Access Auditing](secure-asset-governance-and-access-auditing)
-*   Provisioned a mock enterprise data repository within Microsoft Azure to serve as a target environment for security governance and access boundary compliance auditing.
-*   Extracted and mapped active Role-Based Access Control (RBAC) vectors from the resource's Access Control (IAM) layer to evaluate all nested identity permissions against internal security baselines.
-*   Authored an objective Access Certification and Audit Report identifying structural least-privilege violations, establishing a risk-mitigation roadmap to restrict over-privileged operational groups.
+* Set up a test environment in Microsoft Azure to simulate a real company's cloud infrastructure for security review purposes.
+* Pulled a full list of who has access to what within that environment, then mapped out every permission assigned which including inherited ones to check whether they followed the principle of least privilege.
+* Wrote an audit report identifying where access was broader than it needed to be, and outlined the specific steps required to bring those permissions in line with security best practice.
 
 ---
 
