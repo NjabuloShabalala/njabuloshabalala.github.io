@@ -2,6 +2,14 @@
 layout: default
 title: "KC7 Cyber Labs"
 ---
+ABOUT THIS GAME
+
+The Valdoria Board of Elections is gearing up for the most critical election in recent memory. To ensure a smooth voting experience, the board has hired additional poll workers in the past month, preparing them to support operations and assist voters. Officials have made it clear that the voting machines are highly secure, working tirelessly to reassure the public about the integrity of the election process.
+
+However, malicious actors are actively working to sow doubt, hoping to make citizens question the validity of their vote. As Election Day approaches, Valdoria's citizens anxiously watch, wondering if democracy will withstand these challenges.
+
+---
+
 ![KC7 Lab screenshots](kc7-screenshots/basic-employee-lookup-1.png) 
 Basic employee table lookup using a role filter. Entry point into the Valdoria dataset — establishing familiarity with the schema before pivoting to threat-relevant tables.
 
