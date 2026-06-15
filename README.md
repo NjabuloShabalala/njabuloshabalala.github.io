@@ -53,7 +53,10 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 
 ## 🔬 Practical Projects & Security Labs
 
-### 🫆[TitanShield: Threat Investigation with Microsoft Defender XDR] ()
+### 🫆 [TitanShield: Threat Investigation with Microsoft Defender XDR](titanshield-threat-investigation.md) 
+* Investigated two intrusions targeting a fictional defence company where one traced to Moonstone Sleet (North Korea) delivering a trojanised game via phishing to compromise a senior engineer's machine, and one traced to Crimson Sandstorm (Iran) using a romance scheme to socially engineer defence personnel into opening a malicious file.
+* I used KQL across six log source tables including ProcessEvents, FileCreationEvents, OutboundNetworkEvents, and Email to trace each attack from initial delivery through reconnaissance and data staging to exfiltration, using operators like has_all(), has_any(), parse_url(), and inner joins to pivot between datasets and extract structured findings from raw log data.
+* Attributed both attacks to named threat actors using the Microsoft Defender XDR Threat Intelligence Portal, identified cloud storage (Google Drive) as the exfiltration channel for the second attack chain, and mapped all observed attacker behaviour to MITRE ATT&CK techniques covering initial access, execution, discovery, staging, and exfiltration.
 
 ### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](kc7-cyber-labs.md)
 * Worked through a realistic election security breach scenario involving a threat actor campaign targeting the Valdoria Board of Elections ahead of a critical election cycle.
