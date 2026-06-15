@@ -1,3 +1,8 @@
+---
+layout: default
+title: "TitanShield Investigation"
+---
+
 # TitanShield: Threat Investigation with Microsoft Defender XDR
 **Platform:** KC7 Cyber | **Module:** TitanShield (Microsoft-sponsored) | **Completed:** June 2026
 
@@ -202,9 +207,3 @@ Exfiltrating via Google Drive is deliberate defence evasion. POST requests to Go
 | `project` | Select specific columns for output |
 | `extend` | Create a new calculated column |
 | `contains` | Partial string match |
-
----
-
-## Log Sources Queried
-
-`Employees` · `FileCreationEvents` · `ProcessEvents` · `OutboundNetworkEvents` · `InboundNetworkEvents` · `Email`
