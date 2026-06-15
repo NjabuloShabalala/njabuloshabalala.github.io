@@ -53,6 +53,8 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 
 ## 🔬 Practical Projects & Security Labs
 
+### 🫆[TitanShield: Threat Investigation with Microsoft Defender XDR] ()
+
 ### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](kc7-cyber-labs.md)
 * Worked through a realistic election security breach scenario involving a threat actor campaign targeting the Valdoria Board of Elections ahead of a critical election cycle.
 * Used KQL to trace the attacker's full activity from the phishing domain they stood up to mimic a government site, through credential theft of a staff account, lateral movement, and their attempts to extract information about voting machine infrastructure.
