@@ -29,7 +29,7 @@ My target is to join a Microsoft-aligned South African MSSP or internal SOC team
 ![Microsoft Entra](https://img.shields.io/badge/Microsoft%20Entra-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
 ![KQL](https://img.shields.io/badge/KQL%20(Kusto)-%23005A9E.svg?style=flat-square&logo=microsoft&logoColor=white)
 ![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white) 
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
+![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=flat-square&logo=powershell&logoColor=white)
 
 *   **SIEM / XDR:** Microsoft Sentinel, Microsoft Defender XDR, Microsoft Entra ID, Microsoft Purview
 *   **Data Analysis:** Kusto Query Language (KQL), Advanced Excel
