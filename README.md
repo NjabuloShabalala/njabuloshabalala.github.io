@@ -1,5 +1,5 @@
-# Hello there, I'm Njabulo Shabalala. Welcome to my portfolio.
-### Aspiring Data Analyst | Microsoft Stack (SQL, Power BI, Excel)
+![Header](banner.svg)
+
 **📍 Johannesburg, South Africa**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
@@ -9,7 +9,7 @@
 
 <!-- ⚠️ PLACEHOLDER: CV file above still points to the old SOC CV. Replace with a data-analyst-targeted CV before publishing. -->
 
----
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 ## 🧭 About Me
 
@@ -21,36 +21,35 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 
 I'm currently working through the Google Data Analytics Professional Certificate and preparing for Microsoft PL-300.
 
----
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 ## 🛠️ Tech Stack & Skills
 
-![SQL](https://img.shields.io/badge/SQL-%23025E8C.svg?style=flat-square&logo=postgresql&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-%23F2C811.svg?style=flat-square&logo=powerbi&logoColor=black)
-![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white)
-![Python](https://img.shields.io/badge/Python-%233776AB.svg?style=flat-square&logo=python&logoColor=white)
-![KQL](https://img.shields.io/badge/KQL%20(Kusto)-%23005A9E.svg?style=flat-square&logo=microsoft&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-%230078D4.svg?style=flat-square&logo=microsoft-azure&logoColor=white)
+![My Skills](https://skillicons.dev/icons?i=postgres,powerbi,py,azure,git,github)
 
-*   **Querying & Data Prep:** SQL <!-- ⚠️ PLACEHOLDER: not yet proven by a project — see Projects section --> , KQL, Advanced Excel
+<!-- KQL and Excel have no skillicons.dev entries, so kept as text badges below -->
+![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white)
+![KQL](https://img.shields.io/badge/KQL%20(Kusto)-%23005A9E.svg?style=flat-square&logo=microsoft&logoColor=white)
+
+*   **Querying & Data Prep:** SQL <!-- ⚠️ PLACEHOLDER: not yet proven by a project — see Projects section --> , KQL (proven — see security work below), Advanced Excel
 *   **Visualization & Reporting:** Power BI <!-- ⚠️ PLACEHOLDER: no project yet -->
 *   **Data Pipelines:** Python, Azure Functions, OCR/document ingestion (proven via Nompumelelo)
 *   **Core Competencies:** Data cleaning, stakeholder-facing reporting, investigative documentation
 
----
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
-## 🏅 Certifications
+## 🏅 Certifications & Progress
 
-*   🎯 Google Data Analytics Professional Certificate
-*   🎯 Microsoft PL-300 (Power BI Data Analyst) 
-*   🛡️ (ISC)2 Certified in Cybersecurity (CC) 
-*   ☁️ Microsoft SC-900 
+*   🎯 **Google Data Analytics Professional Certificate** — in progress
+*   🎯 **Microsoft PL-300 (Power BI Data Analyst)** — planned
+*   🛡️ (ISC)2 Certified in Cybersecurity (CC) — completed, prior track
+*   ☁️ Microsoft SC-900 — completed, prior track
 
----
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 ## 📊 Data Analytics Projects
 
-<!-- ⚠️ This entire section is a placeholder except for Nompumelelo. Do not publish this README until at least the SQL project is filled in — an "About Me" that says "data analyst" over an empty projects section will read worse than the old version. -->
+<!-- ⚠️ This entire section is placeholders except Nompumelelo. Do not publish this README until at least the SQL project is filled in — an "About Me" that says "data analyst" over an empty projects section will read worse than the old version. -->
 
 ### 🧾 Project Nompumelelo — WhatsApp Document Ingestion & Revenue Engine
 * Built an end-to-end data pipeline (Azure Function App) that ingests handwritten and printed receipts via WhatsApp, runs OCR extraction, and reconciles line items against expected totals with mismatch flagging.
@@ -61,7 +60,7 @@ I'm currently working through the Google Data Analytics Professional Certificate
 ### 🗄️ SQL Project — *Placeholder*
 <!-- ⚠️ PLACEHOLDER: your own stated first-priority skill. Nothing here yet. -->
 *   Status: Not started.
-*   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
+*   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data, or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
 
 ### 📈 Power BI Project #1 — *Placeholder*
 
@@ -73,7 +72,7 @@ I'm currently working through the Google Data Analytics Professional Certificate
 
 ### 🧩 Data Modeling Project — *Placeholder*
 
----
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 ## 🔬 Prior Security Work (Applied Query & Investigation Experience)
 
@@ -100,7 +99,7 @@ I'm currently working through the Google Data Analytics Professional Certificate
 * Audited permissions (including inherited) across a simulated Azure environment against least-privilege principles.
 * Wrote a report identifying over-broad access and remediation steps.
 
----
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 ## 📬 Let's Connect
 
@@ -111,4 +110,7 @@ I'm actively looking to connect with data teams, hiring managers, and analysts i
 [![Email Me](https://img.shields.io/badge/Email%20Me-njabshabs%40gmail.com-%23D14836.svg?style=flat-square&logo=gmail&logoColor=white)](mailto:njabshabs@gmail.com)
 [![Download CV](https://img.shields.io/badge/Download%20CV-PDF-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)](njabulo-shabalala-data-cv.pdf)
 
+![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
+
+<sub>Building from a household, in Johannesburg</sub>
 ---
