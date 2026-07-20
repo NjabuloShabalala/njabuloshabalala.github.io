@@ -15,9 +15,11 @@
 
 <!-- ⚠️ PLACEHOLDER: rewrite this paragraph once the SQL project and Nompumelelo write-up exist — right now it's making a claim ("data analyst") the projects section below can't back up yet. Draft below is a starting point, not final copy. -->
 
-I'm building toward a career in data analysis with a Microsoft stack focus (SQL, Power BI, Excel). My background is an unconventional BA in Organisational Psychology and International Relations, which shapes how I approach analysis: structured reasoning, clear documentation, and translating findings into something a non-technical stakeholder can act on.
+I'm building toward a career in data analysis, with a Microsoft-stack focus (SQL, Power BI, Excel). My background is an unconventional BA in Organisational Psychology and International Relations, which shapes how I approach analysis: structured reasoning, clear documentation, and translating findings into something a non-technical stakeholder can act on.
 
-My most direct evidence of analytical work so far is Project Nompumelelo, an AI-powered WhatsApp document ingestion pipeline I built end-to-end — OCR extraction, structured data parsing, and a revenue-range calculation engine — for South African informal traders. I also have hands-on query experience with Kusto Query Language (KQL) in a security context, which I'm now extending to SQL.
+My most direct evidence of analytical work so far is Project Nompumelelo, an AI-powered WhatsApp document ingestion pipeline I built end-to-end — OCR extraction, structured data parsing, and a revenue-range calculation engine — for South African informal traders. I also have hands-on query experience from Kusto Query Language (KQL) work in a security context, which I'm now extending into SQL.
+
+I'm currently working through the Google Data Analytics Professional Certificate and preparing for Microsoft PL-300.
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
@@ -26,35 +28,35 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 <table>
 <tr>
 <td align="center"><img src="https://skillicons.dev/icons?i=postgres" width="48" height="48" alt="SQL"/><br/><sub><b>SQL</b></sub></td>
-<td align="center"><img src="https://skillicons.dev/icons?i=powerbi" width="48" height="48" alt="Power BI"/><br/><sub><b>Power BI</b></sub></td>
+<td align="center"><img src="assets/icons/powerbi.png" width="48" height="48" alt="Power BI"/><br/><sub><b>Power BI</b></sub></td>
 <td align="center"><img src="https://skillicons.dev/icons?i=py" width="48" height="48" alt="Python"/><br/><sub><b>Python</b></sub></td>
 <td align="center"><img src="https://skillicons.dev/icons?i=azure" width="48" height="48" alt="Azure"/><br/><sub><b>Azure</b></sub></td>
 <td align="center"><img src="https://skillicons.dev/icons?i=git" width="48" height="48" alt="Git"/><br/><sub><b>Git</b></sub></td>
 <td align="center"><img src="https://skillicons.dev/icons?i=github" width="48" height="48" alt="GitHub"/><br/><sub><b>GitHub</b></sub></td>
-<td align="center"><img src="https://img.shields.io/badge/-217346?style=flat-square&logo=microsoft-excel&logoColor=white" width="48" height="20" alt="Excel"/><br/><sub><b>Excel</b></sub></td>
+<td align="center"><img src="assets/icons/excel.png" width="48" height="48" alt="Excel"/><br/><sub><b>Excel</b></sub></td>
 <td align="center"><img src="https://img.shields.io/badge/-005A9E?style=flat-square&logo=microsoft&logoColor=white" width="48" height="20" alt="KQL"/><br/><sub><b>KQL</b></sub></td>
 </tr>
 </table>
 
-*   **Querying & Data Prep:** SQL <!-- ⚠️ PLACEHOLDER: not yet proven by a project — see Projects section --> , KQL, Advanced Excel
+*   **Querying & Data Prep:** SQL <!-- ⚠️ PLACEHOLDER: not yet proven by a project — see Projects section --> , KQL (proven — see security work below), Advanced Excel
 *   **Visualization & Reporting:** Power BI <!-- ⚠️ PLACEHOLDER: no project yet -->
 *   **Data Pipelines:** Python, Azure Functions, OCR/document ingestion (proven via Nompumelelo)
 *   **Core Competencies:** Data cleaning, stakeholder-facing reporting, investigative documentation
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
-## 🏅 Certifications
+## 🏅 Certifications & Progress
 
-*   🎯 **Google Data Analytics Professional Certificate**
-*   🎯 **Microsoft PL-300 (Power BI Data Analyst)** 
-*   🛡️ **(ISC)2 Certified in Cybersecurity (CC)**
-*   ☁️ **Microsoft SC-900**
+*   🎯 **Google Data Analytics Professional Certificate** — in progress
+*   🎯 **Microsoft PL-300 (Power BI Data Analyst)** — planned
+*   🛡️ (ISC)2 Certified in Cybersecurity (CC) — completed, prior track
+*   ☁️ Microsoft SC-900 — completed, prior track
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 ## 📊 Data Analytics Projects
 
-<!-- ⚠️ This entire section is a placeholder except Nompumelelo. Do not publish this README until at least the SQL project is filled in — an "About Me" that says "data analyst" over an empty projects section will read worse than the old version. -->
+<!-- ⚠️ This entire section is placeholders except Nompumelelo. Do not publish this README until at least the SQL project is filled in — an "About Me" that says "data analyst" over an empty projects section will read worse than the old version. -->
 
 ### 🧾 Project Nompumelelo — WhatsApp Document Ingestion & Revenue Engine
 * Built an end-to-end data pipeline (Azure Function App) that ingests handwritten and printed receipts via WhatsApp, runs OCR extraction, and reconciles line items against expected totals with mismatch flagging.
@@ -65,7 +67,7 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 ### 🗄️ SQL Project — *Placeholder*
 <!-- ⚠️ PLACEHOLDER: your own stated first-priority skill. Nothing here yet. -->
 *   Status: Not started.
-*   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
+*   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data, or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
 
 ### 📈 Power BI Project #1 — *Placeholder*
 
@@ -102,7 +104,7 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 
 ### 💻 Secure Asset Governance & Access Auditing
 * Audited permissions (including inherited) across a simulated Azure environment against least-privilege principles.
-* Wrote a report identifying overbroad access and remediation steps.
+* Wrote a report identifying over-broad access and remediation steps.
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
@@ -118,4 +120,3 @@ I'm actively looking to connect with data teams, hiring managers, and analysts i
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
 <sub>Building from a household, in Johannesburg</sub>
----
