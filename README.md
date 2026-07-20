@@ -117,5 +117,5 @@ I'm actively looking to connect with data teams, hiring managers, and analysts i
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
-<sub>Building from a household, in Johannesburg</sub>sehold, in Johannesburg</sub>
+<sub>Building from a household, in Johannesburg</sub>
 ---
