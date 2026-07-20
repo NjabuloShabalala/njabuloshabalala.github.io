@@ -1,95 +1,114 @@
-# Hello there, I'm Njabulo Shabalala. Welcome to my portfolio. 
-### Junior Cloud Security Analyst | Associate Security Operations (SOC) Analyst  
-**📍 Johannesburg, South Africa**  
+# Hello there, I'm Njabulo Shabalala. Welcome to my portfolio.
+### Aspiring Data Analyst | Microsoft Stack (SQL, Power BI, Excel)
+**📍 Johannesburg, South Africa**
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
 [![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://hashnode.com/@njabuloshabalala)
-[![KC7](https://img.shields.io/badge/KC7%20Cyber-Investigator-%23E8121C.svg?style=flat-square&logoColor=white)](https://kc7cyber.com/profile/Njabulo%20Shabalala)
-[![Email Me](https://img.shields.io/badge/Email%20Me-njabshabs%40gmail.com-%23D14836.svg?style=flat-square&logo=gmail&logoColor=white)](mailto:njabshabs@gmail.com) 
-[![Download CV](https://img.shields.io/badge/Download%20CV-PDF-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)](njabulo-shabalala-soc-cv.pdf)
+[![Email Me](https://img.shields.io/badge/Email%20Me-njabshabs%40gmail.com-%23D14836.svg?style=flat-square&logo=gmail&logoColor=white)](mailto:njabshabs@gmail.com)
+[![Download CV](https://img.shields.io/badge/Download%20CV-PDF-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)](njabulo-shabalala-data-cv.pdf)
+
+<!-- ⚠️ PLACEHOLDER: CV file above still points to the old SOC CV. Replace with a data-analyst-targeted CV before publishing. -->
 
 ---
 
 ## 🧭 About Me
 
-I am a Junior SOC Analyst candidate specializing in the Microsoft Security stack, with hands-on experience building threat-detection pipelines in Microsoft Sentinel and writing custom Kusto Query Language (KQL) rules.
+<!-- ⚠️ PLACEHOLDER: rewrite this paragraph once the SQL project and Nompumelelo write-up exist — right now it's making a claim ("data analyst") the projects section below can't back up yet. Draft below is a starting point, not final copy. -->
 
-My background features an unconventional BA in Organisational Psychology and International Relations, which directly drives my approach to security operations: structured analytical reasoning, rigorous investigative documentation, and the ability to translate complex technical alerts into actionable incident reports for stakeholders. 
+I'm building toward a career in data analysis, with a Microsoft-stack focus (SQL, Power BI, Excel). My background is an unconventional BA in Organisational Psychology and International Relations, which shapes how I approach analysis: structured reasoning, clear documentation, and translating findings into something a non-technical stakeholder can act on.
 
-I hold the (ISC)2 Certified in Cybersecurity (CC) and Microsoft SC-900 credentials, and am currently preparing to sit for the SC-200 (Security Operations Analyst). My practical capabilities include a self-directed Sentinel threat-hunting lab and hands-on KQL investigation work via KC7.
+My most direct evidence of analytical work so far is Project Nompumelelo, an AI-powered WhatsApp document ingestion pipeline I built end-to-end — OCR extraction, structured data parsing, and a revenue-range calculation engine — for South African informal traders. I also have hands-on query experience from Kusto Query Language (KQL) work in a security context, which I'm now extending into SQL.
 
-My target is to join a Microsoft-aligned South African MSSP or internal SOC team where I can immediately contribute to log monitoring and incident response, while developing into cloud security over time.
+I'm currently working through the Google Data Analytics Professional Certificate and preparing for Microsoft PL-300.
 
 ---
 
 ## 🛠️ Tech Stack & Skills
 
-![Microsoft Sentinel](https://img.shields.io/badge/Microsoft%20Sentinel-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
-![Microsoft Defender](https://img.shields.io/badge/Defender%20XDR-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
-![Microsoft Entra](https://img.shields.io/badge/Microsoft%20Entra-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-%23025E8C.svg?style=flat-square&logo=postgresql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-%23F2C811.svg?style=flat-square&logo=powerbi&logoColor=black)
+![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white)
+![Python](https://img.shields.io/badge/Python-%233776AB.svg?style=flat-square&logo=python&logoColor=white)
 ![KQL](https://img.shields.io/badge/KQL%20(Kusto)-%23005A9E.svg?style=flat-square&logo=microsoft&logoColor=white)
-![Excel](https://img.shields.io/badge/Excel-%23217346.svg?style=flat-square&logo=microsoft-excel&logoColor=white) 
-![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=flat-square&logo=powershell&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-%230078D4.svg?style=flat-square&logo=microsoft-azure&logoColor=white)
 
-*   **SIEM / XDR:** Microsoft Sentinel, Microsoft Defender XDR, Microsoft Entra ID, Microsoft Purview
-*   **Data Analysis:** Kusto Query Language (KQL), Advanced Excel
-*   **Core Competencies:** Incident Response, Log Analysis, Threat Hunting, Information Protection & DLP, Investigative Documentation
-
----
-
-## 🏅 Certifications & Verified Applied Skills
-
-### Certifications
-*   🛡️ **ISC2 Certified in Cybersecurity (CC)** 
-*   ☁️ **Microsoft Certified: Security, Compliance, and Identity Fundamentals (SC-900)** 
-*   🎯 *Currently preparing for the Microsoft Security Operations Analyst (SC-200) exam.*
-
-### Verified Microsoft Applied Skills
-*   **Defend Against Cyberthreats with Microsoft Defender XDR** (`ID: 2FA5BC2845849178`)  
-*   **Implement Information Protection and Data Loss Prevention using Microsoft Purview** (`ID: C3002D00338101B`)  
-*   **Get Started with Identities and Access using Microsoft Entra** (`ID: 410A7344BDF5EF04`) 
+*   **Querying & Data Prep:** SQL <!-- ⚠️ PLACEHOLDER: not yet proven by a project — see Projects section --> , KQL, Advanced Excel
+*   **Visualization & Reporting:** Power BI <!-- ⚠️ PLACEHOLDER: no project yet -->
+*   **Data Pipelines:** Python, Azure Functions, OCR/document ingestion (proven via Nompumelelo)
+*   **Core Competencies:** Data cleaning, stakeholder-facing reporting, investigative documentation
 
 ---
 
-## 🔬 Practical Projects & Security Labs
+## 🏅 Certifications
 
-### 🫆 [TitanShield: Threat Investigation with Microsoft Defender XDR](titanshield-threat-investigation.md) 
-* Investigated two intrusions targeting a fictional defence company where one traced to Moonstone Sleet (North Korea) delivering a trojanised game via phishing to compromise a senior engineer's machine, and one traced to Crimson Sandstorm (Iran) using a romance scheme to socially engineer defence personnel into opening a malicious file.
-* I used KQL across six log source tables including ProcessEvents, FileCreationEvents, OutboundNetworkEvents, and Email to trace each attack from initial delivery through reconnaissance and data staging to exfiltration, using operators like has_all(), has_any(), parse_url(), and inner joins to pivot between datasets and extract structured findings from raw log data.
-* Attributed both attacks to named threat actors using the Microsoft Defender XDR Threat Intelligence Portal, identified cloud storage (Google Drive) as the exfiltration channel for the second attack chain, and mapped all observed attacker behaviour to MITRE ATT&CK techniques covering initial access, execution, discovery, staging, and exfiltration.
+*   🎯 Google Data Analytics Professional Certificate
+*   🎯 Microsoft PL-300 (Power BI Data Analyst) 
+*   🛡️ (ISC)2 Certified in Cybersecurity (CC) 
+*   ☁️ Microsoft SC-900 
 
-### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](kc7-cyber-labs.md)
-* Worked through a realistic election security breach scenario involving a threat actor campaign targeting the Valdoria Board of Elections ahead of a critical election cycle.
-* Used KQL to trace the attacker's full activity from the phishing domain they stood up to mimic a government site, through credential theft of a staff account, lateral movement, and their attempts to extract information about voting machine infrastructure.
-* Documented findings covering the compromised accounts, the attacker-controlled IP addresses and domains, the internal data they accessed, and the remediation steps needed to contain the threat before Election Day.
+---
 
-### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](entra-id-rbac-lab)
-* Designed an access structure that separates what junior analysts can do from what senior engineers can do, based on the idea that people should only have the minimum access required for their role.
-* Set up that structure in Microsoft Entra ID using Security Groups tied to built-in Azure roles Security Reader for analysts, Security Administrator for engineers so permissions are managed centrally rather than assigned individually.
-* Tested whether the boundaries actually held by attempting actions that lower-privileged accounts shouldn't be able to perform, and confirmed that those actions were blocked as intended.
+## 📊 Data Analytics Projects
 
-### 💻 [Threat Detection Engineering & Log Parsing](threat-detection-and-log-parsing)
-* Deliberately triggered repeated failed login attempts against a test Azure environment to generate real sign-in failure logs that could be used for detection work.
-* Pulled the raw log data in JSON format and examined it directly outside of Azure's dashboard to understand exactly what fields and values the logs contain at a technical level.
-* Built a detection rule that flags suspicious behaviour by combining a specific Azure login failure code (ResultType 50126) with outbound network activity, creating a reliable signal for potential brute-force or credential-stuffing attacks.
+<!-- ⚠️ This entire section is a placeholder except for Nompumelelo. Do not publish this README until at least the SQL project is filled in — an "About Me" that says "data analyst" over an empty projects section will read worse than the old version. -->
 
-### 💻 [Secure Asset Governance & Access Auditing](secure-asset-governance-and-access-auditing)
-* Set up a test environment in Microsoft Azure to simulate a real company's cloud infrastructure for security review purposes.
-* Pulled a full list of who has access to what within that environment, then mapped out every permission assigned which including inherited ones to check whether they followed the principle of least privilege.
-* Wrote an audit report identifying where access was broader than it needed to be, and outlined the specific steps required to bring those permissions in line with security best practice.
+### 🧾 Project Nompumelelo — WhatsApp Document Ingestion & Revenue Engine
+* Built an end-to-end data pipeline (Azure Function App) that ingests handwritten and printed receipts via WhatsApp, runs OCR extraction, and reconciles line items against expected totals with mismatch flagging.
+* Designed a revenue-range engine that converts unstructured receipt data into a low/high revenue estimate for informal traders, including a clarification flow to resolve ambiguous entries before they hit the calculation layer.
+* Tested against founder-generated South African spaza-style receipts; built and stored via Azure Table Storage.
+* [Full write-up →](#) <!-- ⚠️ PLACEHOLDER: link to a proper project page once written -->
+
+### 🗄️ SQL Project — *Placeholder*
+<!-- ⚠️ PLACEHOLDER: your own stated first-priority skill. Nothing here yet. -->
+*   Status: Not started.
+*   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
+
+### 📈 Power BI Project #1 — *Placeholder*
+
+### 📈 Power BI Project #2 — *Placeholder*
+
+### 🧮 Excel Project #1 — *Placeholder*
+
+### 🧮 Excel Project #2 — *Placeholder*
+
+### 🧩 Data Modeling Project — *Placeholder*
+
+---
+
+## 🔬 Prior Security Work (Applied Query & Investigation Experience)
+
+<!-- Kept as supporting evidence, not the headline — demoted from the top of the original README. Demonstrates KQL fluency and structured investigation, both transferable to analysis work. -->
+
+### 🫆 TitanShield: Threat Investigation with Microsoft Defender XDR
+* Investigated two intrusions targeting a fictional defence company, tracing attacker activity from initial phishing delivery through reconnaissance, staging, and exfiltration.
+* Used KQL across six log tables (ProcessEvents, FileCreationEvents, OutboundNetworkEvents, Email, etc.), applying `has_all()`, `has_any()`, `parse_url()`, and joins to pivot between datasets and extract structured findings.
+* Attributed both attacks to named threat actors and mapped observed behaviour to MITRE ATT&CK.
+
+### 🕵️ Dynamic Threat Investigations (KC7 Cyber Labs)
+* Worked through an election security breach scenario, using KQL to trace an attacker's activity from a spoofed phishing domain through credential theft, lateral movement, and attempted access to sensitive infrastructure data.
+* Documented compromised accounts, attacker infrastructure, and remediation steps.
+
+### 💻 Setting Up Secure Access (RBAC) in Microsoft Entra ID
+* Designed and implemented a least-privilege access structure using Security Groups tied to built-in Azure roles.
+* Verified enforcement by testing that lower-privileged accounts were correctly blocked from restricted actions.
+
+### 💻 Threat Detection Engineering & Log Parsing
+* Generated real sign-in failure logs in a test Azure environment and examined raw JSON log data directly.
+* Built a detection rule combining a specific Azure failure code with outbound network activity to flag potential brute-force attempts.
+
+### 💻 Secure Asset Governance & Access Auditing
+* Audited permissions (including inherited) across a simulated Azure environment against least-privilege principles.
+* Wrote a report identifying over-broad access and remediation steps.
 
 ---
 
 ## 📬 Let's Connect
 
-I am actively looking to connect with security teams, hiring managers, and professionals within the South African cybersecurity ecosystem.
+I'm actively looking to connect with data teams, hiring managers, and analysts in the South African data ecosystem.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/njabulo-shabalala)
 [![Hashnode](https://img.shields.io/badge/Hashnode-%232962FF.svg?style=flat-square&logo=hashnode&logoColor=white)](https://hashnode.com/@njabuloshabalala)
-[![KC7](https://img.shields.io/badge/KC7%20Cyber-Investigator-%23E8121C.svg?style=flat-square&logoColor=white)](https://kc7cyber.com/profile/Njabulo%20Shabalala)
-[![Email Me](https://img.shields.io/badge/Email%20Me-njabshabs%40gmail.com-%23D14836.svg?style=flat-square&logo=gmail&logoColor=white)](mailto:njabshabs@gmail.com) 
-[![Download CV](https://img.shields.io/badge/Download%20CV-PDF-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)](njabulo-shabalala-soc-cv.pdf)
+[![Email Me](https://img.shields.io/badge/Email%20Me-njabshabs%40gmail.com-%23D14836.svg?style=flat-square&logo=gmail&logoColor=white)](mailto:njabshabs@gmail.com)
+[![Download CV](https://img.shields.io/badge/Download%20CV-PDF-%230078D4.svg?style=flat-square&logo=microsoft&logoColor=white)](njabulo-shabalala-data-cv.pdf)
 
 ---
-
-<sub>Building from a household, in Johannesburg</sub>
