@@ -1,0 +1,31 @@
+<svg width="1200" height="200" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2541D6"/>
+      <stop offset="100%" stop-color="#0056D6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="200" fill="url(#bg)"/>
+
+  <!-- gentle wave at the base, same family as the old capsule-render look -->
+  <path d="M0,180 C 200,140 400,200 600,170 C 800,140 1000,190 1200,160 L1200,200 L0,200 Z"
+        fill="#ffffff" opacity="0.08"/>
+
+  <!-- name: white fill, black outline -->
+  <text x="600" y="105" text-anchor="middle"
+        font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="52" font-weight="700"
+        fill="#ffffff" stroke="#000000" stroke-width="1.5" paint-order="stroke fill">
+    Njabulo Shabalala
+  </text>
+
+  <!-- subtitle: plain white, no outline needed at this size -->
+  <text x="600" y="145" text-anchor="middle"
+        font-family="Segoe UI, Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="400"
+        fill="#ffffff">
+    Aspiring Data Analyst | Microsoft Stack
+  </text>
+</svg>
