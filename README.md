@@ -64,7 +64,7 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 *   Status: Not started.
 *   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data, or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
 
-### 📈 ![Order to cash Star Schema](cash-to-order.md)
+### 📈 [Order to cash Star Schema](cash-to-order.md)
 
 ### 📈 Power BI Project #2 — *Placeholder*
 
