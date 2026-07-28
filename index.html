@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njabulo Shabalala | Data Analysis & BI Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0b0f17;
+            --card-bg: #131b26;
+            --card-hover-bg: #182230;
+            --border-color: #212d3d;
+            --border-hover: #3b82f6;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --tag-bg: #1e293b;
+            --tag-text: #93c5fd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Top Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn-cv {
+            background-color: var(--accent-blue);
+            color: #ffffff !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: opacity 0.2s ease !important;
+        }
+
+        .btn-cv:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        header {
+            margin-bottom: 4rem;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-title {
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-bio {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin-bottom: 1.75rem;
+        }
+
+        /* Core Skill Badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Projects Section */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #ffffff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Project Cards */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            background-color: var(--card-hover-bg);
+        }
+
+        .card-header {
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-card {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            padding: 0.55rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-logo">Njabulo Shabalala</div>
+        <div class="nav-links">
+            <a href="https://github.com/NjabuloShabalala" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/njabulo-shabalala" target="_blank">LinkedIn</a>
+            <a href="./assets/njabulo-shabalala-soc-cv.pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv">Download CV</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Njabulo Shabalala</h1>
+        <div class="hero-title">Data Analyst & Business Intelligence Specialist</div>
+        <p class="hero-bio">
+            Specializing in transforming complex relational and event-stream data into performant Star Schemas, reliable financial models, and intuitive Power BI dashboards. Proficient in querying high-volume datasets using SQL and KQL, optimizing DAX measures, and reconciling end-to-end business data pipelines.
+        </p>
+        <div class="skills-container">
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">KQL (Kusto)</span>
+            <span class="skill-badge">Power BI</span>
+            <span class="skill-badge">Advanced Excel</span>
+            <span class="skill-badge">DAX</span>
+            <span class="skill-badge">Star Schema Data Modeling</span>
+            <span class="skill-badge">Financial Reconciliation</span>
+        </div>
+    </header>
+
+    <!-- Main Content / Project Cards -->
+    <main>
+        <div class="section-header">
+            <h2 class="section-title">Featured Portfolio Projects</h2>
+        </div>
+
+        <div class="grid">
+
+            <!-- Card 1 (Active Project) -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <h3 class="card-title">B2B Order-to-Cash Data Modeling</h3>
+                    </div>
+                    <p class="card-desc">
+                        Re-architected an unmodeled B2B transactional dataset into an Enterprise Star Schema to eliminate revenue double-counting, optimize engine performance, and reconcile billed vs. realized cash.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Data Modeling</span>
+                        <span class="tag">Star Schema</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="./projects/b2b-order-to-cash/" class="btn-card btn-primary">View Technical Showcase</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <h3 class="card-title">Financial Performance & Revenue Analysis</h3>
+                    </div>
+                    <p class="card-desc">
+                        Built dynamic income statement models and variance analysis tracking actuals vs. budget forecasts with custom time-intelligence DAX measures.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Financial Modeling</span>
+                        <span class="tag">Excel</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <h3 class="card-title">Customer Churn & LTV Analytics</h3>
+                    </div>
+                    <p class="card-desc">
+                        Designed SQL queries and interactive BI visual dashboards isolating churn risk factors, corporate account health, and customer lifetime value metrics.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Customer Analytics</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <h3 class="card-title">Supply Chain & Logistics Pipeline</h3>
+                    </div>
+                    <p class="card-desc">
+                        Analyzed fulfillment lead times, vendor SLA compliance, and warehouse bottleneck metrics across multi-stage distribution channels.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Supply Chain</span>
+                        <span class="tag">Power Query</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <h3 class="card-title">Marketing Campaign Attribution</h3>
+                    </div>
+                    <p class="card-desc">
+                        Evaluated multi-channel campaign spend versus downstream generated revenue to identify underperforming marketing channels and maximize ROI.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Marketing BI</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <h3 class="card-title">Sales Operations Executive Dashboard</h3>
+                    </div>
+                    <p class="card-desc">
+                        Developed real-time executive sales tracking suite featuring dynamic regional drill-downs, product category rankings, and target variance alerts.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Sales Ops</span>
+                        <span class="tag">UI/UX Design</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Njabulo Shabalala. Built with HTML/CSS & GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
