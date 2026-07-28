@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Njabulo Shabalala | Data Analysis & BI Portfolio</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-color: #0b0f17;
@@ -38,18 +41,11 @@
         /* Top Navigation Bar */
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Pushes links to the right, removing the need for a logo */
             align-items: center;
             padding-bottom: 2rem;
             margin-bottom: 3rem;
             border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.5px;
         }
 
         .nav-links {
@@ -83,9 +79,13 @@
             opacity: 0.9;
         }
 
-        /* Hero Section */
+        /* Hero Section - Centralized */
         header {
             margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         h1 {
@@ -106,14 +106,16 @@
             font-size: 1.05rem;
             color: var(--text-secondary);
             max-width: 750px;
-            margin-bottom: 1.75rem;
+            margin: 0 auto 1.75rem auto;
         }
 
-        /* Core Skill Badges */
+        /* Core Skill Badges with Icons */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
         }
 
         .skill-badge {
@@ -121,9 +123,36 @@
             color: var(--tag-text);
             font-size: 0.85rem;
             font-weight: 500;
-            padding: 0.3rem 0.75rem;
+            padding: 0.4rem 0.85rem;
             border-radius: 20px;
             border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-badge i {
+            font-size: 1rem;
+        }
+        
+        /* Official Certification Badges */
+        .cert-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .cert-badge {
+            height: 85px; /* Adjust based on your actual badge image size */
+            width: auto;
+            border-radius: 8px;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+        
+        .cert-badge:hover {
+            opacity: 1;
         }
 
         /* Projects Section */
@@ -132,6 +161,8 @@
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
         }
 
         .section-title {
@@ -247,11 +278,10 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="nav-logo">Njabulo Shabalala</div>
         <div class="nav-links">
-            <a href="https://github.com/NjabuloShabalala" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/njabulo-shabalala" target="_blank">LinkedIn</a>
-            <a href="./assets/njabulo-shabalala-soc-cv.pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv">Download CV</a>
+            <a href="https://github.com/NjabuloShabalala" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/njabulo-shabalala" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="./assets/njabulo-shabalala-soc-cv.pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
         </div>
     </nav>
 
@@ -262,12 +292,22 @@
         <p class="hero-bio">
             Specializing in transforming complex relational and event-stream data into performant Star Schemas, reliable financial models, and intuitive Power BI dashboards. Proficient in querying high-volume datasets using SQL and KQL, optimizing DAX measures, and reconciling end-to-end business data pipelines.
         </p>
+        
+        <!-- Technical Skill Badges with Icons -->
         <div class="skills-container">
-            <span class="skill-badge">SQL</span>
-            <span class="skill-badge">KQL (Kusto)</span>
-            <span class="skill-badge">Power BI</span>
-            <span class="skill-badge">Advanced Excel</span>
-            <span class="skill-badge">DAX</span>
+            <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
+            <span class="skill-badge"><i class="fa-solid fa-server"></i> KQL (Kusto)</span>
+            <span class="skill-badge"><i class="fa-solid fa-chart-line"></i> Power BI</span>
+            <span class="skill-badge"><i class="fa-solid fa-table"></i> Advanced Excel</span>
+            <span class="skill-badge"><i class="fa-solid fa-function"></i> DAX</span>
+            <span class="skill-badge"><i class="fa-solid fa-diagram-project"></i> Data Modeling</span>
+        </div>
+
+        <!-- Certification Badges -->
+        <div class="cert-container">
+            <!-- Ensure you save your official badge images into your /assets/ folder on GitHub to render these -->
+            <img src="./assets/pl-300-badge.png" alt="Microsoft Certified: Power BI Data Analyst Associate" class="cert-badge" onerror="this.style.display='none'">
+            <img src="./assets/sc-900-badge.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals" class="cert-badge" onerror="this.style.display='none'">
         </div>
     </header>
 
@@ -279,7 +319,7 @@
 
         <div class="grid">
 
-            <!-- Card 1 (Active Project) -->
+            <!-- Card 1 -->
             <div class="card">
                 <div>
                     <div class="card-header">
@@ -335,68 +375,6 @@
                         <span class="tag">Power BI</span>
                         <span class="tag">Data Analysis</span>
                         <span class="tag">Customer Analytics</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="card">
-                <div>
-                    <div class="card-header">
-                        <h3 class="card-title">Supply Chain & Logistics Pipeline</h3>
-                    </div>
-                    <p class="card-desc">
-                        Analyzed fulfillment lead times, vendor SLA compliance, and warehouse bottleneck metrics across multi-stage distribution channels.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Supply Chain</span>
-                        <span class="tag">Power Query</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="card">
-                <div>
-                    <div class="card-header">
-                        <h3 class="card-title">Marketing Campaign Attribution</h3>
-                    </div>
-                    <p class="card-desc">
-                        Evaluated multi-channel campaign spend versus downstream generated revenue to identify underperforming marketing channels and maximize ROI.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Data Analysis</span>
-                        <span class="tag">Power BI</span>
-                        <span class="tag">Marketing BI</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="card">
-                <div>
-                    <div class="card-header">
-                        <h3 class="card-title">Sales Operations Executive Dashboard</h3>
-                    </div>
-                    <p class="card-desc">
-                        Developed real-time executive sales tracking suite featuring dynamic regional drill-downs, product category rankings, and target variance alerts.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Power BI</span>
-                        <span class="tag">DAX</span>
-                        <span class="tag">Sales Ops</span>
-                        <span class="tag">UI/UX Design</span>
                     </div>
                 </div>
                 <div class="card-actions">
