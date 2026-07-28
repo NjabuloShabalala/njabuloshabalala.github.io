@@ -26,9 +26,9 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 <table>
 <tr>
 <td align="center"><img src="https://skillicons.dev/icons?i=postgres" width="48" height="48" alt="SQL"/><br/><sub><b>SQL</b></sub></td>
-<td align="center"><img src="powerbi.png" width="48" height="48" alt="Power BI"/><br/><sub><b>Power BI</b></sub></td>
+<td align="center"><img src="assets/powerbi.png" width="48" height="48" alt="Power BI"/><br/><sub><b>Power BI</b></sub></td>
 <td align="center"><img src="https://skillicons.dev/icons?i=azure" width="48" height="48" alt="Azure"/><br/><sub><b>Azure</b></sub></td>
-<td align="center"><img src="excel.png" width="48" height="48" alt="Excel"/><br/><sub><b>Excel</b></sub></td>
+<td align="center"><img src="assets/excel.png" width="48" height="48" alt="Excel"/><br/><sub><b>Excel</b></sub></td>
 <td align="center"><img src="https://img.shields.io/badge/-005A9E?style=flat-square&logo=microsoft&logoColor=white" width="48" height="20" alt="KQL"/><br/><sub><b>KQL</b></sub></td>
 </tr>
 </table>
