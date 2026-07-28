@@ -17,9 +17,7 @@
             --text-primary: #f3f4f6;
             --text-secondary: #9ca3af;
             --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --tag-bg: #1e293b;
-            --tag-text: #93c5fd;
+            --accent-neon: #38bdf8; /* Brighter accent for pills */
         }
 
         * {
@@ -41,7 +39,7 @@
         /* Top Navigation Bar */
         nav {
             display: flex;
-            justify-content: flex-end; /* Pushes links to the right, removing the need for a logo */
+            justify-content: flex-end;
             align-items: center;
             padding-bottom: 2rem;
             margin-bottom: 3rem;
@@ -79,7 +77,7 @@
             opacity: 0.9;
         }
 
-        /* Hero Section - Centralized */
+        /* Hero Section */
         header {
             margin-bottom: 4rem;
             display: flex;
@@ -99,17 +97,29 @@
             font-size: 1.25rem;
             color: var(--accent-blue);
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero-bio {
             font-size: 1.05rem;
             color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 1rem auto;
+            line-height: 1.7;
+        }
+        
+        .hero-tech-summary {
+            font-size: 0.95rem;
+            color: var(--text-primary);
             max-width: 750px;
-            margin: 0 auto 1.75rem auto;
+            margin: 0 auto 2rem auto;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
-        /* Core Skill Badges with Icons */
+        /* Neon Skill Badges */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -119,16 +129,24 @@
         }
 
         .skill-badge {
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
+            background-color: rgba(56, 189, 248, 0.08); /* Faint neon background */
+            color: var(--accent-neon);
             font-size: 0.85rem;
-            font-weight: 500;
-            padding: 0.4rem 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(56, 189, 248, 0.4); /* Neon border */
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); /* Subtle glow */
+            transition: all 0.2s ease;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25); /* Stronger glow on hover */
+            background-color: rgba(56, 189, 248, 0.12);
         }
 
         .skill-badge i {
@@ -138,13 +156,13 @@
         /* Official Certification Badges */
         .cert-container {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         
         .cert-badge {
-            height: 85px; /* Adjust based on your actual badge image size */
+            height: 85px; 
             width: auto;
             border-radius: 8px;
             opacity: 0.9;
@@ -281,7 +299,7 @@
         <div class="nav-links">
             <a href="https://github.com/NjabuloShabalala" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             <a href="https://www.linkedin.com/in/njabulo-shabalala" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            <a href="./assets/njabulo-shabalala-soc-cv.pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+            <a href="assets/njabulo-shabalala-soc-cv.pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
         </div>
     </nav>
 
@@ -289,11 +307,16 @@
     <header>
         <h1>Njabulo Shabalala</h1>
         <div class="hero-title">Data Analyst & Business Intelligence Specialist</div>
-        <p class="hero-bio">
-            Specializing in transforming complex relational and event-stream data into performant Star Schemas, reliable financial models, and intuitive Power BI dashboards. Proficient in querying high-volume datasets using SQL and KQL, optimizing DAX measures, and reconciling end-to-end business data pipelines.
-        </p>
         
-        <!-- Technical Skill Badges with Icons -->
+        <p class="hero-bio">
+            I'm a Johannesburg-based data analyst with a background in organisational psychology and politics, plus hands-on cybersecurity experience. This combination has shaped how I approach data: I'm as interested in why people and systems behave the way they do as I am in the numbers themselves. That mix means I don't just build dashboards. I build ones people actually trust and use, because the analysis accounts for the human and structural context behind the data.
+        </p>
+
+        <div class="hero-tech-summary">
+            <strong>Technical Focus:</strong> Transforming complex relational and event-stream data into performant Star Schemas, financial models, and intuitive Power BI dashboards.
+        </div>
+        
+        <!-- Technical Skill Badges with Neon Styling -->
         <div class="skills-container">
             <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
             <span class="skill-badge"><i class="fa-solid fa-server"></i> KQL (Kusto)</span>
@@ -305,9 +328,9 @@
 
         <!-- Certification Badges -->
         <div class="cert-container">
-            <!-- Ensure you save your official badge images into your /assets/ folder on GitHub to render these -->
-            <img src="./assets/pl-300-badge.png" alt="Microsoft Certified: Power BI Data Analyst Associate" class="cert-badge" onerror="this.style.display='none'">
-            <img src="./assets/sc-900-badge.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals" class="cert-badge" onerror="this.style.display='none'">
+            <!-- Relative path updated to assets/ -->
+            <img src="assets/pl-300-badge.png" alt="Microsoft Certified: Power BI Data Analyst Associate" class="cert-badge" onerror="this.style.display='none'">
+            <img src="assets/sc-900-badge.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals" class="cert-badge" onerror="this.style.display='none'">
         </div>
     </header>
 
@@ -336,7 +359,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="./projects/b2b-order-to-cash/" class="btn-card btn-primary">View Technical Showcase</a>
+                    <a href="projects/b2b-order-to-cash/" class="btn-card btn-primary">View Technical Showcase</a>
                 </div>
             </div>
 
