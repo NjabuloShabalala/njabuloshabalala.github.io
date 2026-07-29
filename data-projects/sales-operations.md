@@ -63,11 +63,11 @@ Grain & Schema Misalignment: Comparing monthly target quotas (fact_sales_targets
 ## Dashboard Showcase
 
 ### Page 1: Sales Performance & Fulfillment Operations
-![Page 1 Overview](assets/page1_sales_fulfillment.png)
+![Page 1 Overview](assets/visual-1-power-bi.png)
 *Figure 1: Executive view tracking revenue variance against targets, fulfillment lead times, and regional sales distribution.*
 
 ### Page 2: Customer Portfolio & Campaign Performance
-![Page 2 Overview](assets/page2_customer_campaigns.png)
+![Page 2 Overview](assets/visual-2-power-bi.png)
 *Figure 2: Corporate account LTV distribution alongside campaign ad spend vs. attributed revenue.*
 
 ---
