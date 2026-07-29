@@ -1,3 +1,86 @@
+<style>
+body {
+    background-color: #0b0f17 !important;
+    color: #f3f4f6 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+h1 {
+    border-bottom: 1px solid #212d3d;
+    padding-bottom: 0.75rem;
+}
+
+h2 {
+    margin-top: 2.5rem;
+    border-bottom: 1px solid #212d3d;
+    padding-bottom: 0.5rem;
+}
+
+a {
+    color: #3b82f6;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+th, td {
+    border: 1px solid #212d3d;
+    padding: 0.6rem 1rem;
+    text-align: center;
+}
+
+th {
+    background-color: #131b26;
+    color: #38bdf8;
+}
+
+code {
+    background-color: #131b26;
+    color: #38bdf8;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #131b26 !important;
+    border: 1px solid #212d3d;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+details {
+    background-color: #131b26;
+    border: 1px solid #212d3d;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+
+summary {
+    cursor: pointer;
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+img {
+    border-radius: 8px;
+    border: 1px solid #212d3d;
+    max-width: 100%;
+}
+</style> 
+
 # B2B Sales Operations, Fulfillment & Marketing Attribution Data Modeling
 
 ## Key Results
