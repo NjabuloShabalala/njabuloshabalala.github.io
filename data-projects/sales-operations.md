@@ -70,6 +70,8 @@ Grain & Schema Misalignment: Comparing monthly target quotas (fact_sales_targets
 ![Page 2 Overview](/assets/visual-2-power-bi.png)
 *Figure 2: Corporate account LTV distribution alongside campaign ad spend vs. attributed revenue.*
 
+📁 **[Download Power BI Template (.pbit)](/assets/portfolio-project.pbit)**
+
 ---
 
 ## Business Objectives & Core Questions
