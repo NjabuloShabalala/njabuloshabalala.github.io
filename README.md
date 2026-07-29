@@ -42,7 +42,7 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 
 ## 🏅 Certifications & Progress
 
-*   🎯 **Google Data Analytics Professional Certificate**
+*   📈 **Google Data Analytics Professional Certificate**
 *   🎯 **Microsoft PL-300 (Power BI Data Analyst)**
 *   🛡️ **(ISC)2 Certified in Cybersecurity (CC)**
 *   ☁️ **Microsoft SC-900**
@@ -64,15 +64,12 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 *   Status: Not started.
 *   Suggested scope: a real dataset (e.g. Nompumelelo's own transaction data, or a public SA-relevant dataset), multi-table joins, CTEs/window functions, a written explanation of business questions answered.
 
-### 📈 [Order to cash Star Schema](cash-to-order.md)
+### 📈 [Order to cash Star Schema](/data-projects/sales-operations.md)
+* Re-architected an unmodeled B2B transactional dataset into an Enterprise Star Schema
+* Surfaced a 5% revenue variance against target
+* Calculated an 8.71-day average fulfillment lead time
+* Delivered a 1.71x campaign ROAS across 47 corporate accounts
 
-### 📈 Power BI Project #2 — *Placeholder*
-
-### 🧮 Excel Project #1 — *Placeholder*
-
-### 🧮 Excel Project #2 — *Placeholder*
-
-### 🧩 Data Modeling Project — *Placeholder*
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
@@ -80,26 +77,18 @@ My most direct evidence of analytical work so far is Project Nompumelelo, an AI-
 
 <!-- Kept as supporting evidence, not the headline — demoted from the top of the original README. Demonstrates KQL fluency and structured investigation, both transferable to analysis work. -->
 
-### 🫆 TitanShield: Threat Investigation with Microsoft Defender XDR
+### 🫆 [TitanShield: Threat Investigation with Microsoft Defender XDR](/projects/titanshield-threat-investigation.md)
 * Investigated two intrusions targeting a fictional defence company, tracing attacker activity from initial phishing delivery through reconnaissance, staging, and exfiltration.
 * Used KQL across six log tables (ProcessEvents, FileCreationEvents, OutboundNetworkEvents, Email, etc.), applying `has_all()`, `has_any()`, `parse_url()`, and joins to pivot between datasets and extract structured findings.
 * Attributed both attacks to named threat actors and mapped observed behaviour to MITRE ATT&CK.
 
-### 🕵️ Dynamic Threat Investigations (KC7 Cyber Labs)
+### 🕵️ [Dynamic Threat Investigations (KC7 Cyber Labs)](/projects/kc7-cyber-labs.md)
 * Worked through an election security breach scenario, using KQL to trace an attacker's activity from a spoofed phishing domain through credential theft, lateral movement, and attempted access to sensitive infrastructure data.
 * Documented compromised accounts, attacker infrastructure, and remediation steps.
 
-### 💻 Setting Up Secure Access (RBAC) in Microsoft Entra ID
+### 💻 [Setting Up Secure Access (RBAC) in Microsoft Entra ID](/projects/entra-id-rbac-lab.md)
 * Designed and implemented a least-privilege access structure using Security Groups tied to built-in Azure roles.
-* Verified enforcement by testing that lower-privileged accounts were correctly blocked from restricted actions.
-
-### 💻 Threat Detection Engineering & Log Parsing
-* Generated real sign-in failure logs in a test Azure environment and examined raw JSON log data directly.
-* Built a detection rule combining a specific Azure failure code with outbound network activity to flag potential brute-force attempts.
-
-### 💻 Secure Asset Governance & Access Auditing
-* Audited permissions (including inherited) across a simulated Azure environment against least-privilege principles.
-* Wrote a report identifying overbroad access and remediation steps.
+* Verified enforcement by testing that lower-privilege accounts were correctly blocked from restricted actions.
 
 ![divider](https://capsule-render.vercel.app/api?type=rect&color=0056D6&height=3&section=header)
 
