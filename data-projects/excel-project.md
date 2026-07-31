@@ -34,7 +34,7 @@ The dashboard answers five core business questions, each mapped directly from a 
 
 ## Dashboard Showcase
 
-![Hi-Fi Org Dashboard](assets/hifi-org-dashboard.png)
+![Hi-Fi Org Dashboard](/assets/hi-fi-org-dashboard.png)
 *Figure 1: Full interactive dashboard view — KPI summary, monthly revenue trend, regional and category breakdowns, sales channel split, and top 5 products by revenue, all filterable via slicers.*
 
 ---
