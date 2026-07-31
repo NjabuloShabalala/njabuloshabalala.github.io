@@ -1,3 +1,53 @@
+<style>
+body {
+    background-color: #0b0f17 !important;
+    color: #f3f4f6 !important;
+}
+h1, h2, h3 {
+    color: #ffffff !important;
+}
+a {
+    color: #3b82f6 !important;
+}
+table, .markdown-body table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    background-color: #0b0f17 !important;
+}
+table th, table td, .markdown-body table th, .markdown-body table td {
+    border: 1px solid #212d3d !important;
+    padding: 0.6rem 1rem !important;
+    background-color: #131b26 !important;
+    color: #f3f4f6 !important;
+}
+table th, .markdown-body table th {
+    background-color: #131b26 !important;
+    color: #38bdf8 !important;
+}
+table tr:nth-child(even), .markdown-body table tr:nth-child(even) {
+    background-color: #131b26 !important;
+}
+code {
+    background-color: #131b26 !important;
+    color: #38bdf8 !important;
+}
+pre {
+    background-color: #131b26 !important;
+    border: 1px solid #212d3d !important;
+}
+details {
+    background-color: #131b26 !important;
+    border: 1px solid #212d3d !important;
+}
+summary {
+    color: #38bdf8 !important;
+}
+img {
+    border-radius: 8px;
+    border: 1px solid #212d3d;
+}
+</style>
+
 # Hi-Fi Org Sales Performance Dashboard
 
 ## Key Results
