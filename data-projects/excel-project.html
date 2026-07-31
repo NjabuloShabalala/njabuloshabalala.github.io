@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi-Fi Org Sales Performance Dashboard | Njabulo Shabalala</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #0b0f17;
+        color: #f3f4f6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+    }
+    a {
+        color: #3b82f6;
+    }
+    a.back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    a.back-link:hover {
+        color: #3b82f6;
+    }
+    h1 {
+        font-size: 2.1rem;
+        color: #ffffff;
+        border-bottom: 1px solid #212d3d;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-top: 2.75rem;
+        border-bottom: 1px solid #212d3d;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+    h3 {
+        font-size: 1.15rem;
+        color: #38bdf8;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    p {
+        margin-bottom: 1rem;
+        color: #d1d5db;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid #212d3d;
+        margin: 2.5rem 0;
+    }
+    table, .markdown-body table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        background-color: #0b0f17 !important;
+        margin: 1.5rem 0;
+    }
+    table th, table td, .markdown-body table th, .markdown-body table td {
+        border: 1px solid #212d3d !important;
+        padding: 0.75rem 1rem !important;
+        background-color: #131b26 !important;
+        color: #f3f4f6 !important;
+        text-align: center;
+    }
+    table th, .markdown-body table th {
+        background-color: #131b26 !important;
+        color: #38bdf8 !important;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    table tr:nth-child(even), .markdown-body table tr:nth-child(even) {
+        background-color: #131b26 !important;
+    }
+    table td {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffffff !important;
+    }
+    code {
+        background-color: #131b26 !important;
+        color: #38bdf8 !important;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+    pre {
+        background-color: #131b26 !important;
+        border: 1px solid #212d3d !important;
+        border-radius: 8px;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+    }
+    details {
+        background-color: #131b26 !important;
+        border: 1px solid #212d3d !important;
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+    }
+    summary {
+        cursor: pointer;
+        color: #38bdf8 !important;
+        font-weight: 600;
+    }
+    img {
+        border-radius: 8px;
+        border: 1px solid #212d3d;
+        max-width: 100%;
+        margin-top: 0.75rem;
+    }
+    em {
+        display: block;
+        color: #9ca3af;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+<h1>Hi-Fi Org Sales Performance Dashboard</h1>
+
+<h2>Key Results</h2>
+
+<table>
+    <tr>
+        <th>Total Revenue</th>
+        <th>Total Orders</th>
+        <th>Avg. Order Value</th>
+        <th>Top Region</th>
+    </tr>
+    <tr>
+        <td>R2,452,084.30</td>
+        <td>2,000</td>
+        <td>R1,226.04</td>
+        <td>North</td>
+    </tr>
+</table>
+
+<hr>
+
+<h2>The Problem</h2>
+<p>Hi-Fi Org's sales activity was captured as raw, transaction-level data &mdash; every order, product, region, and channel logged as a flat row with no way to see the bigger picture. Leadership had no quick way to answer basic questions: which regions were actually performing, which product categories were driving revenue, or how sales were splitting across online versus in-store channels. Without a way to slice this data on demand, any answer meant manually filtering and re-summing thousands of rows every time a new question came up.</p>
+
+<h2>What I Built</h2>
+<p>An interactive Excel dashboard built on top of the raw transaction data, using pivot tables as the underlying engine and slicers (Product, Product Category, Region, Sales Channel, and Month/Quarter/Year date hierarchies) to let anyone filter the entire report in real time &mdash; no formulas to edit, no re-querying required.</p>
+<p>The dashboard answers five core business questions, each mapped directly from a stakeholder requirement to a specific chart and underlying data column:</p>
+
+<table>
+    <tr>
+        <th>Dashboard Requirement</th>
+        <th>Dashboard Element</th>
+        <th>Column Used</th>
+    </tr>
+    <tr><td>Total Revenue</td><td>Total Revenue KPI</td><td>Revenue</td></tr>
+    <tr><td>Total Orders</td><td>Total Orders KPI</td><td>Order ID</td></tr>
+    <tr><td>Quantity Sold</td><td>Total Quantity Sold KPI</td><td>Quantity</td></tr>
+    <tr><td>Average Order Value</td><td>Average Order Value KPI</td><td>Revenue</td></tr>
+    <tr><td>Monthly Revenue Trend</td><td>Revenue by Month</td><td>Date and Revenue</td></tr>
+    <tr><td>Regional Performance</td><td>Revenue by Region</td><td>Region and Revenue</td></tr>
+    <tr><td>Product Category Performance</td><td>Revenue by Product Category</td><td>Product Category and Revenue</td></tr>
+    <tr><td>Sales Channel Contribution</td><td>Revenue by Sales Channel</td><td>Sales Channel and Revenue</td></tr>
+    <tr><td>Top Products by Revenue</td><td>Top 5 Products by Revenue</td><td>Product and Revenue</td></tr>
+</table>
+
+<hr>
+
+<h2>Dashboard Showcase</h2>
+<img src="assets/hifi-org-dashboard.png" alt="Hi-Fi Org Dashboard">
+<em>Figure 1: Full interactive dashboard view &mdash; KPI summary, monthly revenue trend, regional and category breakdowns, sales channel split, and top 5 products by revenue, all filterable via slicers.</em>
+
+<hr>
+
+<h2>Key Insights</h2>
+
+<h3>1. Regional Performance</h3>
+<p>North (R561,753.72) narrowly edged out Central (R556,705.18) as the top-earning region, with South (R444,494.30) and West (R421,322.25) trailing. The spread between the top and bottom region is relatively tight, suggesting revenue is fairly evenly distributed geographically rather than concentrated in a single territory.</p>
+
+<h3>2. Product Category Concentration</h3>
+<p>Computers dominated category revenue at R1,346,491.26 &mdash; more than double the next closest category, Monitors, at R526,744.59. Networking, Storage, Accessories, and Office Supplies made up the remainder, with Office Supplies contributing the least at R16,640.26. This signals a business that is heavily reliant on a single high-value category, which carries some concentration risk worth flagging to leadership.</p>
+
+<h3>3. Sales Channel Mix</h3>
+<p>Online sales led as the largest single channel, followed by Corporate Sales, Retail Store, and Marketplace. This suggests digital demand generation and direct B2B relationships are currently outperforming both physical retail and third-party marketplace listings.</p>
+
+<h3>4. Top Product Performance</h3>
+<p>The Gaming Laptop was the single highest-revenue product at R432,576.06 &mdash; well ahead of the next best performer, Laptop Air 13, at R273,532.50. High-ticket computing hardware (laptops in particular) clearly anchors the top of the product mix.</p>
+
+<h3>5. Revenue Trend Volatility</h3>
+<p>Monthly revenue swung considerably throughout the year, ranging from a low of roughly R150K to a high of roughly R280K, with November as the peak month (~R274K). The absence of a clear steady upward trend suggests revenue may be more promotion- or seasonality-driven than organically growing month over month &mdash; worth investigating further with a longer historical window.</p>
+
+<hr>
+
+<h2>Technical Approach</h2>
+<p><strong>Data Source:</strong> Raw transactional sales data (Order ID, Date, Product, Product Category, Region, Sales Channel, Quantity, Revenue) &mdash; over 2,000 individual order rows.</p>
+
+<p><strong>Build Process:</strong></p>
+<p>Structured the raw data as a clean Excel Table to support dynamic pivot table refresh as new rows are added.</p>
+<p>Built a set of supporting Pivot Tables (on a dedicated <code>Supporting_Pivots</code> sheet) as the calculation layer behind each chart, keeping the dashboard sheet itself free of formula clutter.</p>
+<p>Connected Region, Product, Product Category, and Sales Channel Slicers across all pivot tables so a single filter selection updates every chart and KPI simultaneously.</p>
+<p>Added Timeline/date slicers (Days, Months, Quarters, Years) to allow flexible period-over-period filtering without rebuilding any visuals.</p>
+<p>Used a mix of chart types matched to the analysis: line chart for revenue trend, column charts for regional/category/product comparisons, and a pie chart for sales channel share &mdash; chosen so each chart type suits the shape of the underlying question rather than defaulting to one style throughout.</p>
+
+</body>
+</html>
