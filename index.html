@@ -212,6 +212,84 @@
             background-color: var(--card-hover-bg);
         }
 
+        .card-thumb {
+            width: calc(100% + 3.5rem);
+            margin: -1.75rem -1.75rem 1.25rem -1.75rem;
+            height: 160px;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            background-color: #0e1520;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-thumb img {
+            transform: scale(1.04);
+        }
+
+        .card-thumb-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.75rem;
+            background: repeating-linear-gradient(
+                135deg,
+                rgba(255,255,255,0.02),
+                rgba(255,255,255,0.02) 10px,
+                rgba(255,255,255,0.045) 10px,
+                rgba(255,255,255,0.045) 20px
+            );
+        }
+
+        .status-pill {
+            position: absolute;
+            top: 0.65rem;
+            right: 0.65rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .status-live {
+            background-color: rgba(74, 222, 128, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.4);
+        }
+
+        .status-progress {
+            background-color: rgba(250, 204, 21, 0.1);
+            color: #facc15;
+            border: 1px solid rgba(250, 204, 21, 0.35);
+        }
+
+        /* Cards not yet finished: dimmed / desaturated until real content lands */
+        .card.is-pending {
+            opacity: 0.72;
+        }
+
+        .card.is-pending:hover {
+            opacity: 0.92;
+        }
+
+        .card.is-pending .card-title {
+            color: var(--text-secondary);
+        }
+
         .card-header {
             margin-bottom: 1rem;
         }
@@ -273,12 +351,13 @@
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             border: 1px solid var(--border-color);
+            cursor: default;
         }
 
         .btn-secondary:hover {
-            border-color: var(--text-primary);
+            border-color: var(--text-secondary);
         }
 
         /* Footer */
@@ -328,9 +407,13 @@
 
         <!-- Certification Badges -->
         <div class="cert-container">
-            <!-- Relative path updated to assets/ -->
-            <img src="assets/pl-300-badge.png" alt="Microsoft Certified: Power BI Data Analyst Associate" class="cert-badge" onerror="this.style.display='none'">
-            <img src="assets/sc-900-badge.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals" class="cert-badge" onerror="this.style.display='none'">
+            <!-- Relative path updated to assets/ ; wrap in link so badges act as verifiable evidence, not just decoration -->
+            <a href="https://learn.microsoft.com/en-us/users/" target="_blank" rel="noopener">
+                <img src="assets/pl-300-badge.png" alt="Microsoft Certified: Power BI Data Analyst Associate" class="cert-badge" onerror="this.style.display='none'">
+            </a>
+            <a href="https://learn.microsoft.com/en-us/users/" target="_blank" rel="noopener">
+                <img src="assets/sc-900-badge.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals" class="cert-badge" onerror="this.style.display='none'">
+            </a>
         </div>
     </header>
 
@@ -345,6 +428,10 @@
             <!-- Card 1 -->
             <div class="card">
                 <div>
+                    <div class="card-thumb">
+                        <img src="assets/thumbs/sales-operations.png" alt="B2B Order-to-Cash Power BI dashboard preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-chart-pie&quot;></i></div>'">
+                        <span class="status-pill status-live">Live</span>
+                    </div>
                     <div class="card-header">
                         <h3 class="card-title">B2B Order-to-Cash Data Modeling</h3>
                     </div>
@@ -367,6 +454,10 @@
             <!-- Card 2 -->
             <div class="card">
                 <div>
+                    <div class="card-thumb">
+                        <img src="assets/thumbs/excel-project.png" alt="Hi-Fi Org Sales Performance Excel dashboard preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-table-cells&quot;></i></div>'">
+                        <span class="status-pill status-live">Live</span>
+                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Hi-Fi Org Sales Performance Dashboard</h3>
                     </div>
@@ -386,8 +477,12 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="card">
+            <div class="card is-pending">
                 <div>
+                    <div class="card-thumb">
+                        <div class="card-thumb-placeholder"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <span class="status-pill status-progress">In Progress</span>
+                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Customer Churn & LTV Analytics</h3>
                     </div>
@@ -403,6 +498,78 @@
                 </div>
                 <div class="card-actions">
                     <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Nompumelelo -->
+            <div class="card is-pending">
+                <div>
+                    <div class="card-thumb">
+                        <div class="card-thumb-placeholder"><i class="fa-solid fa-comments"></i></div>
+                        <span class="status-pill status-progress">In Progress</span>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Document Automation Tool for Small Businesses (Project Nompumelelo)</h3>
+                    </div>
+                    <p class="card-desc">
+                        Independently designed and built a tool that lets small business owners submit documents over WhatsApp and get them automatically read, processed, and confirmed back to them — removing manual data entry from the process.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Automation</span>
+                        <span class="tag">Data Pipelines</span>
+                        <span class="tag">Applied AI</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
+                </div>
+            </div>
+
+            <!-- Card 5: Shipment Data Cleaning -->
+            <div class="card is-pending">
+                <div>
+                    <div class="card-thumb">
+                        <div class="card-thumb-placeholder"><i class="fa-solid fa-broom"></i></div>
+                        <span class="status-pill status-progress">In Progress</span>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Shipment Data Cleaning Pipeline</h3>
+                    </div>
+                    <p class="card-desc">
+                        Cleaned a raw shipment-tracking dataset containing formatting inconsistencies, duplicates, missing values, invalid dates, and numerical outliers. Used window functions for deduplication, IQR-based outlier detection and capping, and safe date parsing to produce an analysis-ready dataset.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Google BigQuery</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Data Cleaning</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">In Progress</a>
+                </div>
+            </div>
+
+            <!-- Card 6: E-Commerce Sales Funnel Analysis -->
+            <div class="card is-pending">
+                <div>
+                    <div class="card-thumb">
+                        <div class="card-thumb-placeholder"><i class="fa-solid fa-filter"></i></div>
+                        <span class="status-pill status-progress">In Progress</span>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">E-Commerce Sales Funnel Analysis</h3>
+                    </div>
+                    <p class="card-desc">
+                        Analyzed user behavior data across the purchase funnel to identify conversion bottlenecks by stage and marketing channel, translating findings into channel-specific recommendations for marketing, UX, and finance stakeholders.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Google BigQuery</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Funnel Analysis</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="btn-card btn-secondary">In Progress</a>
                 </div>
             </div>
 
