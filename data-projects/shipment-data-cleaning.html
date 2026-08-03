@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipment Data Cleaning — BigQuery SQL | Njabulo Shabalala</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #0b0f17;
+        color: #f3f4f6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+    }
+    a {
+        color: #3b82f6;
+    }
+    a.back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    a.back-link:hover {
+        color: #3b82f6;
+    }
+    h1 {
+        font-size: 2.1rem;
+        color: #ffffff;
+        border-bottom: 1px solid #212d3d;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-top: 2.75rem;
+        border-bottom: 1px solid #212d3d;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+    h3 {
+        font-size: 1.15rem;
+        color: #38bdf8;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    p {
+        margin-bottom: 1rem;
+        color: #d1d5db;
+    }
+    ul {
+        margin: 0 0 1.25rem 1.25rem;
+        color: #d1d5db;
+    }
+    li {
+        margin-bottom: 0.6rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid #212d3d;
+        margin: 2.5rem 0;
+    }
+    table, .markdown-body table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        background-color: #0b0f17 !important;
+        margin: 1.5rem 0;
+    }
+    table th, table td, .markdown-body table th, .markdown-body table td {
+        border: 1px solid #212d3d !important;
+        padding: 0.75rem 1rem !important;
+        background-color: #131b26 !important;
+        color: #f3f4f6 !important;
+        text-align: center;
+    }
+    table th, .markdown-body table th {
+        background-color: #131b26 !important;
+        color: #38bdf8 !important;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    table td {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffffff !important;
+    }
+    code {
+        background-color: #131b26 !important;
+        color: #38bdf8 !important;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+    pre {
+        background-color: #131b26 !important;
+        border: 1px solid #212d3d !important;
+        border-radius: 8px;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+    }
+    pre code {
+        background-color: transparent !important;
+        padding: 0;
+        color: #d1d5db !important;
+        white-space: pre;
+        font-size: 0.85rem;
+    }
+    .callout {
+        background-color: #131b26;
+        border: 1px solid #212d3d;
+        border-left: 4px solid #38bdf8;
+        border-radius: 6px;
+        padding: 1.1rem 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .callout p {
+        margin-bottom: 0;
+    }
+    .tool-badge {
+        display: inline-block;
+        margin-right: 0.5rem;
+        background-color: rgba(56, 189, 248, 0.08);
+        color: #38bdf8;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.35rem 0.85rem;
+        border-radius: 20px;
+        border: 1px solid rgba(56, 189, 248, 0.4);
+        margin-bottom: 1.5rem;
+    }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+<h1>Shipment Data Cleaning — BigQuery SQL</h1>
+<span class="tool-badge">Google BigQuery</span>
+<span class="tool-badge">SQL</span>
+
+<p>End-to-end data cleaning pipeline for a shipment tracking dataset containing whitespace inconsistencies, mixed text casing, placeholder null strings, exact duplicate rows, invalid numeric values, and inconsistent date formats.</p>
+
+<hr>
+
+<h2>Key Results</h2>
+<p>Rather than a business-metrics dashboard, this project is a data-quality pipeline &mdash; so the results here are about the issues found and resolved, not revenue figures:</p>
+<ul>
+    <li><strong>Six distinct data quality issues identified and resolved</strong> in a single query: whitespace, inconsistent casing, placeholder null strings, exact duplicates, invalid numeric values, and date logic errors.</li>
+    <li><strong>Exact duplicate rows removed</strong> using a windowed <code>ROW_NUMBER()</code> approach, rather than a blunt <code>DISTINCT</code>, so duplication is judged on the full business-meaningful combination of fields rather than row-level noise.</li>
+    <li><strong>Invalid shipment records surfaced, not silently dropped</strong> &mdash; negative weights are corrected rather than deleted, and shipments where delivery precedes shipping are explicitly flagged as <code>Invalid</code> instead of being hidden from downstream analysis.</li>
+</ul>
+
+<hr>
+
+<h2>The Problem</h2>
+<p>The raw shipment tracking dataset had the kind of quality issues that quietly break downstream reporting: warehouse and carrier names logged with inconsistent capitalization and stray whitespace, a literal text string <code>"NULL"</code> standing in for true nulls in the damage-reported field, exact duplicate shipment rows inflating counts, weight values that were negative or zero, and ship/delivery dates recorded across multiple formats &mdash; some of which weren't valid dates at all. Any aggregation or trend analysis run directly against this data would have produced misleading results without this cleaning step first.</p>
+
+<h2>What I Built</h2>
+<p>A single GoogleSQL query that standardizes, deduplicates, and validates the dataset in one pass:</p>
+
+<ul>
+    <li><strong>Standardizes text fields</strong> &mdash; trims whitespace and normalizes casing (<code>INITCAP</code> for city/carrier names, <code>UPPER</code> for state codes) across <code>origin_warehouse</code>, <code>destination_city</code>, <code>destination_state</code>, and <code>carrier</code>.</li>
+    <li><strong>Resolves nulls</strong> &mdash; converts literal <code>"NULL"</code> strings into true <code>NULL</code> values for <code>damage_reported</code>, and applies <code>COALESCE</code> to give <code>destination_city</code> and <code>delivery_date</code> readable defaults where missing.</li>
+    <li><strong>Removes exact duplicates</strong> &mdash; uses <code>ROW_NUMBER()</code> in a CTE, partitioned on the combination of warehouse, destination, carrier, ship date, weight, and freight cost, keeping the first <code>shipment_id</code> per group.</li>
+    <li><strong>Fixes invalid numeric values</strong> &mdash; corrects negative <code>weight_kg</code> entries via <code>ABS()</code> and nulls out zero-weight rows that can't represent a real shipment.</li>
+    <li><strong>Validates date logic</strong> &mdash; parses <code>ship_date</code>/<code>delivery_date</code> with <code>SAFE.PARSE_DATE</code> (so malformed strings return NULL instead of erroring the query), computes transit days via <code>DATE_DIFF</code>, and flags shipments where delivery precedes shipping as <code>Invalid</code>.</li>
+</ul>
+
+<hr>
+
+<h2>Step-by-Step Walkthrough</h2>
+<p>Rather than jumping straight to the final combined query, here's how the pipeline was built up one issue at a time &mdash; each step isolated and verified before folding it into the next:</p>
+
+<h3>1. Removing whitespace</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT shipment_id, 
+TRIM(origin_warehouse) AS origin_warehouse,
+TRIM(destination_city) AS destination_city,
+TRIM(destination_state) AS destination_state,
+TRIM(carrier) AS carrier
+FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`;
+</code></pre>
+</details>
+
+<h3>2. Standardizing text casing</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT shipment_id, 
+INITCAP(TRIM(origin_warehouse)) AS origin_warehouse,
+INITCAP(TRIM(destination_city)) AS destination_city,
+UPPER(TRIM(destination_state)) AS destination_state,
+INITCAP(TRIM(carrier)) AS carrier
+FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`;
+</code></pre>
+</details>
+
+<h3>3. Replacing the string "NULL" and handling true null values</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT shipment_id, 
+CASE 
+WHEN damage_reported = 'NULL' THEN NULL
+ELSE INITCAP(TRIM(damage_reported))
+END AS damage_reported,
+
+COALESCE(destination_city, 'Unknown') AS destination_city, 
+COALESCE(delivery_date, 'Not Yet Delivered') AS delivery_date,
+
+INITCAP(TRIM(origin_warehouse)) AS origin_warehouse,
+INITCAP(TRIM(destination_city)) AS destination_city,
+UPPER(TRIM(destination_state)) AS destination_state,
+INITCAP(TRIM(carrier)) AS carrier
+FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`;
+</code></pre>
+</details>
+
+<h3>4. Removing exact duplicate rows</h3>
+<details>
+<summary>View query</summary>
+<pre><code>WITH ranked AS (
+SELECT *, ROW_NUMBER() OVER ( 
+PARTITION BY origin_warehouse, destination_city, carrier, ship_date, CAST(weight_kg AS STRING), CAST(freight_cost AS STRING)
+ORDER BY shipment_id
+) AS row_number
+FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`
+)
+SELECT * EXCEPT (row_number)
+FROM ranked
+WHERE row_number = 1;
+</code></pre>
+</details>
+
+<h3>5. Fixing negative and suspicious numeric values</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT shipment_id,
+CASE 
+WHEN weight_kg &lt; 0 THEN ABS(weight_kg)
+WHEN weight_kg = 0 THEN NULL 
+ELSE weight_kg
+END AS weight_kg_cleaned
+FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`;
+</code></pre>
+</details>
+
+<h3>6. Validating date logic (delivery after ship date)</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT shipment_id, ship_date, delivery_date,
+DATE_DIFF(
+SAFE.PARSE_DATE("%Y-%m-%d", delivery_date),
+SAFE.PARSE_DATE("%Y-%m-%d", ship_date),
+DAY
+) AS transit_days,
+CASE 
+WHEN SAFE.PARSE_DATE("%Y-%m-%d", delivery_date) &lt; SAFE.PARSE_DATE("%Y-%m-%d", ship_date) THEN 'Invalid'
+WHEN SAFE.PARSE_DATE("%Y-%m-%d", delivery_date) = SAFE.PARSE_DATE("%Y-%m-%d", ship_date) THEN 'Same Day Delivery'
+ELSE 'Valid'
+END AS data_quality_flag
+FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`;
+</code></pre>
+</details>
+
+<hr>
+
+<h2>Known Limitation</h2>
+<div class="callout">
+<p><code>delivery_date</code> contains multiple date formats in the source data (<code>YYYY-MM-DD</code>, <code>MM/DD/YYYY</code>, <code>YYYY/MM/DD</code>, <code>Month DD YYYY</code>, plus a non-date placeholder for undelivered shipments). <code>SAFE.PARSE_DATE</code> is currently set to one format pattern, so rows in other formats parse to NULL and their <code>transit_days</code>/<code>data_quality_flag</code> can't be reliably computed &mdash; those rows currently fall through to a default <code>Valid</code> flag rather than being caught explicitly. Next step: add format detection (or a <code>COALESCE</code> across multiple <code>SAFE.PARSE_DATE</code> patterns) and an explicit <code>Unparseable</code> flag branch.</p>
+</div>
+
+<hr>
+
+<h2>Query</h2>
+
+<pre><code>-- Removing whitespace, standardizing casing, handling nulls, deduping, cleaning numerics, validating dates
+WITH ranked AS (
+  SELECT *, 
+    ROW_NUMBER() OVER ( 
+      PARTITION BY origin_warehouse, destination_city, carrier, ship_date, 
+                   CAST(weight_kg AS STRING), CAST(freight_cost AS STRING)
+      ORDER BY shipment_id
+    ) AS row_number
+  FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`
+)
+SELECT 
+  shipment_id,
+  CASE 
+    WHEN damage_reported = 'NULL' THEN NULL
+    ELSE INITCAP(TRIM(damage_reported))
+  END AS damage_reported,
+  COALESCE(INITCAP(TRIM(destination_city)), 'Unknown') AS destination_city,
+  COALESCE(delivery_date, 'Not Yet Delivered') AS delivery_date,
+  INITCAP(TRIM(origin_warehouse)) AS origin_warehouse,
+  UPPER(TRIM(destination_state)) AS destination_state,
+  INITCAP(TRIM(carrier)) AS carrier,
+  ship_date,
+  CASE 
+    WHEN weight_kg &lt; 0 THEN ABS(weight_kg)
+    WHEN weight_kg = 0 THEN NULL 
+    ELSE weight_kg
+  END AS weight_kg_cleaned,
+  DATE_DIFF(
+    SAFE.PARSE_DATE("%Y-%m-%d", delivery_date),
+    SAFE.PARSE_DATE("%Y-%m-%d", ship_date),
+    DAY
+  ) AS transit_days,
+  CASE 
+    WHEN SAFE.PARSE_DATE("%Y-%m-%d", delivery_date) &lt; SAFE.PARSE_DATE("%Y-%m-%d", ship_date) THEN 'Invalid'
+    WHEN SAFE.PARSE_DATE("%Y-%m-%d", delivery_date) = SAFE.PARSE_DATE("%Y-%m-%d", ship_date) THEN 'Same Day Delivery'
+    ELSE 'Valid'
+  END AS data_quality_flag
+FROM ranked
+WHERE row_number = 1;
+</code></pre>
+
+</body>
+</html>
