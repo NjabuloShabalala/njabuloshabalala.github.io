@@ -129,6 +129,8 @@
         }
 
         .skill-badge {
+            text-decoration: none;
+            cursor: pointer;
             background-color: rgba(56, 189, 248, 0.08); /* Faint neon background */
             color: var(--accent-neon);
             font-size: 0.85rem;
@@ -397,12 +399,12 @@
         
         <!-- Technical Skill Badges with Neon Styling -->
         <div class="skills-container">
-            <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
+            <a href="#project-sql" class="skill-badge"><i class="fa-solid fa-database"></i> SQL</a>
             <span class="skill-badge"><i class="fa-solid fa-server"></i> KQL (Kusto)</span>
-            <span class="skill-badge"><i class="fa-solid fa-chart-line"></i> Power BI</span>
-            <span class="skill-badge"><i class="fa-solid fa-table"></i> Advanced Excel</span>
-            <span class="skill-badge"><i class="fa-solid fa-function"></i> DAX</span>
-            <span class="skill-badge"><i class="fa-solid fa-diagram-project"></i> Data Modeling</span>
+            <a href="#project-powerbi" class="skill-badge"><i class="fa-solid fa-chart-line"></i> Power BI</a>
+            <a href="#project-excel" class="skill-badge"><i class="fa-solid fa-table"></i> Advanced Excel</a>
+            <a href="#project-powerbi" class="skill-badge"><i class="fa-solid fa-function"></i> DAX</a>
+            <a href="#project-powerbi" class="skill-badge"><i class="fa-solid fa-diagram-project"></i> Data Modeling</a>
         </div>
 
         <!-- Certification Badges -->
@@ -426,7 +428,7 @@
         <div class="grid">
 
             <!-- Card 1 -->
-            <div class="card">
+            <div class="card" id="project-powerbi">
                 <div>
                     <div class="card-thumb">
                         <img src="assets/thumbs/sales-operations.png" alt="B2B Order-to-Cash Power BI dashboard preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-chart-pie&quot;></i></div>'">
@@ -452,7 +454,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="card">
+            <div class="card" id="project-excel">
                 <div>
                     <div class="card-thumb">
                         <img src="assets/thumbs/excel-project.png" alt="Hi-Fi Org Sales Performance Excel dashboard preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-table-cells&quot;></i></div>'">
@@ -476,7 +478,32 @@
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 3: Shipment Data Cleaning -->
+            <div class="card" id="project-sql">
+                <div>
+                    <div class="card-thumb">
+                        <img src="assets/thumbs/shipment-data-cleaning.png" alt="Shipment data cleaning SQL pipeline preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-broom&quot;></i></div>'">
+                        <span class="status-pill status-live">Live</span>
+                    </div>
+                    <div class="card-header">
+                        <h3 class="card-title">Shipment Data Cleaning Pipeline</h3>
+                    </div>
+                    <p class="card-desc">
+                        Built an end-to-end BigQuery SQL pipeline to clean a messy shipment tracking dataset — fixing inconsistent text formatting, resolving placeholder null values, removing duplicate records, correcting invalid weights, and validating delivery dates against ship dates.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Google BigQuery</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Data Cleaning</span>
+                        <span class="tag">Data Quality</span>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <a href="https://njabuloshabalala.github.io/data-projects/shipment-data-cleaning.html" class="btn-card btn-primary">View Technical Showcase</a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
             <div class="card is-pending">
                 <div>
                     <div class="card-thumb">
@@ -501,7 +528,7 @@
                 </div>
             </div>
 
-            <!-- Card 4: Nompumelelo -->
+            <!-- Card 5: Nompumelelo -->
             <div class="card is-pending">
                 <div>
                     <div class="card-thumb">
@@ -522,30 +549,6 @@
                 </div>
                 <div class="card-actions">
                     <a href="#" class="btn-card btn-secondary">Documentation Coming Soon</a>
-                </div>
-            </div>
-
-            <!-- Card 5: Shipment Data Cleaning -->
-            <div class="card is-pending">
-                <div>
-                    <div class="card-thumb">
-                        <div class="card-thumb-placeholder"><i class="fa-solid fa-broom"></i></div>
-                        <span class="status-pill status-progress">In Progress</span>
-                    </div>
-                    <div class="card-header">
-                        <h3 class="card-title">Shipment Data Cleaning Pipeline</h3>
-                    </div>
-                    <p class="card-desc">
-                        Cleaned a raw shipment-tracking dataset containing formatting inconsistencies, duplicates, missing values, invalid dates, and numerical outliers. Used window functions for deduplication, IQR-based outlier detection and capping, and safe date parsing to produce an analysis-ready dataset.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Google BigQuery</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Data Cleaning</span>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <a href="#" class="btn-card btn-secondary">In Progress</a>
                 </div>
             </div>
 
