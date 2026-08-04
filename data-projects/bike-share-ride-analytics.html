@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bike-Share Ride Analytics — BigQuery SQL | Njabulo Shabalala</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #0b0f17;
+        color: #f3f4f6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+    }
+    a {
+        color: #3b82f6;
+    }
+    a.back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+    a.back-link:hover {
+        color: #3b82f6;
+    }
+    h1 {
+        font-size: 2.1rem;
+        color: #ffffff;
+        border-bottom: 1px solid #212d3d;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-top: 2.75rem;
+        border-bottom: 1px solid #212d3d;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+    h3 {
+        font-size: 1.15rem;
+        color: #38bdf8;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    p {
+        margin-bottom: 1rem;
+        color: #d1d5db;
+    }
+    ul {
+        margin: 0 0 1.25rem 1.25rem;
+        color: #d1d5db;
+    }
+    li {
+        margin-bottom: 0.6rem;
+    }
+    hr {
+        border: none;
+        border-top: 1px solid #212d3d;
+        margin: 2.5rem 0;
+    }
+    table, .markdown-body table {
+        border-collapse: collapse !important;
+        width: 100% !important;
+        background-color: #0b0f17 !important;
+        margin: 1.5rem 0;
+    }
+    table th, table td, .markdown-body table th, .markdown-body table td {
+        border: 1px solid #212d3d !important;
+        padding: 0.75rem 1rem !important;
+        background-color: #131b26 !important;
+        color: #f3f4f6 !important;
+        text-align: center;
+    }
+    table th, .markdown-body table th {
+        background-color: #131b26 !important;
+        color: #38bdf8 !important;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    table td {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffffff !important;
+    }
+    code {
+        background-color: #131b26 !important;
+        color: #38bdf8 !important;
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+    }
+    pre {
+        background-color: #131b26 !important;
+        border: 1px solid #212d3d !important;
+        border-radius: 8px;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+    }
+    pre code {
+        background-color: transparent !important;
+        padding: 0;
+        color: #d1d5db !important;
+        white-space: pre;
+        font-size: 0.85rem;
+    }
+    details {
+        background-color: #131b26;
+        border: 1px solid #212d3d;
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin: 1.5rem 0;
+    }
+    summary {
+        cursor: pointer;
+        color: #38bdf8;
+        font-weight: 600;
+    }
+    .callout {
+        background-color: #131b26;
+        border: 1px solid #212d3d;
+        border-left: 4px solid #38bdf8;
+        border-radius: 6px;
+        padding: 1.1rem 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .callout p {
+        margin-bottom: 0;
+    }
+    .tool-badge {
+        display: inline-block;
+        margin-right: 0.5rem;
+        background-color: rgba(56, 189, 248, 0.08);
+        color: #38bdf8;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.35rem 0.85rem;
+        border-radius: 20px;
+        border: 1px solid rgba(56, 189, 248, 0.4);
+        margin-bottom: 1.5rem;
+    }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
+
+<h1>Bike-Share Ride Analytics — BigQuery SQL</h1>
+<span class="tool-badge">Google BigQuery</span>
+<span class="tool-badge">SQL</span>
+
+<p>Exploratory analysis of a bike-share service's ride, user, and station data to understand data quality, ridership patterns by membership type, peak demand hours, popular stations, and signup seasonality — with the goal of informing fleet allocation and membership strategy.</p>
+
+<hr>
+
+<h2>Key Results</h2>
+<ul>
+    <li><strong>Peak demand identified at two distinct windows</strong> &mdash; 7am and 3pm &mdash; aligning with commuter start/end-of-work patterns rather than a single midday peak.</li>
+    <li><strong>Data quality issue caught early:</strong> 106 rides under 2 minutes and 1 zero-distance ride flagged as likely false starts, preventing them from skewing average ride duration and distance metrics.</li>
+    <li><strong>Two distinct rider segments surfaced</strong> from membership-tier analysis: casual riders show higher average distance and duration (consistent with tourist/leisure use), while subscribers make up the highest-volume, most consistent rider base.</li>
+</ul>
+
+<hr>
+
+<h2>The Problem</h2>
+<p>The bike-share operator had raw ride, user, and station data spread across separate tables with no consolidated view of how the service was actually being used. Before any strategic decision &mdash; like where to reposition bikes, which membership tier to invest incentives in, or when to expect signup surges &mdash; the underlying data needed to be explored, validated, and joined into a usable shape. The starting point was simply: what does this data actually contain, and can it be trusted?</p>
+
+<h2>What I Did</h2>
+<p>This was structured as an exploratory data analysis (EDA) process &mdash; starting from the ground up rather than jumping straight to insights:</p>
+<ul>
+    <li><strong>Scoped the dataset</strong> &mdash; counted rows across the <code>users</code>, <code>rides</code>, and <code>stations</code> tables to understand overall data volume before analysis.</li>
+    <li><strong>Checked for missing values</strong> using <code>COUNTIF</code> across key identifier and timestamp fields, to catch structural gaps before they could silently affect downstream aggregates.</li>
+    <li><strong>Profiled ride summary statistics</strong> &mdash; min/max/average distance and average ride duration &mdash; which is what first surfaced a data quality flag: a minimum ride distance of 0, which shouldn't be possible for a real ride.</li>
+    <li><strong>Quantified likely false starts</strong> by explicitly counting rides under 2 minutes and rides with zero recorded distance, rather than assuming the anomaly was a one-off.</li>
+    <li><strong>Segmented ridership by membership tier</strong>, joining <code>rides</code> to <code>users</code> to compare total rides, average distance, and average duration between casual and subscribed riders.</li>
+    <li><strong>Identified peak usage hours</strong> by extracting the hour from each ride's start time and counting rides per hour across the full dataset.</li>
+    <li><strong>Ranked the most popular stations</strong> by joining ride start locations to the stations table and counting rides per station.</li>
+    <li><strong>Analyzed monthly signup trends</strong> using <code>DATE_TRUNC</code> on user signup dates, to understand seasonality in new user growth.</li>
+</ul>
+
+<hr>
+
+<h2>Key Insights</h2>
+
+<h3>1. Data Quality: False Starts</h3>
+<p>Summary statistics on ride distance surfaced an immediate red flag &mdash; a minimum distance of 0km, which isn't a realistic value for a completed ride. Digging further, this was quantified precisely: 106 rides under 2 minutes and 1 ride with exactly zero distance. These were flagged rather than silently included, since leaving them in would understate true average ride duration and distance.</p>
+
+<h3>2. Membership Tier Behavior</h3>
+<p>Casual riders show a notably higher average ride distance and duration than subscribers, which is consistent with tourist or one-off leisure usage rather than routine commuting. This suggests an opportunity: a weekend explorer pass or short-term leisure package could capture more value from this segment. Subscribers, meanwhile, represent the highest total ride volume &mdash; the operational backbone of the service &mdash; making subscriber retention and incentive programs the higher-leverage lever for sustained revenue.</p>
+
+<h3>3. Peak Demand Hours</h3>
+<p>Ride volume peaks sharply at two points in the day: 7am and 3pm &mdash; matching the start and end of a typical workday rather than a single midday leisure peak. This has a direct operational implication: bike availability at high-demand stations needs to be actively managed around these two windows specifically, not evenly distributed across the day.</p>
+
+<h3>4. Popular Stations</h3>
+<p>Ranking stations by ride count highlights which locations see disproportionate demand. Cross-referencing this with the peak-hour finding points toward a clear fleet rebalancing priority: ensure high-traffic stations are stocked ahead of the 7am and 3pm surges specifically.</p>
+
+<h3>5. Signup Seasonality</h3>
+<p>Monthly new-signup counts reveal which months drive the most user growth. Understanding this pattern matters operationally &mdash; if signups spike in a particular season, bike availability needs to scale ahead of that demand rather than reactively, to avoid new users having a poor first experience with the service.</p>
+
+<hr>
+
+<h2>Step-by-Step Walkthrough</h2>
+
+<h3>1. Row counts across core tables</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+(SELECT  COUNT (*) FROM data-analyst-project-1-504112.ride_data.users) AS total_users,
+(SELECT  COUNT (*) FROM data-analyst-project-1-504112.ride_data.ride_data) AS total_rides, 
+(SELECT  COUNT (*) FROM data-analyst-project-1-504112.ride_data.stations) AS total_stations;
+</code></pre>
+</details>
+
+<h3>2. Checking for missing values</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+COUNTIF (event_id IS NULL) AS null_ride_ids,
+COUNTIF (user_id IS NULL) AS null_user_ids,
+COUNTIF (event_date IS NULL) AS null_event_times
+FROM data-analyst-project-1-504112.ride_data.ride_data
+</code></pre>
+</details>
+
+<h3>3. Summary statistics for rides</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+MIN(distance_km) AS min_distance,
+MAX(distance_km) AS max_distance,
+AVG(distance_km) AS avg_distance,
+AVG(TIMESTAMP_DIFF(end_time, start_time, MINUTE)) AS avg_ride_duration_minutes,
+COUNT(*) AS total_rides
+FROM `data-analyst-project-1-504112.ride_data.rides`;
+</code></pre>
+</details>
+
+<h3>4. Flagging false-start rides</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+COUNTIF(TIMESTAMP_DIFF(end_time, start_time, MINUTE)&lt;2) AS short_rides,
+COUNTIF(distance_km=0) AS zero_distance_rides
+FROM `data-analyst-project-1-504112.ride_data.rides`;
+</code></pre>
+</details>
+
+<h3>5. Ridership by membership tier</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+u.membership_level,
+COUNT(r.ride_id) AS total_rides,
+AVG(r.distance_km) AS avg_distance_km,
+AVG(TIMESTAMP_DIFF(r.end_time, r.start_time, MINUTE)) AS avg_ride_duration_minutes
+FROM `data-analyst-project-1-504112.ride_data.rides` AS r
+JOIN `data-analyst-project-1-504112.ride_data.users` AS u 
+ON r.user_id = u.user_id
+GROUP BY u.membership_level
+ORDER BY total_rides DESC;
+</code></pre>
+</details>
+
+<h3>6. Peak ride hours</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+EXTRACT(HOUR FROM start_time) AS start_hour,
+COUNT(*) AS ride_count
+FROM `data-analyst-project-1-504112.ride_data.rides`
+GROUP BY start_hour
+ORDER BY start_hour;
+</code></pre>
+</details>
+
+<h3>7. Most popular stations</h3>
+<details>
+<summary>View query</summary>
+<pre><code>SELECT 
+s.station_name,
+COUNT(r.ride_id) AS ride_count
+FROM `data-analyst-project-1-504112.ride_data.rides` AS r
+JOIN `data-analyst-project-1-504112.ride_data.stations` AS s 
+ON r.start_station_id = s.station_id
+GROUP BY s.station_name
+ORDER BY ride_count DESC;
+</code></pre>
+</details>
+
+<h3>8. Monthly signup trends</h3>
+<details>
+<summary>View query</summary>
+<pre><code>WITH monthly_signups AS ( 
+SELECT DATE_TRUNC(created_at, MONTH) AS signup_month,
+COUNT(user_id) AS new_signups
+FROM `data-analyst-project-1-504112.ride_data.users`
+GROUP BY signup_month 
+)
+SELECT * FROM monthly_signups
+ORDER BY signup_month;
+</code></pre>
+</details>
+
+<hr>
+
+<h2>Next Steps</h2>
+<div class="callout">
+<p>Visualizing peak-hour ride volume and monthly signup trends would make both patterns easier to act on operationally &mdash; particularly for planning bike redistribution timing and anticipating fleet scaling ahead of high-signup months. A further breakdown of station demand by surrounding area type (business district vs. residential) would also help clarify whether commuter demand and station placement are currently well matched.</p>
+</div>
+
+</body>
+</html>
