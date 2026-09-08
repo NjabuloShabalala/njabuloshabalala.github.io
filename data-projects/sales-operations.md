@@ -48,7 +48,7 @@ img {
 }
 </style>
 
-# B2B Sales Operations, Fulfillment & Marketing Attribution Data Modeling
+# B2B Sales Operations, Fulfillment and Marketing Attribution Data Modeling
 
 ## Key Results
 
@@ -58,78 +58,26 @@ img {
 
 ---
 
-## Executive Summary: Commercial Operations & Campaign Performance
+## The Business Problem
 
-### 1. Revenue Target Deficit (-5% Variance)
-Performance Gap: Total actual sales revenue reached R526.64K against a target quota of R554.36K, representing an overall -5.0% revenue shortfall.
+A growing B2B enterprise was struggling with inconsistent commercial reporting, unsegmented campaign tracking, and poor dashboard performance. Transactional data, spanning sales orders, order-fulfillment lifecycle events, target quotas, and promotional campaign spend, was captured across disconnected tables in an unmodeled schema, so leadership lacked a single source of truth. Different departments reported conflicting revenue targets, sales variances, and campaign performance. Operations couldn't evaluate delivery lead times across product lines or regional territories without manually stitching together raw data files. The core question this project answers: is the business actually hitting its targets, where is fulfillment breaking down, and is marketing spend paying for itself, once the data is modeled to answer all three at once?
 
-Seasonality Trends: The line chart reveals that revenue tracking closely matched targets during Q1 and late Q4, but experienced a significant drop during mid-year periods (specifically Months 5, 7, and 11), driving the overall annual deficit.
+## Plausible Causes of the Reporting Breakdown
 
-Regional Contribution: Middle East (R130.01K) and Asia Pacific (R105.65K) generated the highest regional revenue, while Latin America (R84.48K) lagged behind with the lowest sales volume (12 orders) and lowest average discount applied (2.81%).
+Before restructuring anything, it was worth naming what typically produces this kind of fragmented reporting, since the fix depends on the cause:
 
-### 2. Operational Fulfillment Baseline (8.71 Days Lead Time)
-Fulfillment Efficiency: Across all 80 processed orders, the business maintains an average order-to-delivery lead time of 8.71 days.
+- **Siloed process tracking:** sales transactions (`facts_sales`) and order fulfillment events (`facts_order_process`) were maintained as separate fact tables without an integrated dimension model, which would prevent any cross-functional operational analysis.
+- **Complex many-to-many relationships left unbridged:** marketing campaigns were disconnected from actual sales transactions. Without a bridge table approach, attributing revenue to specific promotional spend would produce either blank visuals or duplicated revenue.
+- **Grain and schema misalignment:** comparing monthly target quotas (`fact_sales_targets`) against daily transactional sales (`facts_sales`) would cause filter context issues and broken visual trends across standard time dimensions.
 
-Account Manager Variability: Delivery performance varies across account manager portfolios:
+Each of these was tested directly by restructuring the schema and checking whether the resulting model could answer the four business questions below without the errors these causes would predict.
 
-David Park's client orders achieve the fastest dispatch-to-delivery cycle at 7.9 days.
+## What I Built
 
-Omar Khan's client orders experience the longest fulfillment timelines, averaging 9.2 days.
-
-Process Bottlenecks: Order-to-delivery cycle times remain flat across geographic territories, indicating that fulfillment bottlenecks stem from warehouse processing and logistics handoffs rather than regional transit distances.
-
-### 3. Marketing Campaign Efficiency & Attribution (1.71x ROAS)
-Ad Spend vs. Revenue Generation: Total campaign spend of R78.84K generated R135.21K in directly attributed sales revenue across covered product categories, yielding a 1.71x Return on Ad Spend (ROAS).
-
-Top Campaign Drivers:
-
-Black Friday represented the single largest ad spend commitment (~R30K), driving strong conversion across high-margin product lines.
-
-Summer Sale and Spring Launch 2026 demonstrated high capital efficiency, generating substantial attributed sales relative to lower budget allocations.
-
-### 4. Account Concentration & Payment Risk Profile
-Revenue Concentration: Out of 47 active corporate accounts, lifetime value is heavily concentrated in the top 10% of clients. Summit Commerce (R32.51K LTV) and Cascade Retail (R29.20K LTV) represent the primary drivers of enterprise volume.
-
-Terms Exposure: The majority of high-volume clients operate under Net 30 and Net 60 terms. Establishing formal credit monitoring for top-tier accounts (e.g., Vanguard Holdings, Zenith Group) is recommended to mitigate working capital risk on deferred invoice cycles.
-
----
-
-## The Problem
-
-A growing B2B enterprise was struggling with inconsistent commercial reporting, unsegmented campaign tracking, and poor dashboard performance. Because transactional data—spanning across sales orders, order-fulfillment lifecycle events, target quotas, and promotional campaign spend—was captured across disconnected tables and dumped into an unmodeled schema, leadership lacked a unified source of truth. Different departments reported conflicting revenue targets, sales variances, and campaign performance. Furthermore, operations could not evaluate delivery lead times across product lines or regional territories without manually stitching together raw data files.
-
-## Operational & Data Architecture Friction
-
-Before I restructured the data model, the reporting environment suffered from three core structural flaws:
-
-Siloed Process Tracking: Sales transactions (facts_sales) and order fulfillment events (facts_order_process) were maintained as separate fact tables without an integrated dimension model, preventing cross-functional operational analysis.
-
-Complex Many-to-Many Relationships: Marketing campaigns were disconnected from actual sales transactions. Without a bridge table approach, attributing revenue to specific promotional spend resulted in blank visuals or revenue duplication.
-
-Grain & Schema Misalignment: Comparing monthly target quotas (fact_sales_targets) against daily transactional sales (facts_sales) caused filter context issues and broken visual trends across standard time dimensions.
-
----
-
-## Dashboard Showcase
-
-### Page 1: Sales Performance & Fulfillment Operations
-![Page 1 Overview](/assets/visual-1-power-bi.png)
-*Figure 1: Executive view tracking revenue variance against targets, fulfillment lead times, and regional sales distribution.*
-
-### Page 2: Customer Portfolio & Campaign Performance
-![Page 2 Overview](/assets/visual-2-power-bi.png)
-*Figure 2: Corporate account LTV distribution alongside campaign ad spend vs. attributed revenue.*
-
-📁 **[Download Power BI Template (.pbit)](/assets/portfolio-project.pbit)**
-
----
-
-## Business Objectives & Core Questions
-
-To establish operational visibility, the raw schema was restructured into a performant Star Schema with explicit DAX relationship-bridging patterns, answering the four key business questions that stakeholders and leadership had:
+The raw schema was restructured into a performant Star Schema with explicit DAX relationship-bridging patterns, built to answer four business questions:
 
 **1. Sales Target Variance**
-The Question was: Is the business hitting its monthly revenue targets, and what is the exact percentage variance between actual sales revenue and target quotas?
+Is the business hitting its monthly revenue targets, and what is the exact percentage variance between actual sales revenue and target quotas?
 
 Metrics used: `[actual_revenue]`, `[target_revenue]`, `[revenue_variance_%]`
 
@@ -138,7 +86,7 @@ What is the average order-to-delivery cycle time across regions, account manager
 
 Metrics used: `[order_to_delivery_days]`
 
-**3. Customer Portfolio & LTV Concentration**
+**3. Customer Portfolio and LTV Concentration**
 How is revenue concentrated across corporate accounts, and what is the lifetime value (LTV) profile of clients managed under varying payment terms?
 
 Metrics used: `[lifetime_value]`, `[total_orders]`, `[total_active_customers]`
@@ -150,15 +98,51 @@ Metrics used: `[attributed_campaign_revenue]`, `[total_spend]`, `[ROAS]`
 
 ---
 
-## Key Takeaways & Technical Architecture
+## Dashboard Showcase
+
+### Page 1: Sales Performance and Fulfillment Operations
+![Page 1 Overview](/assets/visual-1-power-bi.png)
+*Figure 1: Executive view tracking revenue variance against targets, fulfillment lead times, and regional sales distribution.*
+
+### Page 2: Customer Portfolio and Campaign Performance
+![Page 2 Overview](/assets/visual-2-power-bi.png)
+*Figure 2: Corporate account LTV distribution alongside campaign ad spend vs. attributed revenue.*
+
+📁 **[Download Power BI Template (.pbit)](/assets/portfolio-project.pbit)**
+
+---
+
+## Proof: What Each Question's Answer Shows
+
+### 1. Revenue Target Deficit (-5% Variance)
+Total actual sales revenue reached R526.64K against a target quota of R554.36K, a -5.0% shortfall overall. The line chart shows revenue tracking closely with targets during Q1 and late Q4, then dropping significantly during mid-year periods, specifically Months 5, 7, and 11, which drove the annual deficit. Regionally, Middle East (R130.01K) and Asia Pacific (R105.65K) generated the most revenue, while Latin America (R84.48K) lagged with the lowest sales volume (12 orders) and the lowest average discount applied (2.81%).
+
+### 2. Operational Fulfillment Baseline (8.71 Days Lead Time)
+Across all 80 processed orders, the business maintains an average order-to-delivery lead time of 8.71 days. Delivery performance varies by account manager: David Park's client orders achieve the fastest dispatch-to-delivery cycle at 7.9 days, while Omar Khan's client orders run longest at 9.2 days. Order-to-delivery cycle times stay flat across geographic territories, which points the bottleneck toward warehouse processing and logistics handoffs rather than regional transit distance, directly confirming the siloed-process-tracking cause named above: once fulfillment and sales data were joined, the bottleneck became visible by manager rather than by geography.
+
+### 3. Marketing Campaign Efficiency and Attribution (1.71x ROAS)
+Total campaign spend of R78.84K generated R135.21K in directly attributed sales revenue across covered product categories, a 1.71x Return on Ad Spend. Black Friday represented the single largest ad spend commitment (roughly R30K), driving strong conversion across high-margin product lines. Summer Sale and Spring Launch 2026 showed high capital efficiency, generating substantial attributed sales relative to their lower budget allocations. This result depended entirely on solving the many-to-many bridging problem named above: without the `TREATAS` pattern connecting campaigns to products to actual sales, this number simply wasn't computable before.
+
+### 4. Account Concentration and Payment Risk Profile
+Out of 47 active corporate accounts, lifetime value is heavily concentrated in the top 10% of clients. Summit Commerce (R32.51K LTV) and Cascade Retail (R29.20K LTV) are the primary drivers of enterprise volume. Most high-volume clients operate under Net 30 and Net 60 terms. Establishing formal credit monitoring for top-tier accounts (such as Vanguard Holdings and Zenith Group) is recommended to mitigate working capital risk on deferred invoice cycles.
+
+---
+
+## Recommendations
+
+Investigate the Months 5, 7, and 11 revenue dips specifically, since they're what's driving the overall -5% shortfall rather than a broad, even underperformance. Given fulfillment delay tracks by account manager and not by region, the fix belongs in process review with the manager whose orders run slowest, not in regional logistics. Black Friday's outsized spend paid off, but Summer Sale and Spring Launch 2026 delivered better efficiency per rand spent, worth a closer look at reallocating budget toward the more capital-efficient campaigns. Given how concentrated LTV is in a small number of top accounts, formal credit monitoring for Vanguard Holdings and Zenith Group specifically should be treated as a near-term priority rather than a general policy update.
+
+---
+
+## Key Takeaways and Technical Architecture
 
 This project transforms raw transactional data into an enterprise Star Schema in Power BI:
 
-Filter Context Resolution: Applied TREATAS in DAX to pass promotional product filter contexts through fact_promotion_coverage directly to dim_product, resolving non-propagating filters between marketing spend and actual sales.
+**Filter Context Resolution:** Applied `TREATAS` in DAX to pass promotional product filter contexts through `fact_promotion_coverage` directly to `dim_product`, resolving non-propagating filters between marketing spend and actual sales.
 
-Shared Conformed Dimensions: Modeled dim_date, dim_customer, and dim_geography to seamlessly filter disparate fact tables (facts_sales, facts_order_process, fact_sales_targets, and fact_campaign_spend).
+**Shared Conformed Dimensions:** Modeled `dim_date`, `dim_customer`, and `dim_geography` to seamlessly filter disparate fact tables (`facts_sales`, `facts_order_process`, `fact_sales_targets`, and `fact_campaign_spend`).
 
-Interactive 2-Page Executive Dashboard: Designed a structured, 2-page interactive Power BI reporting suite covering Sales Performance & Fulfillment Operations on Page 1 and Customer Portfolio & Campaign Performance on Page 2.
+**Interactive 2-Page Executive Dashboard:** Designed a structured, 2-page interactive Power BI reporting suite covering Sales Performance and Fulfillment Operations on Page 1 and Customer Portfolio and Campaign Performance on Page 2.
 
 <details>
 <summary><b>Click to expand full DAX Measure Codebook</b></summary>
@@ -244,8 +228,8 @@ DISTINCTCOUNT(facts_sales[customer_id])
 lifetime_value = 
 CALCULATE(
     [actual_revenue],
+    ALLEXCEPT(dim_customer, dim_customer[customer_id], dim_customer[customer_company_name])
+)
 ```
 
 </details>
-    ALLEXCEPT(dim_customer, dim_customer[customer_id], dim_customer[customer_company_name])
-)
