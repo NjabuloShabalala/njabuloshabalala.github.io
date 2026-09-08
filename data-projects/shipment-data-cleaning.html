@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shipment Data Cleaning — BigQuery SQL | Njabulo Shabalala</title>
+<title>Shipment Data Cleaning, BigQuery SQL | Njabulo Shabalala</title>
 <style>
     * {
         box-sizing: border-box;
@@ -143,42 +143,50 @@
 
 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-<h1>Shipment Data Cleaning — BigQuery SQL</h1>
+<h1>Shipment Data Cleaning, BigQuery SQL</h1>
 <span class="tool-badge">Google BigQuery</span>
 <span class="tool-badge">SQL</span>
 
-<p>End-to-end data cleaning pipeline for a shipment tracking dataset containing whitespace inconsistencies, mixed text casing, placeholder null strings, exact duplicate rows, invalid numeric values, and inconsistent date formats.</p>
+<p>Diagnosed and fixed six distinct data quality problems in a raw shipment tracking dataset, using SQL to test where the data could and couldn't be trusted before it reached any downstream report.</p>
 
 <hr>
 
 <h2>Key Results</h2>
-<p>Rather than a business-metrics dashboard, this project is a data-quality pipeline &mdash; so the results here are about the issues found and resolved, not revenue figures:</p>
 <ul>
     <li><strong>Six distinct data quality issues identified and resolved</strong> in a single query: whitespace, inconsistent casing, placeholder null strings, exact duplicates, invalid numeric values, and date logic errors.</li>
     <li><strong>Exact duplicate rows removed</strong> using a windowed <code>ROW_NUMBER()</code> approach, rather than a blunt <code>DISTINCT</code>, so duplication is judged on the full business-meaningful combination of fields rather than row-level noise.</li>
-    <li><strong>Invalid shipment records surfaced, not silently dropped</strong> &mdash; negative weights are corrected rather than deleted, and shipments where delivery precedes shipping are explicitly flagged as <code>Invalid</code> instead of being hidden from downstream analysis.</li>
+    <li><strong>Invalid shipment records surfaced, not silently dropped:</strong> negative weights are corrected rather than deleted, and shipments where delivery precedes shipping are explicitly flagged as <code>Invalid</code> instead of being hidden from downstream analysis.</li>
 </ul>
 
 <hr>
 
-<h2>The Problem</h2>
-<p>The raw shipment tracking dataset had the kind of quality issues that quietly break downstream reporting: warehouse and carrier names logged with inconsistent capitalization and stray whitespace, a literal text string <code>"NULL"</code> standing in for true nulls in the damage-reported field, exact duplicate shipment rows inflating counts, weight values that were negative or zero, and ship/delivery dates recorded across multiple formats &mdash; some of which weren't valid dates at all. Any aggregation or trend analysis run directly against this data would have produced misleading results without this cleaning step first.</p>
+<h2>The Business Problem</h2>
+<p>Any report built directly on this shipment tracking data would have been wrong, and worse, wrong in a way that wasn't obvious. Warehouse and carrier names were logged with inconsistent capitalization and stray whitespace, so a group-by on carrier would have split "FedEx" and "fedex " into two separate rows. Exact duplicate shipment records were inflating counts. Weight values were negative or zero. Ship and delivery dates were recorded across multiple formats, some of which weren't valid dates at all. None of these issues would throw an error. They would just quietly produce numbers that looked plausible and were wrong. The core question this project answers: can this data actually be trusted, and if not, what specifically is broken and how much of it is fixable versus flagged?</p>
 
-<h2>What I Built</h2>
-<p>A single GoogleSQL query that standardizes, deduplicates, and validates the dataset in one pass:</p>
+<h2>Plausible Causes</h2>
+<p>Before touching the data, it's worth naming what typically produces this kind of mess, since the fix depends on the cause:</p>
+<ul>
+    <li><strong>Manual entry inconsistency:</strong> free-text fields like warehouse and carrier names are prone to casing and whitespace drift when typed by different people or systems over time.</li>
+    <li><strong>Multiple source systems merged without a shared schema:</strong> a literal string <code>"NULL"</code> standing in for a true null, and several different date formats in the same column, both point to data being combined from systems that didn't agree on conventions.</li>
+    <li><strong>No upstream deduplication logic:</strong> exact duplicate rows suggest records are being re-inserted, possibly from retries or repeated batch loads, without a uniqueness check.</li>
+    <li><strong>Unvalidated numeric input:</strong> negative and zero weight values point to a form or import process that doesn't reject impossible values at the point of entry.</li>
+</ul>
+
+<h2>Proof: What the SQL Found and Fixed</h2>
+<p>A single GoogleSQL query built up in stages, each stage testing one of the causes above:</p>
 
 <ul>
-    <li><strong>Standardizes text fields</strong> &mdash; trims whitespace and normalizes casing (<code>INITCAP</code> for city/carrier names, <code>UPPER</code> for state codes) across <code>origin_warehouse</code>, <code>destination_city</code>, <code>destination_state</code>, and <code>carrier</code>.</li>
-    <li><strong>Resolves nulls</strong> &mdash; converts literal <code>"NULL"</code> strings into true <code>NULL</code> values for <code>damage_reported</code>, and applies <code>COALESCE</code> to give <code>destination_city</code> and <code>delivery_date</code> readable defaults where missing.</li>
-    <li><strong>Removes exact duplicates</strong> &mdash; uses <code>ROW_NUMBER()</code> in a CTE, partitioned on the combination of warehouse, destination, carrier, ship date, weight, and freight cost, keeping the first <code>shipment_id</code> per group.</li>
-    <li><strong>Fixes invalid numeric values</strong> &mdash; corrects negative <code>weight_kg</code> entries via <code>ABS()</code> and nulls out zero-weight rows that can't represent a real shipment.</li>
-    <li><strong>Validates date logic</strong> &mdash; parses <code>ship_date</code>/<code>delivery_date</code> with <code>SAFE.PARSE_DATE</code> (so malformed strings return NULL instead of erroring the query), computes transit days via <code>DATE_DIFF</code>, and flags shipments where delivery precedes shipping as <code>Invalid</code>.</li>
+    <li><strong>Standardizes text fields:</strong> trims whitespace and normalizes casing (<code>INITCAP</code> for city and carrier names, <code>UPPER</code> for state codes) across <code>origin_warehouse</code>, <code>destination_city</code>, <code>destination_state</code>, and <code>carrier</code>. This confirms the manual-entry hypothesis: the raw data did carry exactly this kind of drift.</li>
+    <li><strong>Resolves nulls:</strong> converts the literal <code>"NULL"</code> string into a true <code>NULL</code> value for <code>damage_reported</code>, and applies <code>COALESCE</code> to give <code>destination_city</code> and <code>delivery_date</code> readable defaults where missing. Confirms the mixed-source hypothesis.</li>
+    <li><strong>Removes exact duplicates:</strong> uses <code>ROW_NUMBER()</code> in a CTE, partitioned on the combination of warehouse, destination, carrier, ship date, weight, and freight cost, keeping the first <code>shipment_id</code> per group. Confirms duplication was present and systematic enough to need a rule, not a one-off manual fix.</li>
+    <li><strong>Fixes invalid numeric values:</strong> corrects negative <code>weight_kg</code> entries via <code>ABS()</code> and nulls out zero-weight rows that can't represent a real shipment. Confirms the unvalidated-input hypothesis, and treats negative and zero weight as two different problems rather than one, since a negative value is likely a sign error while a zero value has no safe correction.</li>
+    <li><strong>Validates date logic:</strong> parses <code>ship_date</code> and <code>delivery_date</code> with <code>SAFE.PARSE_DATE</code> (so malformed strings return NULL instead of erroring the query), computes transit days via <code>DATE_DIFF</code>, and flags shipments where delivery precedes shipping as <code>Invalid</code>.</li>
 </ul>
 
 <hr>
 
 <h2>Step-by-Step Walkthrough</h2>
-<p>Rather than jumping straight to the final combined query, here's how the pipeline was built up one issue at a time &mdash; each step isolated and verified before folding it into the next:</p>
+<p>Built up one issue at a time, each step isolated and verified before folding it into the next:</p>
 
 <h3>1. Removing whitespace</h3>
 <details>
@@ -273,9 +281,9 @@ FROM `data-analyst-project-1-504112.dirty_shipments.dirty-shipments`;
 
 <hr>
 
-<h2>Known Limitation</h2>
+<h2>Known Limitation and Recommendations</h2>
 <div class="callout">
-<p><code>delivery_date</code> contains multiple date formats in the source data (<code>YYYY-MM-DD</code>, <code>MM/DD/YYYY</code>, <code>YYYY/MM/DD</code>, <code>Month DD YYYY</code>, plus a non-date placeholder for undelivered shipments). <code>SAFE.PARSE_DATE</code> is currently set to one format pattern, so rows in other formats parse to NULL and their <code>transit_days</code>/<code>data_quality_flag</code> can't be reliably computed &mdash; those rows currently fall through to a default <code>Valid</code> flag rather than being caught explicitly. Next step: add format detection (or a <code>COALESCE</code> across multiple <code>SAFE.PARSE_DATE</code> patterns) and an explicit <code>Unparseable</code> flag branch.</p>
+<p><code>delivery_date</code> contains multiple date formats in the source data (<code>YYYY-MM-DD</code>, <code>MM/DD/YYYY</code>, <code>YYYY/MM/DD</code>, <code>Month DD YYYY</code>, plus a non-date placeholder for undelivered shipments). <code>SAFE.PARSE_DATE</code> is currently set to one format pattern, so rows in other formats parse to NULL and their <code>transit_days</code> and <code>data_quality_flag</code> can't be reliably computed. Those rows currently fall through to a default <code>Valid</code> flag rather than being caught explicitly. This is a real gap worth stating plainly rather than glossing over: the pipeline currently understates how many rows are actually unparseable. Recommended next step is to add format detection (or a <code>COALESCE</code> across multiple <code>SAFE.PARSE_DATE</code> patterns) and an explicit <code>Unparseable</code> flag branch, so that rows which can't be validated are visibly separated from rows confirmed valid, rather than defaulting into the same bucket.</p>
 </div>
 
 <hr>
