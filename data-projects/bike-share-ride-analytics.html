@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bike-Share Ride Analytics — BigQuery SQL | Njabulo Shabalala</title>
+<title>Bike-Share Ride Analytics, BigQuery SQL | Njabulo Shabalala</title>
 <style>
     * {
         box-sizing: border-box;
@@ -171,17 +171,17 @@
 
 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
-<h1>Bike-Share Ride Analytics — BigQuery SQL</h1>
+<h1>Bike-Share Ride Analytics, BigQuery SQL</h1>
 <span class="tool-badge">Google BigQuery</span>
 <span class="tool-badge">SQL</span>
 
-<p>Exploratory analysis of a bike-share service's ride, user, and station data to understand data quality, ridership patterns by membership type, peak demand hours, popular stations, and signup seasonality — with the goal of informing fleet allocation and membership strategy.</p>
+<p>Exploratory analysis of a bike-share service's ride, user, and station data to understand data quality, ridership patterns by membership type, peak demand hours, popular stations, and signup seasonality, with the goal of informing fleet allocation and membership strategy.</p>
 
 <hr>
 
 <h2>Key Results</h2>
 <ul>
-    <li><strong>Peak demand identified at two distinct windows</strong> &mdash; 7am and 3pm &mdash; aligning with commuter start/end-of-work patterns rather than a single midday peak.</li>
+    <li><strong>Peak demand identified at two distinct windows,</strong> 7am and 3pm, aligning with commuter start and end-of-work patterns rather than a single midday peak.</li>
     <li><strong>Data quality issue caught early:</strong> 106 rides under 2 minutes and 1 zero-distance ride flagged as likely false starts, preventing them from skewing average ride duration and distance metrics.</li>
     <li><strong>Two distinct rider segments surfaced</strong> from membership-tier analysis: casual riders show higher average distance and duration (consistent with tourist/leisure use), while subscribers make up the highest-volume, most consistent rider base.</li>
 </ul>
@@ -189,14 +189,14 @@
 <hr>
 
 <h2>The Problem</h2>
-<p>The bike-share operator had raw ride, user, and station data spread across separate tables with no consolidated view of how the service was actually being used. Before any strategic decision &mdash; like where to reposition bikes, which membership tier to invest incentives in, or when to expect signup surges &mdash; the underlying data needed to be explored, validated, and joined into a usable shape. The starting point was simply: what does this data actually contain, and can it be trusted?</p>
+<p>The bike-share operator had raw ride, user, and station data spread across separate tables with no consolidated view of how the service was actually being used. Before any strategic decision, like where to reposition bikes, which membership tier to invest incentives in, or when to expect signup surges, the underlying data needed to be explored, validated, and joined into a usable shape. The starting point was simply: what does this data actually contain, and can it be trusted?</p>
 
 <h2>What I Did</h2>
-<p>This was structured as an exploratory data analysis (EDA) process &mdash; starting from the ground up rather than jumping straight to insights:</p>
+<p>This was structured as an exploratory data analysis (EDA) process, starting from the ground up rather than jumping straight to insights:</p>
 <ul>
-    <li><strong>Scoped the dataset</strong> &mdash; counted rows across the <code>users</code>, <code>rides</code>, and <code>stations</code> tables to understand overall data volume before analysis.</li>
+    <li><strong>Scoped the dataset,</strong> counting rows across the <code>users</code>, <code>rides</code>, and <code>stations</code> tables to understand overall data volume before analysis.</li>
     <li><strong>Checked for missing values</strong> using <code>COUNTIF</code> across key identifier and timestamp fields, to catch structural gaps before they could silently affect downstream aggregates.</li>
-    <li><strong>Profiled ride summary statistics</strong> &mdash; min/max/average distance and average ride duration &mdash; which is what first surfaced a data quality flag: a minimum ride distance of 0, which shouldn't be possible for a real ride.</li>
+    <li><strong>Profiled ride summary statistics,</strong> min/max/average distance and average ride duration, which is what first surfaced a data quality flag: a minimum ride distance of 0, which shouldn't be possible for a real ride.</li>
     <li><strong>Quantified likely false starts</strong> by explicitly counting rides under 2 minutes and rides with zero recorded distance, rather than assuming the anomaly was a one-off.</li>
     <li><strong>Segmented ridership by membership tier</strong>, joining <code>rides</code> to <code>users</code> to compare total rides, average distance, and average duration between casual and subscribed riders.</li>
     <li><strong>Identified peak usage hours</strong> by extracting the hour from each ride's start time and counting rides per hour across the full dataset.</li>
@@ -209,35 +209,35 @@
 <h2>Key Insights</h2>
 
 <h3>1. Data Quality: False Starts</h3>
-<p>Summary statistics on ride distance surfaced an immediate red flag &mdash; a minimum distance of 0km, which isn't a realistic value for a completed ride. Digging further, this was quantified precisely: 106 rides under 2 minutes and 1 ride with exactly zero distance. These were flagged rather than silently included, since leaving them in would understate true average ride duration and distance.</p>
+<p>Summary statistics on ride distance surfaced an immediate red flag, a minimum distance of 0km, which isn't a realistic value for a completed ride. Digging further, this was quantified precisely: 106 rides under 2 minutes and 1 ride with exactly zero distance. These were flagged rather than silently included, since leaving them in would understate true average ride duration and distance.</p>
 
 <h3>2. Membership Tier Behavior</h3>
 <figure class="figure">
     <img src="../assets/bike-ride-analytics/subscription-numbers.png" alt="Ride count and average distance/duration by membership tier">
     <figcaption>Figure 1: Ride volume, average distance, and average duration split by membership tier (casual vs. subscriber).</figcaption>
 </figure>
-<p>Casual riders show a notably higher average ride distance and duration than subscribers, which is consistent with tourist or one-off leisure usage rather than routine commuting. This suggests an opportunity: a weekend explorer pass or short-term leisure package could capture more value from this segment. Subscribers, meanwhile, represent the highest total ride volume &mdash; the operational backbone of the service &mdash; making subscriber retention and incentive programs the higher-leverage lever for sustained revenue, since a small percentage improvement in subscriber churn moves far more rides than the same improvement applied to the casual segment.</p>
+<p>Casual riders show a notably higher average ride distance and duration than subscribers, which is consistent with tourist or one-off leisure usage rather than routine commuting. This suggests an opportunity: a weekend explorer pass or short-term leisure package could capture more value from this segment. Subscribers, meanwhile, represent the highest total ride volume, the operational backbone of the service, making subscriber retention and incentive programs the higher-leverage lever for sustained revenue, since a small percentage improvement in subscriber churn moves far more rides than the same improvement applied to the casual segment.</p>
 
 <h3>3. Peak Demand Hours</h3>
 <figure class="figure">
     <img src="../assets/bike-ride-analytics/ride_count%20by%20start_hour.png" alt="Ride count by start hour of day">
     <figcaption>Figure 2: Ride count grouped by hour of day, showing two distinct commuter demand peaks.</figcaption>
 </figure>
-<p>Ride volume peaks sharply at two points in the day: 7am and 3pm &mdash; matching the start and end of a typical workday rather than a single midday leisure peak. This has a direct operational implication: bike availability at high-demand stations needs to be actively managed around these two windows specifically, not evenly distributed across the day. In practice, that means fleet rebalancing crews should be scheduled to complete restocking runs just ahead of 7am and 3pm, rather than on a flat hourly cadence &mdash; the flat approach would waste labor hours during the troughs while still risking stockouts right before each surge.</p>
+<p>Ride volume peaks sharply at two points in the day: 7am and 3pm, matching the start and end of a typical workday rather than a single midday leisure peak. This has a direct operational implication: bike availability at high-demand stations needs to be actively managed around these two windows specifically, not evenly distributed across the day. In practice, that means fleet rebalancing crews should be scheduled to complete restocking runs just ahead of 7am and 3pm, rather than on a flat hourly cadence, since the flat approach would waste labor hours during the troughs while still risking stockouts right before each surge.</p>
 
 <h3>4. Popular Stations</h3>
 <figure class="figure">
     <img src="../assets/bike-ride-analytics/most-popular-streets.png" alt="Top stations ranked by ride count">
     <figcaption>Figure 3: Stations ranked by total ride count, highlighting where demand is concentrated.</figcaption>
 </figure>
-<p>Ranking stations by ride count highlights which locations see disproportionate demand. Cross-referencing this with the peak-hour finding points toward a clear fleet rebalancing priority: ensure high-traffic stations are stocked ahead of the 7am and 3pm surges specifically, rather than spreading redistribution effort evenly across the whole network. The stations at the top of this list are the ones where a stockout has the highest cost &mdash; each missed ride there is a lost trip a competitor (or a rideshare app) is happy to pick up instead, so this ranking is the practical starting point for prioritizing which docks get checked first each morning.</p>
+<p>Ranking stations by ride count highlights which locations see disproportionate demand. Cross-referencing this with the peak-hour finding points toward a clear fleet rebalancing priority: ensure high-traffic stations are stocked ahead of the 7am and 3pm surges specifically, rather than spreading redistribution effort evenly across the whole network. The stations at the top of this list are the ones where a stockout has the highest cost, since each missed ride there is a lost trip a competitor (or a rideshare app) is happy to pick up instead, so this ranking is the practical starting point for prioritizing which docks get checked first each morning.</p>
 
 <h3>5. Signup Seasonality</h3>
 <figure class="figure">
     <img src="../assets/bike-ride-analytics/new_signups%20by%20signup_month.png" alt="New user signups by month">
     <figcaption>Figure 4: New user signups grouped by month, showing seasonal growth patterns.</figcaption>
 </figure>
-<p>Monthly new-signup counts reveal which months drive the most user growth. Understanding this pattern matters operationally &mdash; if signups spike in a particular season, bike availability needs to scale ahead of that demand rather than reactively, to avoid new users having a poor first experience with the service. A bad first ride &mdash; a bike unavailable at signup, or a long walk to the nearest working dock &mdash; is disproportionately costly during a growth month specifically, since it risks souring exactly the cohort the business is trying hardest to convert into long-term subscribers.</p>
+<p>Monthly new-signup counts reveal which months drive the most user growth. Understanding this pattern matters operationally: if signups spike in a particular season, bike availability needs to scale ahead of that demand rather than reactively, to avoid new users having a poor first experience with the service. A bad first ride, a bike unavailable at signup, or a long walk to the nearest working dock, is disproportionately costly during a growth month specifically, since it risks souring exactly the cohort the business is trying hardest to convert into long-term subscribers.</p>
 
 <hr>
 
@@ -345,9 +345,9 @@ ORDER BY signup_month;
 
 <hr>
 
-<h2>Next Steps</h2>
+<h2>Recommendations and Next Steps</h2>
 <div class="callout">
-<p>Visualizing peak-hour ride volume and monthly signup trends would make both patterns easier to act on operationally &mdash; particularly for planning bike redistribution timing and anticipating fleet scaling ahead of high-signup months. A further breakdown of station demand by surrounding area type (business district vs. residential) would also help clarify whether commuter demand and station placement are currently well matched.</p>
+<p>Visualizing peak-hour ride volume and monthly signup trends would make both patterns easier to act on operationally, particularly for planning bike redistribution timing and anticipating fleet scaling ahead of high-signup months. A further breakdown of station demand by surrounding area type (business district vs. residential) would also help clarify whether commuter demand and station placement are currently well matched.</p>
 </div>
 
 </body>
