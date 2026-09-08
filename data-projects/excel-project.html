@@ -55,6 +55,13 @@
         margin-bottom: 1rem;
         color: #d1d5db;
     }
+    ul {
+        margin: 0 0 1.25rem 1.25rem;
+        color: #d1d5db;
+    }
+    li {
+        margin-bottom: 0.6rem;
+    }
     hr {
         border: none;
         border-top: 1px solid #212d3d;
@@ -128,6 +135,17 @@
         margin-top: 0.5rem;
         margin-bottom: 1.5rem;
     }
+    .callout {
+        background-color: #131b26;
+        border: 1px solid #212d3d;
+        border-left: 4px solid #38bdf8;
+        border-radius: 6px;
+        padding: 1.1rem 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .callout p {
+        margin-bottom: 0;
+    }
 </style>
 </head>
 <body>
@@ -135,6 +153,10 @@
 <a href="../index.html" class="back-link">&larr; Back to Portfolio</a>
 
 <h1>Hi-Fi Org Sales Performance Dashboard</h1>
+
+<p>Built an interactive Excel dashboard to test which regions, categories, and channels were actually driving Hi-Fi Org's revenue, replacing manual re-summing of thousands of transaction rows with a filterable, real-time view.</p>
+
+<hr>
 
 <h2>Key Results</h2>
 
@@ -155,11 +177,20 @@
 
 <hr>
 
-<h2>The Problem</h2>
-<p>Hi-Fi Org's sales activity was captured as raw, transaction-level data &mdash; every order, product, region, and channel logged as a flat row with no way to see the bigger picture. Leadership had no quick way to answer basic questions: which regions were actually performing, which product categories were driving revenue, or how sales were splitting across online versus in-store channels. Without a way to slice this data on demand, any answer meant manually filtering and re-summing thousands of rows every time a new question came up.</p>
+<h2>The Business Problem</h2>
+<p>Hi-Fi Org's sales activity was captured as raw, transaction-level data, every order, product, region, and channel logged as a flat row with no way to see the bigger picture. Leadership had no quick way to answer basic questions: which regions were actually performing, which product categories were driving revenue, or how sales were splitting across online versus in-store channels. Without a way to slice this data on demand, any answer meant manually filtering and re-summing thousands of rows every time a new question came up.</p>
+
+<h2>Plausible Hypotheses Going In</h2>
+<p>Before building the dashboard, a few reasonable assumptions were worth testing against the data rather than taking for granted:</p>
+<ul>
+    <li><strong>Revenue is concentrated in one region</strong> rather than distributed evenly across the business's territories.</li>
+    <li><strong>A small number of product categories drive most revenue</strong>, meaning the business may be more concentrated (and more exposed) than it appears.</li>
+    <li><strong>One sales channel dominates</strong>, which would tell leadership where to keep investing versus where demand is soft.</li>
+    <li><strong>Revenue grows steadily month over month</strong>, versus being driven by seasonal spikes or promotions.</li>
+</ul>
 
 <h2>What I Built</h2>
-<p>An interactive Excel dashboard built on top of the raw transaction data, using pivot tables as the underlying engine and slicers (Product, Product Category, Region, Sales Channel, and Month/Quarter/Year dates) to let anyone filter the entire report in real time &mdash; no formulas to edit, no re-querying required.</p>
+<p>An interactive Excel dashboard built on top of the raw transaction data, using pivot tables as the underlying engine and slicers (Product, Product Category, Region, Sales Channel, and Month/Quarter/Year dates) to let anyone filter the entire report in real time, with no formulas to edit and no re-querying required.</p>
 <p>The dashboard answers five core business questions, each mapped directly from a stakeholder requirement to a specific chart and underlying data column:</p>
 
 <table>
@@ -183,38 +214,45 @@
 
 <h2>Dashboard Showcase</h2>
 <img src="/assets/hi-fi-org-dashboard.png" alt="Hi-Fi Org Dashboard">
-<em>Figure 1: Full interactive dashboard view &mdash; KPI summary, monthly revenue trend, regional and category breakdowns, sales channel split, and top 5 products by revenue, all filterable via slicers.</em>
+<em>Figure 1: Full interactive dashboard view, KPI summary, monthly revenue trend, regional and category breakdowns, sales channel split, and top 5 products by revenue, all filterable via slicers.</em>
 
 <hr>
 
-<h2>Key Insights</h2>
+<h2>Proof: What the Data Shows Against Each Hypothesis</h2>
 
-<h3>1. Regional Performance</h3>
-<p>North - Limpopo and North West (R561,753.72) narrowly edged out Central - Gauteng and Free State (R556,705.18) as the top-earning region, with South - Eastern Cape and Western Cape (R444,494.30) and West - Northen Cape (R421,322.25) trailing. The spread between the top and bottom region is relatively tight, which suggests that revenue is fairly evenly distributed geographically rather than concentrated in a single territory/province.</p>
+<h3>1. Regional Concentration: Not Confirmed</h3>
+<p>North, Limpopo and North West (R561,753.72) narrowly edged out Central, Gauteng and Free State (R556,705.18) as the top-earning region, with South, Eastern Cape and Western Cape (R444,494.30) and West, Northern Cape (R421,322.25) trailing. The spread between the top and bottom region is relatively tight, which rules out the concentration hypothesis. Revenue is fairly evenly distributed geographically rather than resting on a single territory or province.</p>
 
-<h3>2. Product Category Concentration</h3>
-<p>Computers dominated category revenue at R1,346,491.26 &mdash; more than double the next closest category, Monitors, at R526,744.59. Networking, Storage, Accessories, and Office Supplies made up the remainder, with Office Supplies contributing the least at R16,640.26. This signals a business that is heavily reliant on a single high-value category, which carries some concentration risk worth flagging to leadership.</p>
+<h3>2. Category Concentration: Confirmed</h3>
+<p>Computers dominated category revenue at R1,346,491.26, more than double the next closest category, Monitors, at R526,744.59. Networking, Storage, Accessories, and Office Supplies made up the remainder, with Office Supplies contributing the least at R16,640.26. This confirms the concentration hypothesis, and it's worth flagging directly to leadership: the business is heavily reliant on a single high-value category, which carries real concentration risk if that category ever softens.</p>
 
-<h3>3. Sales Channel Mix</h3>
-<p>Online sales led as the largest single channel, followed by Corporate Sales, Retail Store, and Marketplace. This suggests digital demand generation and direct B2B relationships are currently outperforming both physical retail and third-party marketplace listings.</p>
+<h3>3. Channel Dominance: Partially Confirmed</h3>
+<p>Online sales led as the largest single channel, followed by Corporate Sales, Retail Store, and Marketplace. No single channel accounts for the overwhelming majority, but the ordering is clear enough to say digital demand generation and direct B2B relationships are currently outperforming both physical retail and third-party marketplace listings.</p>
 
 <h3>4. Top Product Performance</h3>
-<p>The Gaming Laptop was the single highest-revenue product at R432,576.06 &mdash; well ahead of the next best performer, Laptop Air 13, at R273,532.50. High-ticket computing hardware (laptops in particular) clearly anchors the top of the product mix.</p>
+<p>The Gaming Laptop was the single highest-revenue product at R432,576.06, well ahead of the next best performer, Laptop Air 13, at R273,532.50. High-ticket computing hardware, laptops in particular, clearly anchors the top of the product mix, consistent with the category concentration finding above.</p>
 
-<h3>5. Revenue Trend Volatility</h3>
-<p>Monthly revenue swung considerably throughout the year, ranging from a low of roughly R150K to a high of roughly R280K, with November as the peak month (~R274K). The absence of a clear steady upward trend suggests revenue may be more promotion- or seasonality-driven than organically growing month over month &mdash; worth investigating further with a longer historical window.</p>
+<h3>5. Steady Growth: Not Confirmed</h3>
+<p>Monthly revenue swung considerably throughout the year, ranging from a low of roughly R150K to a high of roughly R280K, with November as the peak month (around R274K). The absence of a clear steady upward trend rules out the steady-growth hypothesis. Revenue appears to be more promotion- or seasonality-driven than organically growing month over month, which is worth investigating further with a longer historical window before drawing a firm conclusion.</p>
+
+<hr>
+
+<h2>Recommendations</h2>
+<div class="callout">
+<p>Treat the Computers category as both the business's strongest asset and its largest single point of exposure: worth protecting with supplier redundancy or category-specific forecasting rather than assuming its current dominance is guaranteed. Regional performance is even enough that a blanket national strategy is reasonable, no single territory needs a rescue plan right now. Given Online and Corporate Sales are outperforming Retail and Marketplace, it's worth investigating whether that gap reflects genuine channel strength or under-investment in the weaker channels before reallocating budget. The November peak and the absence of steady growth both point to the same next step: pull a longer historical window to confirm whether this is a repeatable seasonal pattern worth planning inventory and staffing around.</p>
+</div>
 
 <hr>
 
 <h2>Technical Approach</h2>
-<p><strong>Data Source:</strong> Raw transactional sales data (Order ID, Date, Product, Product Category, Region, Sales Channel, Quantity, Revenue) &mdash; over 2,000 individual order rows.</p>
+<p><strong>Data Source:</strong> Raw transactional sales data (Order ID, Date, Product, Product Category, Region, Sales Channel, Quantity, Revenue), over 2,000 individual order rows.</p>
 
 <p><strong>Build Process:</strong></p>
 <p>Structured the raw data as a clean Excel Table to support dynamic pivot table refresh as new rows are added.</p>
 <p>Built a set of supporting Pivot Tables (on a dedicated <code>Supporting_Pivots</code> sheet) as the calculation layer behind each chart, keeping the dashboard sheet itself free of formula clutter.</p>
 <p>Connected Region, Product, Product Category, and Sales Channel Slicers across all pivot tables so a single filter selection updates every chart and KPI simultaneously.</p>
-<p>Added Timeline/date slicers (Days, Months, Quarters, Years) to allow flexible period-over-period filtering without rebuilding any visuals.</p>
-<p>Used a mix of chart types matched to the analysis: line chart for revenue trend, column charts for regional/category/product comparisons, and a pie chart for sales channel share &mdash; chosen so each chart type suits the shape of the underlying question rather than defaulting to one style throughout.</p>
+<p>Added Timeline and date slicers (Days, Months, Quarters, Years) to allow flexible period-over-period filtering without rebuilding any visuals.</p>
+<p>Used a mix of chart types matched to the analysis: line chart for revenue trend, column charts for regional, category, and product comparisons, and a pie chart for sales channel share, chosen so each chart type suits the shape of the underlying question rather than defaulting to one style throughout.</p>
 
 </body>
 </html>
