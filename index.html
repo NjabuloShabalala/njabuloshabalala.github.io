@@ -214,57 +214,14 @@
             background-color: var(--card-hover-bg);
         }
 
-        .card-thumb {
-            width: calc(100% + 3.5rem);
-            margin: -1.75rem -1.75rem 1.25rem -1.75rem;
-            height: 160px;
-            overflow: hidden;
-            border-radius: 10px 10px 0 0;
-            background-color: #0e1520;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        .card-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-thumb img {
-            transform: scale(1.04);
-        }
-
-        .card-thumb-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.75rem;
-            background: repeating-linear-gradient(
-                135deg,
-                rgba(255,255,255,0.02),
-                rgba(255,255,255,0.02) 10px,
-                rgba(255,255,255,0.045) 10px,
-                rgba(255,255,255,0.045) 20px
-            );
-        }
-
         .status-pill {
-            position: absolute;
-            top: 0.65rem;
-            right: 0.65rem;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.03em;
             padding: 0.25rem 0.6rem;
             border-radius: 20px;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .status-live {
@@ -294,6 +251,10 @@
 
         .card-header {
             margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
         }
 
         .card-title {
@@ -430,12 +391,9 @@
             <!-- Card 1 -->
             <div class="card" id="project-powerbi">
                 <div>
-                    <div class="card-thumb">
-                        <img src="assets/visual-1-power-bi.png" alt="B2B Order-to-Cash Power BI dashboard preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-chart-pie&quot;></i></div>'">
-                        <span class="status-pill status-live">Live</span>
-                    </div>
                     <div class="card-header">
                         <h3 class="card-title">B2B Order-to-Cash Data Modeling</h3>
+                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Rebuilt a company's messy, disconnected sales data into one clean system so leadership could finally answer basic questions, like whether they were hitting revenue targets and how efficient their delivery process really was. Found a 5% revenue shortfall and confirmed marketing spend was paying off at 1.71x return.
@@ -456,12 +414,9 @@
             <!-- Card 2 -->
             <div class="card" id="project-excel">
                 <div>
-                    <div class="card-thumb">
-                        <img src="assets/hi-fi-org-dashboard.png" alt="Hi-Fi Org Sales Performance Excel dashboard preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-table-cells&quot;></i></div>'">
-                        <span class="status-pill status-live">Live</span>
-                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Hi-Fi Org Sales Performance Dashboard</h3>
+                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Built an interactive Excel dashboard from raw sales transaction data, using pivot tables and slicers to let stakeholders filter revenue by region, product category, and sales channel in real time. Surfaced that Computers drove more than half of total category revenue, and that the North region narrowly outperformed Central as the top-earning territory.
@@ -481,12 +436,9 @@
             <!-- Card 3: Shipment Data Cleaning -->
             <div class="card" id="project-sql">
                 <div>
-                    <div class="card-thumb">
-                        <img src="assets/thumbs/shipment-data-cleaning.png" alt="Shipment data cleaning SQL pipeline preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-broom&quot;></i></div>'">
-                        <span class="status-pill status-live">Live</span>
-                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Shipment Data Cleaning Pipeline</h3>
+                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Built an end-to-end BigQuery SQL pipeline to clean a messy shipment tracking dataset, fixing inconsistent text formatting, resolving placeholder null values, removing duplicate records, correcting invalid weights, and validating delivery dates against ship dates.
@@ -506,12 +458,9 @@
             <!-- Card 4: Bike-Share Ride Analytics -->
             <div class="card">
                 <div>
-                    <div class="card-thumb">
-                        <img src="assets/bike-ride-analytics/ride_count%20by%20start_hour.png" alt="Bike-share ride analytics preview" onerror="this.parentElement.innerHTML='<div class=&quot;card-thumb-placeholder&quot;><i class=&quot;fa-solid fa-bicycle&quot;></i></div>'">
-                        <span class="status-pill status-live">Live</span>
-                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Bike-Share Ride Analytics</h3>
+                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Explored a bike-share service's ride, user, and station data to catch data quality issues, compare casual vs. subscriber ridership patterns, identify peak demand hours, and surface signup seasonality, informing fleet allocation and membership strategy.
@@ -530,12 +479,9 @@
             <!-- Card 5 -->
             <div class="card" id="project-churn">
                 <div>
-                    <div class="card-thumb">
-                        <div class="card-thumb-placeholder"><i class="fa-solid fa-users-viewfinder"></i></div>
-                        <span class="status-pill status-live">Live</span>
-                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Bank Customer Churn Analysis</h3>
+                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Analyzed 10,000 bank customer records to isolate churn drivers using SQL. Found churn concentrated in two segments, customers aged 51–60 (56% churn) and disengaged accounts (27% vs 14% for active), while ruling out credit card ownership as a factor, pointing the bank toward targeted retention over blanket outreach.
@@ -555,12 +501,9 @@
             <!-- Card 6: Nompumelelo -->
             <div class="card is-pending">
                 <div>
-                    <div class="card-thumb">
-                        <div class="card-thumb-placeholder"><i class="fa-solid fa-comments"></i></div>
-                        <span class="status-pill status-progress">In Progress</span>
-                    </div>
                     <div class="card-header">
                         <h3 class="card-title">Document Automation Tool for Small Businesses (Project Nompumelelo)</h3>
+                        <span class="status-pill status-progress">In Progress</span>
                     </div>
                     <p class="card-desc">
                         Independently designed and built a tool that lets small business owners submit documents over WhatsApp and get them automatically read, processed, and confirmed back to them, removing manual data entry from the process.
