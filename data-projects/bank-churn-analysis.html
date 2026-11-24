@@ -165,6 +165,21 @@
         border: 1px solid rgba(56, 189, 248, 0.4);
         margin-bottom: 1.5rem;
     }
+
+    /* Typography and layout fixes */
+    h1, h2 { border-bottom: 0; padding-bottom: 0; }
+    details { background: none !important; border: 0 !important; padding: 0; margin: 1rem 0; }
+    details > pre { margin-top: 0.75rem; }
+    .callout { background: none; border: 0; padding: 0; }
+    .callout p { font-size: 1.1rem; color: #ffffff; }
+    table th, .markdown-body table th { text-transform: none; letter-spacing: 0; }
+    table { display: block; overflow-x: auto; }
+    a { text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+    h1 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.1rem); text-wrap: balance; }
+    p, li { hyphens: auto; hyphenate-limit-chars: 10 5 4; text-wrap: pretty; }
+    @supports (text-box: trim-both cap alphabetic) {
+        .tool-badge { text-box: trim-both cap alphabetic; padding-block: 0.55rem; }
+    }
 </style>
 </head>
 <body>
@@ -178,19 +193,17 @@
 
 <p>Analysis of a 10,000-record bank customer dataset to identify which segments drive churn, testing a set of plausible causes against the data rather than reporting churn as a single flat rate, with the goal of pointing the bank toward a targeted, rather than blanket, retention strategy.</p>
 
-<hr>
 
 <h2>Key Results</h2>
 <ul>
     <li><strong>Age is the strongest churn driver in the dataset:</strong> churn climbs steadily with age and spikes to 56% in the 51&ndash;60 bracket, more than double the overall 20% rate.</li>
     <li><strong>Disengagement roughly doubles churn risk:</strong> inactive members churn at 27% vs. 14% for active members, a signal observable before a customer actually leaves.</li>
-    <li><strong>One hypothesis ruled out entirely:</strong> credit card ownership showed no meaningful effect on churn (20% vs. 21%), meaning it's not a lever worth the bank's attention.</li>
+    <li><strong>One hypothesis ruled out entirely:</strong> credit card ownership showed no meaningful effect on churn (20% vs. 21%), meaning it’s not a lever worth the bank’s attention.</li>
 </ul>
 
-<hr>
 
 <h2>The Problem</h2>
-<p>The bank was losing one in five customers, a 20% churn rate across 10,000 accounts. On its own, that number doesn't tell the business much. Is churn spread evenly across the customer base, meaning it's simply a cost of doing business? Or is it concentrated in specific, identifiable groups, meaning it's a problem the bank can actually target and fix? Answering that question, using SQL to test it rather than guess at it, was the goal of this analysis.</p>
+<p>The bank was losing one in five customers, a 20% churn rate across 10,000 accounts. On its own, that number doesn’t tell the business much. Is churn spread evenly across the customer base, meaning it’s simply a cost of doing business? Or is it concentrated in specific, identifiable groups, meaning it’s a problem the bank can actually target and fix? Answering that question, using SQL to test it rather than guess at it, was the goal of this analysis.</p>
 
 <h2>What I Did</h2>
 <p>Before writing a single query, I set out plausible hypotheses a bank would reasonably suspect were driving churn: disengagement, demographic mismatch, and perceived account value. Each query below was built to test one of these directly, so every result either supports or rules out a specific hypothesis rather than being a standalone stat:</p>
@@ -202,11 +215,10 @@
     <li><strong>Tested the age hypothesis</strong> by bucketing customers into six age groups and comparing churn rate across them, the query that surfaced the strongest signal in the dataset.</li>
 </ul>
 
-<hr>
 
 <h2>Key Insights</h2>
 
-<h3>1. Age Is the Dominant Churn Driver</h3>
+<h3>Age Is the Dominant Churn Driver</h3>
 <table>
 <tr><th>Age Group</th><th>Total Customers</th><th>Churned</th><th>Churn Rate</th></tr>
 <tr><td>18&ndash;20</td><td>89</td><td>5</td><td>6%</td></tr>
@@ -216,21 +228,20 @@
 <tr><td>51&ndash;60</td><td>797</td><td>448</td><td>56%</td></tr>
 <tr><td>60+</td><td>464</td><td>115</td><td>25%</td></tr>
 </table>
-<p>Churn rises steadily with age and then spikes hard in the 51&ndash;60 bracket, where more than half of customers in that group have left. This is a larger gap than anything else this analysis surfaced, bigger than the gender split, bigger than the activity-status split, and the 41&ndash;50 group sitting right behind it at 34% suggests the pattern starts building before age 50, not just at it. Whatever is driving this, it's concentrated at the approach to and entry into retirement age, which points toward a life-stage product or service gap rather than a broad demographic issue.</p>
+<p>Churn rises steadily with age and then spikes hard in the 51&ndash;60 bracket, where more than half of customers in that group have left. This is a larger gap than anything else this analysis surfaced, bigger than the gender split, bigger than the activity-status split, and the 41&ndash;50 group sitting right behind it at 34% suggests the pattern starts building before age 50, not just at it. Whatever is driving this, it’s concentrated at the approach to and entry into retirement age, which points toward a life-stage product or service gap rather than a broad demographic issue.</p>
 
-<h3>2. Disengagement Roughly Doubles Churn Risk</h3>
-<p>Inactive members churn at 27% compared to 14% for active members. This confirms the disengagement hypothesis outright, and it's the most operationally useful finding in the analysis: activity status is visible before a customer churns, not after, which makes it usable as an early-warning signal rather than a postmortem statistic.</p>
+<h3>Disengagement Roughly Doubles Churn Risk</h3>
+<p>Inactive members churn at 27% compared to 14% for active members. This confirms the disengagement hypothesis outright, and it’s the most operationally useful finding in the analysis: activity status is visible before a customer churns, not after, which makes it usable as an early-warning signal rather than a postmortem statistic.</p>
 
-<h3>3. Gender Shows a Real but Smaller Gap</h3>
-<p>Women churn at 25% against 16% for men, a genuine 9-point difference, but a smaller effect than either age or engagement. The underlying cause isn't visible in transactional data like this, so this is presented as a finding that warrants qualitative follow-up (exit surveys, product feedback), not a pattern to act on directly without further investigation.</p>
+<h3>Gender Shows a Real but Smaller Gap</h3>
+<p>Women churn at 25% against 16% for men, a genuine 9-point difference, but a smaller effect than either age or engagement. The underlying cause isn’t visible in transactional data like this, so this is presented as a finding that warrants qualitative follow-up (exit surveys, product feedback), not a pattern to act on directly without further investigation.</p>
 
-<h3>4. Credit Card Ownership: Hypothesis Ruled Out</h3>
-<p>Of card holders, 20% churned; of non-holders, 21% churned, functionally no difference. This is worth stating plainly rather than omitting: ruling out a plausible cause is as valuable as confirming one, since it stops the business from investing in a retention lever that wouldn't move the number.</p>
+<h3>Credit Card Ownership: Hypothesis Ruled Out</h3>
+<p>Of card holders, 20% churned; of non-holders, 21% churned, functionally no difference. This is worth stating plainly rather than omitting: ruling out a plausible cause is as valuable as confirming one, since it stops the business from investing in a retention lever that wouldn’t move the number.</p>
 
-<h3>5. Credit Score: An Extreme but Tiny Risk Pool</h3>
+<h3>Credit Score: An Extreme but Tiny Risk Pool</h3>
 <p>Customers with a credit score under 400 churned at 100%, but that bucket contains only 19 customers out of 10,000. Everyone in the 401&ndash;700 range sits in a tight 20&ndash;21% band, meaning credit score only becomes a meaningful signal at the very bottom of the range. Flagged here as a pool to monitor as it grows, not a headline finding on its own.</p>
 
-<hr>
 
 <h2>Step-by-Step Walkthrough</h2>
 
@@ -352,11 +363,10 @@ ORDER BY Credit_Score;
 </code></pre>
 </details>
 
-<hr>
 
 <h2>Recommendations</h2>
 <div class="callout">
-<p>Build an age-and-engagement risk flag: customers aged 41+ showing declining activity are the highest-probability churn segment in this dataset and are identifiable before they leave. The 51&ndash;60 spike specifically warrants direct investigation, whether a targeted survey or a review of what products this segment is or isn't receiving, since a 56% churn rate in one bracket likely reflects something specific rather than general drift. The gender gap should be treated as a research question requiring qualitative data, not a pattern to act on directly. Credit card status can be deprioritized as a retention lever entirely, and the sub-400 credit score group is worth monitoring as it grows, even though it's too small to act on today.</p>
+<p>Build an age-and-engagement risk flag: customers aged 41+ showing declining activity are the highest-probability churn segment in this dataset and are identifiable before they leave. The 51&ndash;60 spike specifically warrants direct investigation, whether a targeted survey or a review of what products this segment is or isn’t receiving, since a 56% churn rate in one bracket likely reflects something specific rather than general drift. The gender gap should be treated as a research question requiring qualitative data, not a pattern to act on directly. Credit card status can be deprioritized as a retention lever entirely, and the sub-400 credit score group is worth monitoring as it grows, even though it’s too small to act on today.</p>
 </div>
 
 </body>
