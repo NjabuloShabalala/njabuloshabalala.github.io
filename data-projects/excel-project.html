@@ -146,6 +146,21 @@
     .callout p {
         margin-bottom: 0;
     }
+
+    /* Typography and layout fixes */
+    h1, h2 { border-bottom: 0; padding-bottom: 0; }
+    details { background: none !important; border: 0 !important; padding: 0; margin: 1rem 0; }
+    details > pre { margin-top: 0.75rem; }
+    .callout { background: none; border: 0; padding: 0; }
+    .callout p { font-size: 1.1rem; color: #ffffff; }
+    table th, .markdown-body table th { text-transform: none; letter-spacing: 0; }
+    table { display: block; overflow-x: auto; }
+    a { text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+    h1 { font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.1rem); text-wrap: balance; }
+    p, li { hyphens: auto; hyphenate-limit-chars: 10 5 4; text-wrap: pretty; }
+    @supports (text-box: trim-both cap alphabetic) {
+        .tool-badge { text-box: trim-both cap alphabetic; padding-block: 0.55rem; }
+    }
 </style>
 </head>
 <body>
@@ -154,9 +169,8 @@
 
 <h1>Hi-Fi Org Sales Performance Dashboard</h1>
 
-<p>Built an interactive Excel dashboard to test which regions, categories, and channels were actually driving Hi-Fi Org's revenue, replacing manual re-summing of thousands of transaction rows with a filterable, real-time view.</p>
+<p>Built an interactive Excel dashboard to test which regions, categories, and channels were actually driving Hi-Fi Org’s revenue, replacing manual re-summing of thousands of transaction rows with a filterable, real-time view.</p>
 
-<hr>
 
 <h2>Key Results</h2>
 
@@ -175,15 +189,14 @@
     </tr>
 </table>
 
-<hr>
 
 <h2>The Business Problem</h2>
-<p>Hi-Fi Org's sales activity was captured as raw, transaction-level data, every order, product, region, and channel logged as a flat row with no way to see the bigger picture. Leadership had no quick way to answer basic questions: which regions were actually performing, which product categories were driving revenue, or how sales were splitting across online versus in-store channels. Without a way to slice this data on demand, any answer meant manually filtering and re-summing thousands of rows every time a new question came up.</p>
+<p>Hi-Fi Org’s sales activity was captured as raw, transaction-level data, every order, product, region, and channel logged as a flat row with no way to see the bigger picture. Leadership had no quick way to answer basic questions: which regions were actually performing, which product categories were driving revenue, or how sales were splitting across online versus in-store channels. Without a way to slice this data on demand, any answer meant manually filtering and re-summing thousands of rows every time a new question came up.</p>
 
 <h2>Plausible Hypotheses Going In</h2>
 <p>Before building the dashboard, a few reasonable assumptions were worth testing against the data rather than taking for granted:</p>
 <ul>
-    <li><strong>Revenue is concentrated in one region</strong> rather than distributed evenly across the business's territories.</li>
+    <li><strong>Revenue is concentrated in one region</strong> rather than distributed evenly across the business’s territories.</li>
     <li><strong>A small number of product categories drive most revenue</strong>, meaning the business may be more concentrated (and more exposed) than it appears.</li>
     <li><strong>One sales channel dominates</strong>, which would tell leadership where to keep investing versus where demand is soft.</li>
     <li><strong>Revenue grows steadily month over month</strong>, versus being driven by seasonal spikes or promotions.</li>
@@ -210,39 +223,35 @@
     <tr><td>Top Products by Revenue</td><td>Top 5 Products by Revenue</td><td>Product and Revenue</td></tr>
 </table>
 
-<hr>
 
 <h2>Dashboard Showcase</h2>
 <img src="/assets/hi-fi-org-dashboard.png" alt="Hi-Fi Org Dashboard">
 <em>Figure 1: Full interactive dashboard view, KPI summary, monthly revenue trend, regional and category breakdowns, sales channel split, and top 5 products by revenue, all filterable via slicers.</em>
 
-<hr>
 
 <h2>Proof: What the Data Shows Against Each Hypothesis</h2>
 
-<h3>1. Regional Concentration: Not Confirmed</h3>
+<h3>Regional Concentration: Not Confirmed</h3>
 <p>North, Limpopo and North West (R561,753.72) narrowly edged out Central, Gauteng and Free State (R556,705.18) as the top-earning region, with South, Eastern Cape and Western Cape (R444,494.30) and West, Northern Cape (R421,322.25) trailing. The spread between the top and bottom region is relatively tight, which rules out the concentration hypothesis. Revenue is fairly evenly distributed geographically rather than resting on a single territory or province.</p>
 
-<h3>2. Category Concentration: Confirmed</h3>
-<p>Computers dominated category revenue at R1,346,491.26, more than double the next closest category, Monitors, at R526,744.59. Networking, Storage, Accessories, and Office Supplies made up the remainder, with Office Supplies contributing the least at R16,640.26. This confirms the concentration hypothesis, and it's worth flagging directly to leadership: the business is heavily reliant on a single high-value category, which carries real concentration risk if that category ever softens.</p>
+<h3>Category Concentration: Confirmed</h3>
+<p>Computers dominated category revenue at R1,346,491.26, more than double the next closest category, Monitors, at R526,744.59. Networking, Storage, Accessories, and Office Supplies made up the remainder, with Office Supplies contributing the least at R16,640.26. This confirms the concentration hypothesis, and it’s worth flagging directly to leadership: the business is heavily reliant on a single high-value category, which carries real concentration risk if that category ever softens.</p>
 
-<h3>3. Channel Dominance: Partially Confirmed</h3>
+<h3>Channel Dominance: Partially Confirmed</h3>
 <p>Online sales led as the largest single channel, followed by Corporate Sales, Retail Store, and Marketplace. No single channel accounts for the overwhelming majority, but the ordering is clear enough to say digital demand generation and direct B2B relationships are currently outperforming both physical retail and third-party marketplace listings.</p>
 
-<h3>4. Top Product Performance</h3>
+<h3>Top Product Performance</h3>
 <p>The Gaming Laptop was the single highest-revenue product at R432,576.06, well ahead of the next best performer, Laptop Air 13, at R273,532.50. High-ticket computing hardware, laptops in particular, clearly anchors the top of the product mix, consistent with the category concentration finding above.</p>
 
-<h3>5. Steady Growth: Not Confirmed</h3>
+<h3>Steady Growth: Not Confirmed</h3>
 <p>Monthly revenue swung considerably throughout the year, ranging from a low of roughly R150K to a high of roughly R280K, with November as the peak month (around R274K). The absence of a clear steady upward trend rules out the steady-growth hypothesis. Revenue appears to be more promotion- or seasonality-driven than organically growing month over month, which is worth investigating further with a longer historical window before drawing a firm conclusion.</p>
 
-<hr>
 
 <h2>Recommendations</h2>
 <div class="callout">
-<p>Treat the Computers category as both the business's strongest asset and its largest single point of exposure: worth protecting with supplier redundancy or category-specific forecasting rather than assuming its current dominance is guaranteed. Regional performance is even enough that a blanket national strategy is reasonable, no single territory needs a rescue plan right now. Given Online and Corporate Sales are outperforming Retail and Marketplace, it's worth investigating whether that gap reflects genuine channel strength or under-investment in the weaker channels before reallocating budget. The November peak and the absence of steady growth both point to the same next step: pull a longer historical window to confirm whether this is a repeatable seasonal pattern worth planning inventory and staffing around.</p>
+<p>Treat the Computers category as both the business’s strongest asset and its largest single point of exposure: worth protecting with supplier redundancy or category-specific forecasting rather than assuming its current dominance is guaranteed. Regional performance is even enough that a blanket national strategy is reasonable, no single territory needs a rescue plan right now. Given Online and Corporate Sales are outperforming Retail and Marketplace, it’s worth investigating whether that gap reflects genuine channel strength or under-investment in the weaker channels before reallocating budget. The November peak and the absence of steady growth both point to the same next step: pull a longer historical window to confirm whether this is a repeatable seasonal pattern worth planning inventory and staffing around.</p>
 </div>
 
-<hr>
 
 <h2>Technical Approach</h2>
 <p><strong>Data Source:</strong> Raw transactional sales data (Order ID, Date, Product, Product Category, Region, Sales Channel, Quantity, Revenue), over 2,000 individual order rows.</p>

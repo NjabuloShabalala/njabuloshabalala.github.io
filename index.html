@@ -17,7 +17,6 @@
             --text-primary: #f3f4f6;
             --text-secondary: #9ca3af;
             --accent-blue: #3b82f6;
-            --accent-neon: #38bdf8; /* Brighter accent for pills */
         }
 
         * {
@@ -108,73 +107,7 @@
             line-height: 1.7;
         }
         
-        .hero-tech-summary {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            max-width: 750px;
-            margin: 0 auto 2rem auto;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Neon Skill Badges */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-badge {
-            text-decoration: none;
-            cursor: pointer;
-            background-color: rgba(56, 189, 248, 0.08); /* Faint neon background */
-            color: var(--accent-neon);
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.4); /* Neon border */
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); /* Subtle glow */
-            transition: all 0.2s ease;
-        }
-
-        .skill-badge:hover {
-            border-color: var(--accent-neon);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25); /* Stronger glow on hover */
-            background-color: rgba(56, 189, 248, 0.12);
-        }
-
-        .skill-badge i {
-            font-size: 1rem;
-        }
-        
-        /* Official Certification Badges */
-        .cert-container {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        .cert-badge {
-            height: 85px; 
-            width: auto;
-            border-radius: 8px;
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
-        }
-        
-        .cert-badge:hover {
-            opacity: 1;
-        }
-
+                        
         /* Projects Section */
         .section-header {
             display: flex;
@@ -212,28 +145,6 @@
             transform: translateY(-4px);
             border-color: var(--border-hover);
             background-color: var(--card-hover-bg);
-        }
-
-        .status-pill {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.03em;
-            padding: 0.25rem 0.6rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
-
-        .status-live {
-            background-color: rgba(74, 222, 128, 0.12);
-            color: #4ade80;
-            border: 1px solid rgba(74, 222, 128, 0.4);
-        }
-
-        .status-progress {
-            background-color: rgba(250, 204, 21, 0.1);
-            color: #facc15;
-            border: 1px solid rgba(250, 204, 21, 0.35);
         }
 
         /* Cards not yet finished: dimmed / desaturated until real content lands */
@@ -332,6 +243,39 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
+
+        /* Typography and layout fixes */
+        /* Grid: no overflow below 360px, cards align row by row (subgrid) */
+        .grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+        .card { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; justify-content: normal; }
+        .card > div:first-child { display: contents; }       /* header, desc, tags join the subgrid */
+        .card-title { flex: 1 1 14rem; line-height: 1.25; text-wrap: balance; }
+        .card-desc { hyphens: auto; hyphenate-limit-chars: 10 5 4; text-wrap: pretty; }  /* long words only */
+
+        /* Fluid display type, em-based tracking */
+        h1 { font-size: clamp(2rem, 1.25rem + 3.2vw, 2.75rem); letter-spacing: -0.02em; text-wrap: balance; }
+        .section-title { font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.75rem); }
+        .hero-bio { text-wrap: balance; }
+
+        /* Hero: plain skill list instead of six glowing pills; unboxed summary */
+        .skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.25rem 1.25rem; list-style: none; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .skills a { color: inherit; text-underline-offset: 0.25em; text-decoration-thickness: 1px; }
+        .skills a:hover { color: var(--accent-blue); }
+
+        /* Dividers: keep one under the nav, drop the rest */
+        .section-header { border-bottom: 0; padding-bottom: 0; }
+
+        /* Optical centering for the remaining badges and buttons */
+        @supports (text-box: trim-both cap alphabetic) {
+          .tag, .btn-card, .btn-cv { text-box: trim-both cap alphabetic; }
+          .tag      { padding-block: 0.53rem; }
+          .btn-card { padding-block: 0.92rem; }
+          .btn-cv   { padding-block: 0.92rem; }
+        }
+
+        .card-actions { align-self: start; }
+        .btn-card { white-space: nowrap; }
+        @media (max-width: 22.5rem) { .card-actions { flex-wrap: wrap; } .btn-card { flex-basis: 100%; } }
     </style>
 </head>
 <body>
@@ -341,7 +285,7 @@
         <div class="nav-links">
             <a href="https://github.com/NjabuloShabalala" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             <a href="https://www.linkedin.com/in/njabulo-shabalala" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            <a href="assets/njabulo-shabalala-soc-cv.pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+            <a href="assets/njabulo-shabalala-cv(final).pdf" download="Njabulo_Shabalala_CV.pdf" class="btn-cv"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
         </div>
     </nav>
 
@@ -351,39 +295,23 @@
         <div class="hero-title">Data Analyst & Business Intelligence Specialist</div>
         
         <p class="hero-bio">
-            I'm a Johannesburg-based data analyst with a background in organisational psychology and politics. That foundation shapes how I approach data: I read the human and structural context behind a dataset, the incentives, workflows, and decision points that produced it, as closely as I read the numbers themselves. That mix means I don't just build dashboards. I build ones people actually trust and use, because the analysis accounts for the systems the data came from.
+            I'm a Johannesburg-based data analyst with a background in organisational psychology and politics. That shapes how I read a dataset: I look at the incentives, workflows and decisions that produced it as closely as I look at the numbers. I build dashboards people trust because the analysis accounts for where the data came from.
         </p>
-
-        <div class="hero-tech-summary">
-            <strong>Technical Focus:</strong> Transforming complex relational and event-stream data into performant Star Schemas, financial models, and intuitive Power BI dashboards.
-        </div>
         
-        <!-- Technical Skill Badges with Neon Styling -->
-        <div class="skills-container">
-            <a href="#project-sql" class="skill-badge"><i class="fa-solid fa-database"></i> SQL</a>
-            <span class="skill-badge"><i class="fa-solid fa-server"></i> KQL (Kusto)</span>
-            <a href="#project-powerbi" class="skill-badge"><i class="fa-solid fa-chart-line"></i> Power BI</a>
-            <a href="#project-excel" class="skill-badge"><i class="fa-solid fa-table"></i> Advanced Excel</a>
-            <a href="#project-powerbi" class="skill-badge"><i class="fa-solid fa-function"></i> DAX</a>
-            <a href="#project-powerbi" class="skill-badge"><i class="fa-solid fa-diagram-project"></i> Data Modeling</a>
-        </div>
-
-        <!-- Certification Badges -->
-        <div class="cert-container">
-            <!-- Relative path updated to assets/ ; wrap in link so badges act as verifiable evidence, not just decoration -->
-            <a href="https://learn.microsoft.com/en-us/users/" target="_blank" rel="noopener">
-                <img src="assets/pl-300-badge.png" alt="Microsoft Certified: Power BI Data Analyst Associate" class="cert-badge" onerror="this.style.display='none'">
-            </a>
-            <a href="https://learn.microsoft.com/en-us/users/" target="_blank" rel="noopener">
-                <img src="assets/sc-900-badge.png" alt="Microsoft Certified: Security, Compliance, and Identity Fundamentals" class="cert-badge" onerror="this.style.display='none'">
-            </a>
-        </div>
+        <ul class="skills">
+            <li><a href="#project-sql">SQL</a></li>
+            <li>KQL (Kusto)</li>
+            <li><a href="#project-powerbi">Power BI</a></li>
+            <li><a href="#project-excel">Advanced Excel</a></li>
+            <li><a href="#project-powerbi">DAX</a></li>
+            <li><a href="#project-powerbi">Data Modeling</a></li>
+        </ul>
     </header>
 
     <!-- Main Content / Project Cards -->
     <main>
         <div class="section-header">
-            <h2 class="section-title">Featured Portfolio Projects</h2>
+            <h2 class="section-title">Projects</h2>
         </div>
 
         <div class="grid">
@@ -393,10 +321,9 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">B2B Order-to-Cash Data Modeling</h3>
-                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
-                        Rebuilt a company's messy, disconnected sales data into one clean system so leadership could finally answer basic questions, like whether they were hitting revenue targets and how efficient their delivery process really was. Found a 5% revenue shortfall and confirmed marketing spend was paying off at 1.71x return.
+                        Rebuilt a company's disconnected sales data into one star schema so leadership could track revenue against target and delivery efficiency. Found a 5% revenue shortfall and a 1.71x return on marketing spend.
                     </p>
                     <div class="tags">
                         <span class="tag">Power BI</span>
@@ -406,7 +333,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="https://njabuloshabalala.github.io/data-projects/sales-operations.html" class="btn-card btn-primary">View Technical Showcase</a>
+                    <a href="https://njabuloshabalala.github.io/data-projects/sales-operations.html" class="btn-card btn-primary">View case study</a>
                     <a href="https://github.com/NjabuloShabalala/njabuloshabalala.github.io/raw/main/data-projects/assets/B2B_Sales_Ops.pbit" class="btn-card btn-secondary" download>Download .pbit</a>
                 </div>
             </div>
@@ -416,7 +343,6 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">Hi-Fi Org Sales Performance Dashboard</h3>
-                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Built an interactive Excel dashboard from raw sales transaction data, using pivot tables and slicers to let stakeholders filter revenue by region, product category, and sales channel in real time. Surfaced that Computers drove more than half of total category revenue, and that the North region narrowly outperformed Central as the top-earning territory.
@@ -429,7 +355,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="https://njabuloshabalala.github.io/data-projects/excel-project.html" class="btn-card btn-primary">View Technical Showcase</a>
+                    <a href="https://njabuloshabalala.github.io/data-projects/excel-project.html" class="btn-card btn-primary">View case study</a>
                 </div>
             </div>
 
@@ -438,7 +364,6 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">Shipment Data Cleaning Pipeline</h3>
-                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Built an end-to-end BigQuery SQL pipeline to clean a messy shipment tracking dataset, fixing inconsistent text formatting, resolving placeholder null values, removing duplicate records, correcting invalid weights, and validating delivery dates against ship dates.
@@ -451,7 +376,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="https://njabuloshabalala.github.io/data-projects/shipment-data-cleaning.html" class="btn-card btn-primary">View Technical Showcase</a>
+                    <a href="https://njabuloshabalala.github.io/data-projects/shipment-data-cleaning.html" class="btn-card btn-primary">View case study</a>
                 </div>
             </div>
 
@@ -460,7 +385,6 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">Bike-Share Ride Analytics</h3>
-                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Explored a bike-share service's ride, user, and station data to catch data quality issues, compare casual vs. subscriber ridership patterns, identify peak demand hours, and surface signup seasonality, informing fleet allocation and membership strategy.
@@ -472,7 +396,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="https://njabuloshabalala.github.io/data-projects/bike-share-ride-analytics.html" class="btn-card btn-primary">View Technical Showcase</a>
+                    <a href="https://njabuloshabalala.github.io/data-projects/bike-share-ride-analytics.html" class="btn-card btn-primary">View case study</a>
                 </div>
             </div>
 
@@ -481,7 +405,6 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">Bank Customer Churn Analysis</h3>
-                        <span class="status-pill status-live">Live</span>
                     </div>
                     <p class="card-desc">
                         Analyzed 10,000 bank customer records to isolate churn drivers using SQL. Found churn concentrated in two segments, customers aged 51–60 (56% churn) and disengaged accounts (27% vs 14% for active), while ruling out credit card ownership as a factor, pointing the bank toward targeted retention over blanket outreach.
@@ -494,7 +417,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a href="https://njabuloshabalala.github.io/data-projects/bank-churn-analysis.html" class="btn-card btn-primary">View Technical Showcase</a>
+                    <a href="https://njabuloshabalala.github.io/data-projects/bank-churn-analysis.html" class="btn-card btn-primary">View case study</a>
                 </div>
             </div>
 
@@ -502,8 +425,7 @@
             <div class="card is-pending">
                 <div>
                     <div class="card-header">
-                        <h3 class="card-title">Document Automation Tool for Small Businesses (Project Nompumelelo)</h3>
-                        <span class="status-pill status-progress">In Progress</span>
+                        <h3 class="card-title">Project Nompumelelo</h3>
                     </div>
                     <p class="card-desc">
                         Independently designed and built a tool that lets small business owners submit documents over WhatsApp and get them automatically read, processed, and confirmed back to them, removing manual data entry from the process.
